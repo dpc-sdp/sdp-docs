@@ -54,22 +54,22 @@ We will build a guide of variables in future. But for now, you can check [Ripple
 
 Each semi-independent site will have their own static files.
 
-- Images(need to be exact same size and shape)
-- `/static/img/header-pattern-bottom.png`
-- `/static/img/header-pattern-shape.png`
-- `/static/img/footer-shape.png`
+- Images(need to be exact same dimensions and shape)
+  - `/static/img/header-pattern-bottom.png`
+  - `/static/img/header-pattern-shape.png`
+  - `/static/img/footer-shape.png`
 
 - Javascript files. Open `/nuxt.config.js` file, in `head` config `script` setting, you should see:
 
 ``` Javascript
 head: {
-script: [
-{ src: '//cdn.monsido.com/tool/javascripts/monsido.js', body: true, defer: true },
-{ src: '/js/monsido.js', body: true, defer: true },
-{ src: 'https://www.googletagmanager.com/gtag/js?id=UA-120824569-1', body: true, async: true },
-{ src: '/js/gtag.js', body: true, defer: true },
-{ src: '/js/hotjar.js', body: true, defer: true }
-]
+  script: [
+    { src: '//cdn.monsido.com/tool/javascripts/monsido.js', body: true, defer: true },
+    { src: '/js/monsido.js', body: true, defer: true },
+    { src: 'https://www.googletagmanager.com/gtag/js?id=UA-120824569-1', body: true, async: true },
+    { src: '/js/gtag.js', body: true, defer: true },
+    { src: '/js/hotjar.js', body: true, defer: true }
+  ]
 },
 ```
 
