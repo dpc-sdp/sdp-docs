@@ -79,8 +79,8 @@ Remove or add the analytics JS if need. For local js files, find them in `/stati
 
 Some default Ripple settings can be configured:
 
-viclogo: true/false (setting to false will hide the primary vic.gov.au logo)
-quickexit: true/false (whether the "Quick Exit" button should be displayed on the site)
-quickexiturl: 'http://site.url' (sets the url that will be opened when the Quick Exit button is clicked)
+- viclogo: true/false (setting to false will hide the primary vic.gov.au logo)
+- quickexit: true/false (whether the "Quick Exit" button should be displayed on the site)
+- quickexiturl: 'http://site.url' (sets the url that will be opened when the Quick Exit button is clicked)
 
 These settings will need to be configured in the `/nuxt.config.js` file, under the `ripple` section in module.exports.
