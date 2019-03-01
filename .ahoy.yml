@@ -1,0 +1,36 @@
+---
+ahoyapi: v2
+
+commands:
+  build:
+    # Make sure that your SSH config and keys have correct permissions or this will fail.
+    usage: Build site
+    cmd: |
+      docker build -t "${DOCKER_IMAGE}" .
+      docker run --rm -it -v "${PWD}:${DOCS_DIR}" -v ~/.ssh:/root/.ssh "${DOCKER_IMAGE}" build -s
+
+  serve:
+    usage: Serve site in browser
+    cmd: |
+      [ -z "$(docker images -q ${DOCKER_IMAGE})" ] && ahoy build
+      docker run --rm -it -v "${PWD}:${DOCS_DIR}" -p 8000:8000 "${DOCKER_IMAGE}"
+
+  deploy:
+    usage: Deploy site
+    # Make sure that your SSH config and keys have correct permissions or this will fail.
+    cmd: docker run --rm -it -v "${PWD}:${DOCS_DIR}" -v ~/.ssh:/root/.ssh "${DOCKER_IMAGE}" gh-deploy
+
+  version:
+    usage: MkDocs version
+    cmd: docker run --rm -it "${DOCKER_IMAGE}" --version
+
+entrypoint:
+  - bash
+  - "-c"
+  - "-e"
+  - |
+    export DOCKER_IMAGE="${DOCKER_IMAGE:-sdpdocs}"
+    export DOCS_DIR="${DOCS_DIR:-/docs}"
+    bash -c "$0" "$@"
+  - '{{cmd}}'
+  - '{{name}}'

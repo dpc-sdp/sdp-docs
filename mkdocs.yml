@@ -1,0 +1,142 @@
+#
+# MkDocs configuration for SDP project documentation.
+#
+# @see https://squidfunk.github.io/mkdocs-material/
+#
+# To compile and serve during development, run this in the current directory:
+#
+# ahoy serve
+#
+# or directly
+#
+# docker pull squidfunk/mkdocs-material
+# docker run --rm -it -p 8000:8000 -v ${PWD}:/docs squidfunk/mkdocs-material
+#
+
+# Project information
+site_name: Single Digital Presence
+site_description: Documentation for Single Digital Presence
+# @todo: Updated this when URL is ready.
+site_url: https://dpc-sdp.github.io/sdp-docs/
+
+# Repository
+repo_name: dpc-sdp/sdp-docs
+repo_url: https://github.com/dpc-sdp/sdp-docs
+edit_uri: ""
+
+# Copyright
+copyright: 'Copyright &copy; 2019 Department of Premier and Cabinet of Victoria'
+
+# Configuration
+theme:
+  name: material
+  logo: images/logo.svg
+  favicon: images/favicon.ico
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    primary: indigo
+    accent: indigo
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  # @todo: Review and enable tabs based on content.
+  feature:
+    tabs: true
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+## Customization
+extra:
+  social:
+    - type: github-alt
+      link: https://github.com/dpc-sdp
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+      toc_depth: 2
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: dpc-sdp
+      repo: sdp-docs
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - mdx_include
+
+# Google Analytics.
+# @todo: Add GOOGLE_ANALYTICS_KEY value.
+# google_analytics:
+#  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+#  - auto
+
+# @todo: Enable this once content is ready.
+# IMPORTANT! Do not add any configuration below navigation section.
+nav:
+  - About: index.md
+  - Terminology: terminology.md
+  - Overview: overview.md
+  - Architecture: architecture.md
+  - Bay:
+    - Overview: bay/index.md
+    - Onboarding *: bay/onboarding.md
+    - Preview environments: bay/preview-environments.md
+    - Search *: bay/search.md
+  - Tide:
+    - Overview: tide/index.md
+    - Modules: tide/modules.md
+    - API: tide/api.md
+    - Sites and sections: tide/sites-sections.md
+    - Fields and components: tide/fields-components.md
+  - Ripple:
+    - Overview: ripple/index.md
+    - Components: ripple/components.md
+    - API *: ripple/api.md
+    - Search: ripple/search.md
+    - Content data flow: ripple/content-data-flow.md
+    - Setup new site: ripple/setup.md
+  - Development:
+    - Overview: development/index.md
+    - Content Repository:
+        - Setup: development/content-repository/setup.md
+        - Local development environment: development/content-repository/local-development-environment.md
+        - Automated builds: development/content-repository/automated-builds.md
+        - Coding standards: development/content-repository/coding-standards.md
+        - Module Development *: development/content-repository/module-development.md
+        - README.md file: development/content-repository/readme-file.md
+    - Frontend Website:
+        - Setup *: development/frontend-website/setup.md
+        - Style guide: development/frontend-website/style-guide.md
+        - Local development environment: development/frontend-website/local-development-environment.md
+        - Automated builds: development/frontend-website/automated-builds.md
+        - Coding standards: development/frontend-website/coding-standards.md
+        - Component Development *: development/frontend-website/component-development.md
+        - README.md file: development/frontend-website/readme-file.md
+    - Development workflow: development/workflow.md
+    - Code review: development/code-review.md
+    - Release management: development/release.md
+    - Accessibility: development/accessibility.md
+    - Troubleshooting: development/troubleshooting.md
+    - Maintaining this documentation: development/documentation.md

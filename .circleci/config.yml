@@ -1,0 +1,60 @@
+version: 2
+aliases:
+
+  - &deploy_ssh_fingerprint "30:83:f2:c7:69:42:6b:5f:4d:1d:25:99:54:a9:d6:97"
+
+  - &container_config
+    working_directory: /app
+    environment:
+      DEPLOY_SSH_FINGERPRINT: *deploy_ssh_fingerprint
+    docker:
+      - image: squidfunk/mkdocs-material
+
+jobs:
+  build:
+    <<: *container_config
+    steps:
+      - checkout
+      - run: pip install mdx_include
+      - run: mkdocs build -s
+      - store_artifacts:
+          path: /app/site
+          when: always
+
+  deploy:
+    <<: *container_config
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - *deploy_ssh_fingerprint
+      - run: |
+          # Configure SSH to configure git and SSH to connect to remote servers for deployment.
+          [ "$(git config --global user.name)" == "" ]  && git config --global user.name "${DEPLOY_USER_NAME}"
+          [ "$(git config --global user.email)" == "" ] && git config --global user.email "${DEPLOY_USER_EMAIL}"
+          mkdir -p "${HOME}/.ssh/"
+          echo -e "Host *\n\tStrictHostKeyChecking no\n" > "${HOME}/.ssh/config"
+          DEPLOY_SSH_FILE="${DEPLOY_SSH_FINGERPRINT//:}"
+          DEPLOY_SSH_FILE="${HOME}/.ssh/id_rsa_${DEPLOY_SSH_FILE//\"}"
+          if [ -f "${DEPLOY_SSH_FILE}" ]; then
+            echo "Found Deploy SSH key file ${DEPLOY_SSH_FILE}"
+            ssh-add -D > /dev/null
+            ssh-add "${DEPLOY_SSH_FILE}"
+          fi
+      - run: pip install mdx_include
+      - run: mkdocs gh-deploy --message "[skip ci] Updated documentation."
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              ignore: gh-pages
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
