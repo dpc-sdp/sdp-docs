@@ -21,7 +21,52 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/page1/</loc>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/repositories-namespaces/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/local-development-environment/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/git/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/code-review/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/back-end-coding-standards/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/front-end-coding-standards/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/automated-builds/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/compliance-vpdss/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/documentation-responsibility/</loc>
      <lastmod>2019-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
