@@ -803,9 +803,65 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Back-end coding standards
+      </label>
+    
     <a href="./" title="Back-end coding standards" class="md-nav__link md-nav__link--active">
       Back-end coding standards
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#php" title="PHP" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-locally" title="Running locally" class="md-nav__link">
+    Running locally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-project-coding-standards-in-phpstorm" title="Setting project coding standards in PHPStorm" class="md-nav__link">
+    Setting project coding standards in PHPStorm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composer" title="Composer" class="md-nav__link">
+    Composer
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -964,6 +1020,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#php" title="PHP" class="md-nav__link">
+    PHP
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-locally" title="Running locally" class="md-nav__link">
+    Running locally
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-project-coding-standards-in-phpstorm" title="Setting project coding standards in PHPStorm" class="md-nav__link">
+    Setting project coding standards in PHPStorm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composer" title="Composer" class="md-nav__link">
+    Composer
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -976,7 +1075,50 @@
                 
                 
                 <h1 id="back-end-coding-standards">Back-End Coding Standards<a class="headerlink" href="#back-end-coding-standards" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
+<p>We use Drupal <a href="http://drupal.org/coding-standards">Coding Standards</a> for all our
+<a href="../../tide/modules/">contributed</a> and custom modules.</p>
+<p><a href="https://github.com/squizlabs/PHP_CodeSniffer">PHPCodeSniffer</a> runs our code linting
+using rules from <a href="https://www.drupal.org/project/coder">Drupal Coder</a> module
+and additional customizations. See our the PHPCodeSniffer <a href="https://github.com/dpc-sdp/dev-tools/blob/master/phpcs.xml">configuration file</a>. </p>
+<h3 id="running-locally">Running locally<a class="headerlink" href="#running-locally" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="go">ahoy lint</span>
+</pre></div>
+
+<h3 id="setting-project-coding-standards-in-phpstorm">Setting project coding standards in PHPStorm<a class="headerlink" href="#setting-project-coding-standards-in-phpstorm" title="Permanent link">&para;</a></h3>
+<ol>
+<li>PHPStorm &gt; Preferences &gt; Code Style</li>
+<li>Select the appropriate language (in the example image below it is <code>PHP</code>)</li>
+<li>Select the Set from... link</li>
+<li>Select Predefined Style &gt; Drupal</li>
+</ol>
+<p>It is then possible to use the keyboard shortcut <kbd>Alt</kbd> + 
+<kbd>command</kbd> + <kbd>l</kbd> to format a file or selection.</p>
+<p><img alt="Screenshot of PHPStorm settings" src="../../assets/setup_backend_code_standards_phpstorm.png" /></p>
+<h2 id="composer">Composer<a class="headerlink" href="#composer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Alphabetise where possible \
+  This helps developers scan code </li>
+<li>Include information to make reviews easier \
+  Each patch attribute name should contain the title of the Drupal.org (d.o) issue, 
+  the link to the issue comment that contains the patch and the patch attribute 
+  value should be the patch file on drupal.org:<br />
+  <div class="codehilite"><pre><span></span><span class="s2">&quot;drupal/project&quot;</span><span class="err">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Issue title - https://www.drupal.org/node/1234567#12345678&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.drupal.org/files/issues/issue_title-1234567-2.patch&quot;</span>
+<span class="p">}</span><span class="err">,</span>
+</pre></div>
+  Following this approach makes it simpler to follow up the status of patches during updates.<br />
+    Example of a properly formatted patches attribute:
+  <div class="codehilite"><pre><span></span><span class="s2">&quot;patches&quot;</span><span class="err">:</span> <span class="p">{</span>
+      <span class="nt">&quot;drupal/better_exposed_filters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;Add core/drupal as dependency to better_exposed_filters asset libraries - https://www.drupal.org/node/2902742&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.drupal.org/files/issues/add_core_drupal_as-2902742-2.patch&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;drupal/core&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;No validation on text length for menu description when editing node - https://www.drupal.org/node/2852665#comment-12157856&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.drupal.org/files/issues/fatal_error_remove_menu_add_with_tests-2852665-12.patch&quot;</span>
+      <span class="p">},</span>
+<span class="p">}</span><span class="err">,</span>
+</pre></div></li>
+</ul>
                 
                   
                 
