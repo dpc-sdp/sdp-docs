@@ -16,7 +16,22 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/bay/page1/</loc>
+     <loc>https://dpc-sdp.github.io/sdp-docs/bay/projects/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/bay/architecture/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/bay/devops-admin-guide/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/bay/performance-testing/</loc>
      <lastmod>2019-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -26,7 +41,27 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/tide/page1/</loc>
+     <loc>https://dpc-sdp.github.io/sdp-docs/tide/modules/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/tide/api/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/tide/sites-sections/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/tide/fields-components/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/tide/setup/</loc>
      <lastmod>2019-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -36,7 +71,27 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/page1/</loc>
+     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/components/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/api/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/search/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/content-rendering-pipeline/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/setup/</loc>
      <lastmod>2019-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -96,6 +151,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/module-development/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/release/</loc>
      <lastmod>2019-03-03</lastmod>
      <changefreq>daily</changefreq>
@@ -112,6 +172,11 @@
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/readme-files/</loc>
+     <lastmod>2019-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/troubleshooting/</loc>
      <lastmod>2019-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
