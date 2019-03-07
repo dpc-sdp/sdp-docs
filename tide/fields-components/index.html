@@ -466,9 +466,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Fields and components
+      </label>
+    
     <a href="./" title="Fields and components" class="md-nav__link md-nav__link--active">
       Fields and components
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinds-of-fields" title="Kinds of fields" class="md-nav__link">
+    Kinds of fields
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cards" title="Cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -843,6 +886,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" title="Concepts" class="md-nav__link">
+    Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kinds-of-fields" title="Kinds of fields" class="md-nav__link">
+    Kinds of fields
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cards" title="Cards" class="md-nav__link">
+    Cards
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -855,7 +928,194 @@
                 
                 
                 <h1 id="fields-and-components">Fields and components<a class="headerlink" href="#fields-and-components" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>Tide utilises Drupal fields within content types and other entities such as 
+paragraphs and taxonomy terms.</p>
+<h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Fields are re-used between system components as much as possible.</li>
+<li>Fields names are kept to the minimum length.</li>
+<li>Fields always have a prefix that describes the entity or the feature they 
+   belong to.<br/> 
+   For example: <code>field_page_intro_text</code> is a Introductory text for Page content 
+   type. </li>
+<li>Fields configuration is bundled within Tide modules.   </li>
+<li>Some fields are programmatically created when specific Tide modules are 
+   installed (for example, Tide Site creates 2 fields for each content type). </li>
+</ol>
+<h2 id="kinds-of-fields">Kinds of fields<a class="headerlink" href="#kinds-of-fields" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Content fields - used to capture and store content that is later exposed 
+  through API and consumed by the front-end.<br/>
+  For example, <code>Body</code> or <code>Summary</code> fields. </li>
+<li>Flag (on/off) fields - used to enable/disable rendering of a pre-defined 
+  component/block/feature within front-end.<br/>
+  For example, <code>Show social links</code> field that tells consumer front-end to show or hide <code>Social links</code> component.   </li>
+<li>Reference fields - used to reference other content items. These are rendered
+  in API as references; API consumers are expected to use <code>?include</code> JSONAPI
+  standard mechanism to include the contents of the referenced entity into the 
+  API response. <br/> 
+  For example, Cards components are <em>paragraphs</em> referenced from within the
+  content type. Front-end must include paragraph name to retrieve required
+  paragraph content.</li>
+</ul>
+<h2 id="cards">Cards<a class="headerlink" href="#cards" title="Permanent link">&para;</a></h2>
+<p>Cards are front-end components that are implemented as <em>paragraph items</em> in 
+Tide.</p>
+<ul>
+<li>Cards implemented as Paragraphs</li>
+<li>Cards are reusing fields storage (see the list of fields below).</li>
+</ul>
+<details><summary>List of Card fields</summary><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Machine name</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title</td>
+<td><code>field_paragraph_title</code></td>
+<td>Text field</td>
+</tr>
+<tr>
+<td>Summary</td>
+<td><code>field_paragraph_summary</code></td>
+<td>Large multiline text field with WYSIWYG support</td>
+</tr>
+<tr>
+<td>Author</td>
+<td><code>field_paragraph_author</code></td>
+<td>Text field</td>
+</tr>
+<tr>
+<td>Media</td>
+<td><code>field_paragraph_media</code></td>
+<td>Media field</td>
+</tr>
+<tr>
+<td>Date</td>
+<td><code>field_paragraph_date</code></td>
+<td>Date field</td>
+</tr>
+<tr>
+<td>Link</td>
+<td><code>field_paragraph_link</code></td>
+<td>Link field</td>
+</tr>
+<tr>
+<td>List</td>
+<td><code>field_paragraph_list</code></td>
+<td>Entity reference</td>
+</tr>
+<tr>
+<td>Location</td>
+<td><code>field_paragraph_location</code></td>
+<td>Location/</td>
+</tr>
+<tr>
+<td>Reference</td>
+<td><code>field_paragraph_reference</code></td>
+<td>Entity reference</td>
+</tr>
+<tr>
+<td>Topic</td>
+<td><code>field_paragraph_topic</code></td>
+<td>Entity reference</td>
+</tr>
+</tbody>
+</table>
+</details>
+<ul>
+<li>Cards have 1-to-1 mapping to paragraphs. This means that:</li>
+<li>cards can be added/removed from/to consumer front-end websites and have 
+    their <em>paragraphs</em> counterparts created in Content repository</li>
+<li>mandatory state of the fields on cards is easier to configure and manage</li>
+<li>there is no need to manage any other 'types' of the same card (i.e. no 
+    special fields that would modify the 'type' of the card)</li>
+<li>Automated cards are using list entity reference field to reference items.</li>
+<li>Listing cards are comprised of paragraphs (for example, Key Dates paragraph 
+  will have a list of Event paragraphs).</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">About Automated cards</p>
+<p>Automated cards are cards that source their content from a pre-defined 
+mapping in the Content APU. For example, a card with a list of latest 3 
+events that automatically fetches only 3 latest events.  </p>
+</div>
+<h3>Cards and paragraphs</h3>
+<p>The table below describes how every Card component is represented with Tide
+<em>paragraphs</em>. </p>
+<table>
+<thead>
+<tr>
+<th>Card</th>
+<th>Label<br/>(in Drupal)</th>
+<th>Machine name</th>
+<th>Fields<br/>(label, machine name)</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Navigation featured (Manual)</td>
+<td>Navigation featured</td>
+<td><code>card_navigation_featured</code></td>
+<td>Title - <code>field_paragraph_title</code><br/>Summary - <code>field_paragraph_summary</code><br/>Image - <code>field_paragraph_media</code><br/>Link - <code>field_paragraph_link</code></td>
+<td>This card has 1 text link.<br/>Link text = Title</td>
+</tr>
+<tr>
+<td>Navigation featured (Automatic)</td>
+<td>Navigation featured Automated</td>
+<td><code>card_navigation_featured_auto</code></td>
+<td>Referred content - <code>field_paragraph_reference</code></td>
+<td>This card has 1 text link.<br/>Link text = Title</td>
+</tr>
+<tr>
+<td>Navigation (Manual)</td>
+<td>Navigation</td>
+<td><code>card_navigation</code></td>
+<td>Title - <code>field_paragraph_title</code><br/>Summary - <code>field_paragraph_summary</code><br/>Link - <code>field_paragraph_link</code></td>
+<td>This card has 1 text link. Link text = Title</td>
+</tr>
+<tr>
+<td>Navigation Automated</td>
+<td>Navigation Automated</td>
+<td><code>card_navigation_auto</code></td>
+<td>Referred content - <code>field_paragraph_reference</code><br/></td>
+<td>This card has 1 text link. Link text = Title</td>
+</tr>
+<tr>
+<td>Promotion (Manual)</td>
+<td>Promotion</td>
+<td><code>card_promotion</code></td>
+<td>Title - field_paragraph_title<br/>Summary - <code>field_paragraph_summary</code><br/>Image - <code>field_paragraph_media</code><br/>Date - <code>field_paragraph_date</code><br/>Topic - <code>field_paragraph_topic</code><br/>Link - <code>field_paragraph_link</code></td>
+<td>This card has 3 text links. <br/>Link 1 = Title<br/>Link 2 = Topic<br/>Link 3 = Link</td>
+</tr>
+<tr>
+<td>Promotion Automated</td>
+<td>Promotion Automated</td>
+<td><code>card_promotion_auto</code></td>
+<td>Referred content - <code>field_paragraph_reference</code><br/></td>
+<td>This card has 3 text links.<br/>Link 1 = Title<br/>Link 2 = Topic<br/>Link 3 = Link</td>
+</tr>
+<tr>
+<td>Event (Manual)</td>
+<td>Event</td>
+<td><code>card_event</code></td>
+<td>Title - <code>field_paragraph_title</code><br/>Summary - <code>field_paragraph_summary</code><br/>Image - <code>field_paragraph_media</code><br/>Date - <code>field_paragraph_date</code><br/>Location - <code>field_paragraph_location</code><br/>Topic - <code>field_paragraph_topic</code><br/>Link - <code>field_paragraph_link</code><br/></td>
+<td>This card has 4 text links. <br/> Link 1 = Title<br/>Link 2 = Location<br/>Link 3 = Topic<br/>Link 4 = Link</td>
+</tr>
+<tr>
+<td>Key dates (Manual)</td>
+<td>Key dates</td>
+<td><code>card_keydates</code></td>
+<td>1. Add a paragraph type <code>Keydates</code> (with fields):<br/>Key Dates - <code>field_paragraph_keydate</code><br/>Title - <code>field_paragraph_title</code><br/>Summary - <code>field_paragraph_summary</code><br/>Link - <code>field_paragraph_link</code><br/>2. Add a paragraph type - <code>Card Keydates</code><br/>Keydates - Entity Ref - Paragraph type created above - Max 2 values<br/>CTA - <code>field_paragraph_cta</code><br/></td>
+<td>This card has 3 text links.<br/>Link 1 = Link (Keydates 1)<br/>Link 2 = Link (Keydates 2)<br/>Link 3 = CTA</td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
