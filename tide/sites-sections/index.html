@@ -454,9 +454,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Sites and sections
+      </label>
+    
     <a href="./" title="Sites and sections" class="md-nav__link md-nav__link--active">
       Sites and sections
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" title="How it works" class="md-nav__link">
+    How it works
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-and-section-fields" title="Site and Section Fields" class="md-nav__link">
+    Site and Section Fields
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-menus" title="Site menus" class="md-nav__link">
+    Site menus
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -843,6 +886,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" title="How it works" class="md-nav__link">
+    How it works
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-and-section-fields" title="Site and Section Fields" class="md-nav__link">
+    Site and Section Fields
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#site-menus" title="Site menus" class="md-nav__link">
+    Site menus
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -855,7 +928,92 @@
                 
                 
                 <h1 id="sites-and-sections">Sites and sections<a class="headerlink" href="#sites-and-sections" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>Content repository supports multi-site and multi-section content publishing.
+This means that a content piece may be re-used several times on multiple <em>sites</em>
+and <em>sections</em> (<em>sections</em> belong to <em>sites</em>).</p>
+<p><a href="https://github.com/dpc-sdp/tide_site">Tide Site</a> module provides an ability for
+Editor to publish content to selected <em>sites</em> and <em>sections</em>.</p>
+<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<p><em>Sites</em> and <em>sections</em> defined in a single vocabulary <code>Sites</code> with the maximum
+depth of 1, making root-level terms to become <em>sites</em> and terms of depth level 1
+to become <em>sections</em>. The module has code to provide back-end validation to
+prevent creating of terms with depth more than 1.</p>
+<p>We decided to use Drupal taxonomy for sites and sections for multiple
+reasons: </p>
+<ul>
+<li>Taxonomy terms are fieldable entities. This means that consumer sites can
+extend per-site properties as required, exposing them to the API.</li>
+<li>Taxonomy terms support hierarchy, which helps to define site-section
+relationship, and, as a result of this, easily filter associated content by 
+site.</li>
+<li>Taxonomy terms can be selected in UI using one of the existing contributed 
+widgets.</li>
+<li>Taxonomy terms have full Token and Pathauto support, which makes it easy 
+to use them for building content URLs based on IA.</li>
+<li>Taxonomy terms have full JSONAPI support and can be queried by consumer 
+front-ends in the same way as any other entities.</li>
+<li>The concept of using taxonomy terms to group content is easy to grasp. </li>
+</ul>
+<p>Content may be shared between sites, but never between sections, as this would
+lead to the same content being served from different URLs, which is highly
+discouraged by search engines. To mitigate the problem when the same content is
+shared between different websites, a selection of <code>Primary site</code> is required,
+which will be used to generate canonical URL for the content piece. As a result,
+every content type has 2 fields created automatically: <code>site</code> and
+<code>primary_site</code>. Both fields are compulsory. Editors are expected to select 
+destination site and section for each content piece.</p>
+<h2 id="site-and-section-fields">Site and Section Fields<a class="headerlink" href="#site-and-section-fields" title="Permanent link">&para;</a></h2>
+<p>To provide site and section-specific information through API, every <code>Site</code> 
+taxonomy term has a set of the following information fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Domains</td>
+<td>Multiline plain text field to specify site domains. This is used by Ripple to match on the domain where the request is coming from. One domain per line. Wildcards supported.</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>Text field to specify site title.</td>
+</tr>
+<tr>
+<td>Slogan</td>
+<td>Text field to specify site slogan.</td>
+</tr>
+<tr>
+<td>Logo</td>
+<td>File field to upload site logo.</td>
+</tr>
+<tr>
+<td>Footer message</td>
+<td>Text field with WYSIWYG support to specify site footer message.</td>
+</tr>
+<tr>
+<td>Main Menu</td>
+<td>Per-site and per-section menus may be helpful to build section-based navigation experience. <br/><br/>  Site admins may associate existing or create new menu with every site term. <br/><br/>  This is an entity reference field.</td>
+</tr>
+<tr>
+<td>Footer Menu</td>
+<td>Per-site and per-section menus may be helpful to build section-based navigation experience. <br/><br/>  Site admins may associate existing or create new menu with every site term. <br/><br/>  This is an entity reference field.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="site-menus">Site menus<a class="headerlink" href="#site-menus" title="Permanent link">&para;</a></h2>
+<p>Per-site and per-section menus may be helpful to build section-based navigation 
+experience. They allow to provide custom menu items for specific sites and 
+sections.  </p>
+<p>Site menus automatically created when a new <code>Site</code> taxonomy term is created. </p>
+<p>Basically, instead of creating a site and then creating a
+menu on the separate screen, we automatically create and assign a menu
+for each site within the site creation screen by checking relevant checkbox
+on <code>Site</code> term ctreation page.</p>
+<details class="note"><summary>Expand for Site menu creation flow diagram</summary><p><a href="../../assets/tide-site-menu-automated-creation.png"> <img alt="" src="../../assets/tide-site-menu-automated-creation.png" /> </a></p>
+</details>
                 
                   
                 
