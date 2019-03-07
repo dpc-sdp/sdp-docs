@@ -493,6 +493,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multi-site-url-rendering" title="Multi-site URL rendering" class="md-nav__link">
+    Multi-site URL rendering
+  </a>
+  
+</li>
+      
       
       
       
@@ -910,6 +917,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#multi-site-url-rendering" title="Multi-site URL rendering" class="md-nav__link">
+    Multi-site URL rendering
+  </a>
+  
+</li>
+      
       
       
       
@@ -1013,6 +1027,58 @@ menu on the separate screen, we automatically create and assign a menu
 for each site within the site creation screen by checking relevant checkbox
 on <code>Site</code> term ctreation page.</p>
 <details class="note"><summary>Expand for Site menu creation flow diagram</summary><p><a href="../../assets/tide-site-menu-automated-creation.png"> <img alt="" src="../../assets/tide-site-menu-automated-creation.png" /> </a></p>
+</details>
+<h2 id="multi-site-url-rendering">Multi-site URL rendering<a class="headerlink" href="#multi-site-url-rendering" title="Permanent link">&para;</a></h2>
+<p>When content piece belongs to multiple sites or sections, it may have links to
+it from other content pieces of the current domain or other domains. Drupal has
+to render these links with correct domains as a part of url, so that front-end
+consumers could output these links as-is.</p>
+<p>For example, if we have:
+- 2 sites first.com and second.com 
+- 2 pages <code>page1</code> and <code>page2</code>
+- <code>page1</code> has a link to <code>page2</code>
+- <code>page1</code> belongs to first.com
+- <code>page2</code> belongs to both first.com and second.com; the <code>primary site</code> is set to
+<code>second.com</code></p>
+<p>When the visitor is on the page <code>first.com/page1</code> and follows the link <code>/page2</code>
+she should end up on <code>first.com/page2</code> and not <code>second.com/page2</code>.</p>
+<p>And if the visitor comes from Google search to <code>page2</code>, she should end up at
+<code>second.com/page2</code>, because <code>second.com</code> is a <em>primary site</em> for <code>page2</code>.</p>
+<p>This is just an example of the part of the problem. There are more use-cases and
+they are explained below. </p>
+<p>For content exposed through API, the links may come from different places:
+- For link fields, this should be fairly straightforward: the user enters the
+link and we have an internal node id. 
+- For links entered in WYSIWYG, we need to use the LinkIt module so that we 
+can extract a node id.
+- For links entered in WYSIWYG within referenced entities (for example, field on
+the paragraph belonging to the page) the API output will contains the path alias.</p>
+<p>For all links presented to the user: 
+- internal links should be rendered as a relative path. If the link is to a page
+available on the current site, either primary or not, render as relative link
+- external links (including links to other sites/section) should be rendered
+with an absolute path.</p>
+<p>For links within WYSIWYG, Drupal has to extract, analyse and replace links
+before rendering it through API. For this, we use an enhancer (special piece of
+code to manipulate content output before it is rendered through API) to scrape
+the content, then render the relevant link.</p>
+<details><summary>Implementation details</summary><p>The content is extracted from the raw contents of WYSIWYG filed using 
+<em>Link Extractor</em>. </p>
+<p><em>Link Extractor</em> scans HTML and extracts all links. This happens before 
+Drupal sanitizes WYSIWYG field output. Every extracted link is then passed 
+to a <em>Link Resolver</em>.</p>
+<p><em>Link Resolver</em> takes node id, loads up the path alias using some complex 
+logic (see diagram below) and then swaps it within the href. Resolved URL 
+is then passed to <em>Link Replacer</em>.</p>
+<p><em>Link Replacer</em> replaces old extracted links with new resolved ones within 
+contents of the WYSIWYG field. The processsed field contents is then passed
+to API for normal rendering. </p>
+<p>For links coming from Link fields, the above applies, but starting from 
+<em>Link Resolver</em> (there is no HTML to extarct teh link from , so 
+<em>Link Extractor</em> is not required).</p>
+<p>The following diagram describes URL processing and link resolution in 
+detail.</p>
+<p><a href="../../assets/tide-url-resolving-pipeline.png"> <img alt="" src="../../assets/tide-url-resolving-pipeline.png" /> </a></p>
 </details>
                 
                   
