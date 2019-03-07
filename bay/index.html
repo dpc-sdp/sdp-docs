@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#section-placeholder" tabindex="1" class="md-skip">
+      <a href="#bay" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -370,130 +370,39 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Overview
+      </label>
+    
     <a href="./" title="Overview" class="md-nav__link md-nav__link--active">
       Overview
     </a>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="projects/" title="Projects" class="md-nav__link">
-      Projects
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" title="Architecture overview" class="md-nav__link">
+    Architecture overview
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
-    <label class="md-nav__link" for="nav-3-3">
-      Architecture
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-3">
-        Architecture
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="architecture/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
-    
-    <label class="md-nav__link" for="nav-3-4">
-      DevOps admin guide
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-4">
-        DevOps admin guide
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="devops-admin-guide/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
-    
-    <label class="md-nav__link" for="nav-3-5">
-      Performace testing
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-5">
-        Performace testing
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="performance-testing/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
   </li>
 
         
@@ -951,6 +860,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" title="Architecture overview" class="md-nav__link">
+    Architecture overview
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -962,8 +887,42 @@
               
                 
                 
-                <h1 id="section-placeholder">Section placeholder<a class="headerlink" href="#section-placeholder" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+                <h1 id="bay">Bay<a class="headerlink" href="#bay" title="Permanent link">&para;</a></h1>
+<p>Bay is a Kubernetes-based (OpenShift) Docker container hosting platform with
+auto-scaling, auto-recovery and high-availability at core.</p>
+<p>Bay is based on open-source project <a href="https://github.com/amazeeio/lagoon">Lagoon</a>.</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Lagoon solves what developers are dreaming about: A system that allows
+developers to locally develop their code and their services with Docker and
+run the exact same system in production. The same Docker images, the same
+service configurations and the same code.</p>
+</div>
+<p>The platform has several layers (from the bottom to the top):</p>
+<p><img alt="Bay stack" src="../assets/bay-stack.png" style="width:300px;" /></p>
+<p>The AWS layer is how the platform is physically hosted. It is spread accross 
+multiple data centers to allow auto-scaling, fault-tolerance and disaster 
+recovery.</p>
+<p>The Kubernetes layer allows to automate deployment, scale, and manage 
+containerized application.</p>
+<p>The OpenShift layer is a Kubernetes distribution with enterprise-grade 
+features and support.</p>
+<p>The Bay layer is an orchestration tool used to bundle containers into projects
+and manage deployments.</p>
+<p>The Application layer is where Drupal, NodeJS and other types of application 
+reside.  </p>
+<h2 id="architecture-overview">Architecture overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
+<p>An over-simplified Bay platform architecture overview:</p>
+<p><img alt="Bay components" src="../assets/bay-architecture.jpg" /></p>
+<p>Requests coming from the Citizen to the load balancer and then get directed 
+to the dedicated containers in specific data centre (not necessarily the same
+for all containers). These containers are provisioned, auto-scaled and 
+auto-healed using Orchestration Tool Box.</p>
+<p>Developers have identical development stack installed locally.</p>
+<p>Automated builds in Continuous Integration servers use identical container 
+images.</p>
+<p>In this way, all environments are running identical versions of 
+languages, frameworks and libraries required for a particular website.   </p>
                 
                   
                 
@@ -999,13 +958,13 @@
           </a>
         
         
-          <a href="projects/" title="Projects" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../tide/" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Projects
+                Overview
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
