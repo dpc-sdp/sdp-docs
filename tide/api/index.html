@@ -442,9 +442,87 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        API
+      </label>
+    
     <a href="./" title="API" class="md-nav__link md-nav__link--active">
       API
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-jsonapi" title="Why JSONAPI?" class="md-nav__link">
+    Why JSONAPI?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drupal-jsonapi-and-related-modules" title="Drupal JSONAPI and related modules" class="md-nav__link">
+    Drupal JSONAPI and related modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" title="Endpoints" class="md-nav__link">
+    Endpoints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-flow" title="Request flow" class="md-nav__link">
+    Request flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-url-resolution" title="End-to-end URL resolution" class="md-nav__link">
+    End-to-end URL resolution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-api-endpoint" title="Router API endpoint" class="md-nav__link">
+    Router API endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-entities" title="Referenced entities" class="md-nav__link">
+    Referenced entities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drupal-caching" title="Drupal caching" class="md-nav__link">
+    Drupal caching
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -843,6 +921,71 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-jsonapi" title="Why JSONAPI?" class="md-nav__link">
+    Why JSONAPI?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drupal-jsonapi-and-related-modules" title="Drupal JSONAPI and related modules" class="md-nav__link">
+    Drupal JSONAPI and related modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" title="Endpoints" class="md-nav__link">
+    Endpoints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-flow" title="Request flow" class="md-nav__link">
+    Request flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-to-end-url-resolution" title="End-to-end URL resolution" class="md-nav__link">
+    End-to-end URL resolution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-api-endpoint" title="Router API endpoint" class="md-nav__link">
+    Router API endpoint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#referenced-entities" title="Referenced entities" class="md-nav__link">
+    Referenced entities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#drupal-caching" title="Drupal caching" class="md-nav__link">
+    Drupal caching
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -855,7 +998,182 @@
                 
                 
                 <h1 id="tide-api">Tide API<a class="headerlink" href="#tide-api" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>Content API is built from a set of contributed modules and custom code provided
+through <a href="https://github.com/dpc-sdp/tide_api">Tide API</a> module.</p>
+<h2 id="why-jsonapi">Why JSONAPI?<a class="headerlink" href="#why-jsonapi" title="Permanent link">&para;</a></h2>
+<p>Why we selected <a href="http://jsonapi.org/">JSONAPI standard</a> over generic REST 
+provided by Drupal core:</p>
+<ul>
+<li>JSON is a standard of REST, a subset of generic REST rules. </li>
+<li>JSONAPI allows to query individual items and collections. 
+  Drupal JSONAPI module automatically exposes entities as endpoints. Because 
+  most of functionality is implement as entities in Drupal 8, there is no 
+  need for custom code to expose required features. </li>
+<li>JSONAPI is a newer format</li>
+<li>JSONAPI will be included in Drupal core.
+  Documentation on using Drupal JSONAPI module: <a href="https://www.drupal">https://www.drupal</a>
+  .org/docs/8/modules/json-api </li>
+</ul>
+<p>It is assumed that API consumers support the following:</p>
+<ul>
+<li>Can traverse data.</li>
+<li>Can cache based on response headers. </li>
+<li>Can resolve relationships by following links. </li>
+</ul>
+<h2 id="drupal-jsonapi-and-related-modules">Drupal JSONAPI and related modules<a class="headerlink" href="#drupal-jsonapi-and-related-modules" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.drupal.org/project/jsonapi">jsonapi</a> - main module that exposes 
+entities as endpoints and provides support for REST operations. </p>
+<p><a href="https://www.drupal.org/project/jsonapi_extras">jsonapi_extras</a> - helper module to alter
+JSONAPI config: endpoints prefix (we are using <code>/api/v1</code>) and enable/disable
+endpoints for automatically exposed entities (we use this to limit access to
+internal entities). </p>
+<h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Component</th>
+<th>Content API endpoint</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>route</td>
+<td><code>/api/v1/route?alias=&lt;alias&gt;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>main menu</td>
+<td><code>/api/v1/menu_link_content/menu_link_content?filter[menu_name][value]=main</code></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>banner</td>
+<td>TBD</td>
+<td>If exposed as a block - use block-based endpoint. If exposed as a content field - use entity endpoint with inclusion.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>breadcrumbs</td>
+<td>TBD</td>
+<td>Not supported out of the box. May need to use main menu to build breadcrumbs by FEF.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>content</td>
+<td><code>/api/v1/page/&lt;UUID&gt;?include=field_page_paragraph</code></td>
+<td>Can be combined with 6</td>
+</tr>
+<tr>
+<td>6</td>
+<td>related content</td>
+<td><code>/api/v1/page/&lt;UUID&gt;?include=field_related_content</code></td>
+<td>Can be combined with 5</td>
+</tr>
+<tr>
+<td>7</td>
+<td>share block</td>
+<td><code>/api/v1/block_content/share_block</code></td>
+<td>Content is static HTML</td>
+</tr>
+<tr>
+<td>8</td>
+<td>was this page helpful</td>
+<td>TBD</td>
+<td>Posting of webform submissions is not supported. Custom module may be required.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>footer main menu</td>
+<td><code>/api/v1/menu_link_content/menu_link_content?filter[menu_name][value]=main</code></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>copyright</td>
+<td><code>/api/v1/block_content/copyright</code></td>
+<td>Content is static HTML</td>
+</tr>
+<tr>
+<td>11</td>
+<td>footer menu</td>
+<td><code>/api/v1/menu_link_content/menu_link_content?filter[menu_name][value]=footer</code></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Sites information</td>
+<td><code>/api/v1/taxonomy_term/sites</code></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Router</td>
+<td><code>/api/v1/router</code></td>
+<td>Alias lookup. May be required for ad-hoc queries from FEF.</td>
+</tr>
+</tbody>
+</table>
+<p>Page example that may use these endpoints
+<img alt="Page built using API data" src="../../assets/api-page-example.png" /></p>
+<h2 id="request-flow">Request flow<a class="headerlink" href="#request-flow" title="Permanent link">&para;</a></h2>
+<p>The diagram below demonstrates how a single page is assembled by VueJS when
+hitting multiple endpoints.</p>
+<p>VueJS retrieves site information and caches it internally until the next cache
+clear. Each consumer site has only site UUID (taxonomy term UUID from <code>Site</code>
+vocabulary) hardcoded. The rest of configuration comes from taxonomy term: logo,
+slogan, footer text, main menu name, footer menu name. This information is later
+used in follow-up requests to retrieve relevant information.</p>
+<p><em>Content API Content</em>, <em>Content API Menu</em>, and <em>Content API Block</em> are shown
+here as separated endpoints (they are indeed separate), but are handled by the
+same internal entity controller from JSONAPI Drupal module. The content is
+filtered by <em>Content API Filter</em> based on provided site and path query
+parameters. If no site or path is provided the request is considered invalid and
+an error response is returned. <em>Content API Filter</em> is a thin layer (e.g.
+request event listener) in front of all JSONAPI endpoints. For example, if the
+content exists, but is not assigned to a site or section, it is considered as
+non-existing content when accessed from this site.</p>
+<p><em>Internal Router</em> is a mechanism to lookup internal path by provided alias.
+There is a similar functionality with a <em>Router Endpoint</em>, but it resolves
+aliases without additional Drupal-to-Drupal request.</p>
+<p><a href="../../assets/api-parallel-requests.png"> <img alt="" src="../../assets/api-parallel-requests.png" /> </a></p>
+<h2 id="end-to-end-url-resolution">End-to-end URL resolution<a class="headerlink" href="#end-to-end-url-resolution" title="Permanent link">&para;</a></h2>
+<p>The diagram below describes how URL requested by a web browser is resolved by
+Drupal and served by VueJS. It covers both front-end and back-end mechanisms.</p>
+<p>To leverage JSONAPI module in Drupal, we are using <em>API Router</em> to resolve
+requested paths to a set of information about the route (UUID, content type,
+path, alias). This information then used by <em>Client API path builder</em> to
+assemble a path to then send a second request to the JSONAPI endpoint.</p>
+<p>It is important to note that due to how content links can be provided within
+content, the path resolution within <em>API Router</em> should be able to find the best
+match from either path or alias provided. For example,
+paths <code>about-us</code>, <code>/about-us</code>, <code>node/123</code>, <code>/node/123</code> should all resolve to
+UUID of <em>About Us</em> page. When matched entity found, <em>API Router</em> also checks if it
+has the specified site assigned and returns an error if this path is not
+available. Also, <em>API Router</em> has all lookups cached in Drupal's dynamic cache, 
+which is tagged with cache tags (so that the cache for path is cleared
+when entity is updated).</p>
+<p><a href="../../assets/api-end-to-end-url-resolution.png"> <img alt="" src="../../assets/api-end-to-end-url-resolution.png" /> </a></p>
+<h2 id="router-api-endpoint">Router API endpoint<a class="headerlink" href="#router-api-endpoint" title="Permanent link">&para;</a></h2>
+<p>To control content aliases from Drupal and resolve requests
+coming from Browser into FEF, a special <em>Router</em> endpoint exists to perform a
+lookup on provided path. Because the provided path can be either internal Drupal
+path or an alias, the lookup searches through all existing aliases and internal
+paths. </p>
+<p>When non-existing alias is provided, the endpoint returns an error according to
+JSONAPI specification. </p>
+<p><em>Router API</em> also allows to filter by site if site URL query parameter is
+provided. </p>
+<h2 id="referenced-entities">Referenced entities<a class="headerlink" href="#referenced-entities" title="Permanent link">&para;</a></h2>
+<p>JSONAPI supports including referenced entities in response by using <code>include</code>
+query parameter and a comma-separated list of entity reference fields. For
+example, <code>/api/v1/page/&lt;UUID&gt;?include=field_page_paragraph</code>.</p>
+<h2 id="drupal-caching">Drupal caching<a class="headerlink" href="#drupal-caching" title="Permanent link">&para;</a></h2>
+<p>Response headers pass-through Drupal-generated cache tags. </p>
                 
                   
                 
