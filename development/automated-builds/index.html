@@ -682,9 +682,73 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Automated builds
+      </label>
+    
     <a href="./" title="Automated builds" class="md-nav__link md-nav__link--active">
       Automated builds
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#who-are-you" title="Who are you?" class="md-nav__link">
+    Who are you?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tide-distribution" title="Tide distribution" class="md-nav__link">
+    Tide distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripple-library" title="Ripple library" class="md-nav__link">
+    Ripple library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tide-module" title="Tide module" class="md-nav__link">
+    Tide module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#every-site-that-uses-tide-distribution" title="Every site that uses Tide distribution" class="md-nav__link">
+    Every site that uses Tide distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#every-site-that-uses-ripple-distribution" title="Every site that uses Ripple distribution" class="md-nav__link">
+    Every site that uses Ripple distribution
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -819,6 +883,57 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#who-are-you" title="Who are you?" class="md-nav__link">
+    Who are you?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tide-distribution" title="Tide distribution" class="md-nav__link">
+    Tide distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ripple-library" title="Ripple library" class="md-nav__link">
+    Ripple library
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tide-module" title="Tide module" class="md-nav__link">
+    Tide module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#every-site-that-uses-tide-distribution" title="Every site that uses Tide distribution" class="md-nav__link">
+    Every site that uses Tide distribution
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#every-site-that-uses-ripple-distribution" title="Every site that uses Ripple distribution" class="md-nav__link">
+    Every site that uses Ripple distribution
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -831,7 +946,69 @@
                 
                 
                 <h1 id="automated-builds">Automated builds<a class="headerlink" href="#automated-builds" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>SDP uses <a href="https://circleci.com/gh/dpc-sdp">CircleCI</a> for all automated build
+(CI) runs.   </p>
+<h2 id="who-are-you">Who are you?<a class="headerlink" href="#who-are-you" title="Permanent link">&para;</a></h2>
+<p>Depending on what you are working on, there are the following targets for 
+automated builds:</p>
+<ul>
+<li>Tide distribution</li>
+<li>Ripple library</li>
+<li>Tide module</li>
+<li>Every site that uses Tide distribution</li>
+<li>Every site that uses Ripple components</li>
+</ul>
+<h2 id="tide-distribution">Tide distribution<a class="headerlink" href="#tide-distribution" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Check coding standards: PHP, JS, CSS.</li>
+<li>Build a distribution site from supplied <code>composer.json</code> file (dependencies are 
+  locked-in at specific versions).</li>
+<li>Run unit tests (PHPUnit), if any.</li>
+<li>Run behavioural tests (Behat), if any.</li>
+</ul>
+<h2 id="ripple-library">Ripple library<a class="headerlink" href="#ripple-library" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Check coding standards: JS, SCSS.</li>
+<li>Build a site from supplied <code>package.json</code> file (dependencies are locked-in at 
+  specific versions).</li>
+<li>Build Storybook site</li>
+<li>Run unit tests (Jest), if any.</li>
+</ul>
+<h2 id="tide-module">Tide module<a class="headerlink" href="#tide-module" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Check coding standards: PHP, JS, CSS.</li>
+<li>Install a generic site, add current module with dependencies and install it.<br/> 
+  This will make sure that all dependencies were installed correctly and the 
+  configuration import worked correctly. </li>
+<li>Install a generic site, add current module with dependencies, add optional
+  modules and install it.<br/>
+  This will make sure that not only all dependencies were installed correctly 
+  and the configuration import worked correctly, but also that optional modules
+  do not have a conflicting configuration.  </li>
+<li>Run unit tests (PHPUnit), if any.</li>
+<li>Run behavioural tests (Behat), if any.</li>
+</ul>
+<h2 id="every-site-that-uses-tide-distribution">Every site that uses Tide distribution<a class="headerlink" href="#every-site-that-uses-tide-distribution" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Check coding standards in custom site code for modules and themes: PHP, JS, 
+  SCSS/CSS.</li>
+<li>Build a site from supplied <code>composer.json</code> file (dependencies are locked in 
+  at specific versions) and production database.<br/>
+  This builds the site which is identical to the production site before running 
+  tests.  </li>
+<li>Run unit tests (PHPUnit), if any.</li>
+<li>Run behavioural tests (Behat), if any.</li>
+</ul>
+<h2 id="every-site-that-uses-ripple-distribution">Every site that uses Ripple distribution<a class="headerlink" href="#every-site-that-uses-ripple-distribution" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Check coding standards in custom site code: JS, SCSS.</li>
+<li>Build a site from supplied <code>package.json</code> file (dependencies are locked-in at 
+  specific versions).<br/>
+  This builds the site which is identical to the production site before running 
+  tests.  </li>
+<li>Build Storybook site</li>
+<li>Run unit tests (Jest), if any.</li>
+</ul>
                 
                   
                 

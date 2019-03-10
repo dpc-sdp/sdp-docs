@@ -778,9 +778,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Troubleshooting
+      </label>
+    
     <a href="./" title="Troubleshooting" class="md-nav__link md-nav__link--active">
       Troubleshooting
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-host-container-is-full" title="Docker Host container is full" class="md-nav__link">
+    Docker Host container is full
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-branch-is-pushed-into-the-repo-but-no-deployments-are-happening-in-bay" title="A branch is pushed into the repo, but no deployments are happening in Bay" class="md-nav__link">
+    A branch is pushed into the repo, but no deployments are happening in Bay
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -819,6 +855,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-host-container-is-full" title="Docker Host container is full" class="md-nav__link">
+    Docker Host container is full
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-branch-is-pushed-into-the-repo-but-no-deployments-are-happening-in-bay" title="A branch is pushed into the repo, but no deployments are happening in Bay" class="md-nav__link">
+    A branch is pushed into the repo, but no deployments are happening in Bay
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -831,7 +890,15 @@
                 
                 
                 <h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<h2 id="docker-host-container-is-full">Docker Host container is full<a class="headerlink" href="#docker-host-container-is-full" title="Permanent link">&para;</a></h2>
+<p>If you're seeing errors like
+<div class="codehilite"><pre><span></span>Error processing tar file(exit status 1): write /app/docroot/themes/custom/governor/build/images/homepage-background.png: no space left on device`
+</pre></div>
+run <code>docker image prune -a</code> to free-up space in your Docker.</p>
+<h2 id="a-branch-is-pushed-into-the-repo-but-no-deployments-are-happening-in-bay">A branch is pushed into the repo, but no deployments are happening in Bay<a class="headerlink" href="#a-branch-is-pushed-into-the-repo-but-no-deployments-are-happening-in-bay" title="Permanent link">&para;</a></h2>
+<p>CI passes, but nothing happening in the messenger build channel. </p>
+<p>The branch name might be too long. Please make sure that the name of your branch
+is less then or equal to 40 characters.</p>
                 
                   
                 
