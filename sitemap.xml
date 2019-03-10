@@ -86,11 +86,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/repositories-namespaces/</loc>
-     <lastmod>2019-03-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/local-development-environment/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
@@ -122,11 +117,6 @@
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/compliance-vpdss/</loc>
-     <lastmod>2019-03-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/documentation-responsibility/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>

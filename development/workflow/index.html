@@ -614,18 +614,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../repositories-namespaces/" title="Repositories and namespaces" class="md-nav__link">
-      Repositories and namespaces
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../local-development-environment/" title="Local development environment" class="md-nav__link">
       Local development environment
     </a>
@@ -708,18 +696,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../documentation-responsibility/" title="Documentation responsibility" class="md-nav__link">
-      Documentation responsibility
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -730,9 +706,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Development Workflow
+      </label>
+    
     <a href="./" title="Development Workflow" class="md-nav__link md-nav__link--active">
       Development Workflow
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-workflow" title="Example workflow" class="md-nav__link">
+    Example workflow
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -843,6 +848,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-workflow" title="Example workflow" class="md-nav__link">
+    Example workflow
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -855,7 +876,55 @@
                 
                 
                 <h1 id="development-workflow">Development workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>Content for this page has not been fully migrated yet.</p>
+<h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">&para;</a></h2>
+<p>This workflow describes working on features as a developer on websites that
+use Tide or Ripple. </p>
+<ol>
+<li>Pick a ticket in your issue tracker:<ol>
+<li>Make sure that all requirements, solution direction and acceptance criteria
+   are clear. If not, address issues with Technical Lead or product Owner.</li>
+<li>Assign to yourself.</li>
+</ol>
+</li>
+<li>Create new feature branch named <code>feature/CODE123-short-hyphenated-description</code>. </li>
+<li>Work on the ticket functionality:<ol>
+<li>Install new contributed modules or packages as required.</li>
+<li>For back-end - configure and export configuration changes; write 
+ <code>hook_update_N()</code> implementations (but be mindful that Drupal 8 does not 
+ require many of those).</li>
+<li>For front-end - identify and use existing or create new Ripple components;
+ update styles according to style guide as required; make sure that 
+ Storybook has updated and new components added (it is important to always 
+ have style guide up to date).</li>
+</ol>
+</li>
+<li>Add tests:<ol>
+<li>For back-end - identify required Behat tests (only test your custom 
+ configuration, and critical user journeys; do not test Drupal's standard
+ behaviour); identify and implement PHPUnit tests.</li>
+<li>For front-end - identify required tests and mocks, and implement them; add 
+ unit tests for any custom Nux functionality.  </li>
+</ol>
+</li>
+<li>Commit all changed and added files. Pay special attention to configuration 
+   files and their counterparts (<code>composer.json</code>, <code>composer.lock</code>, 
+   <code>package.json</code>,  <code>package-lock.json</code>). </li>
+<li>Create a pull request in your issue tracker:<ol>
+<li>Describe added/removed/changed functionality as a numerical list; add 
+  screenshots; comment your own code to explain places that may raise questions.</li>
+<li>Assign relevant review developers.</li>
+<li>Assign yourself as an owner of the pull request.</li>
+<li>Add a <code>Needs review</code> label (if does not exist - create one - helps to 
+visually identify pull requests pending review).</li>
+<li>If your are using a messenger to communicate with your development team - 
+copy and paste the link to the created pull request into messenger 
+and ask for a review.</li>
+</ol>
+</li>
+<li>Move the ticket in your issue tracker to <code>In code review</code> state (create this 
+   state if it does not exist to help identify tickets pending review).</li>
+</ol>
                 
                   
                 
@@ -876,7 +945,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../documentation-responsibility/" title="Documentation responsibility" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../compliance-vpdss/" title="Compliance with VPDSS" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -885,7 +954,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Documentation responsibility
+                Compliance with VPDSS
               </span>
             </div>
           </a>
