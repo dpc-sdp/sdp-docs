@@ -1033,12 +1033,11 @@ and pass all tests on CI server.</p>
 production backups into fully built codebase and runs code linting and tests.
 When tests pass, a deployment process is triggered for nominated branches
 (usually, <code>master</code> and <code>develop</code>).</p>
-<p>Add [skip ci] to the commit subject to skip CI build. Useful for documentation
+<p>Add <code>[skip ci]</code> to the commit subject to skip CI build. Useful for documentation
 changes.</p>
 <h3>SSH</h3>
-<p>Circle CI supports SSHing into the build for 30 minutes after the build is
-finished. SSH can be enabled either during the build run or when the build is
-started with SSH support.</p>
+<p>Circle CI provides SSH access into the build for 120 minutes after the build is
+finished. SSH can be enabled once the build is started with SSH support.</p>
 <h3>Test artifacts</h3>
 <p>Test artifacts (screenshots etc.) are available under 'Artifacts' tab in
 CircleCI UI.</p>

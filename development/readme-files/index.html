@@ -1013,19 +1013,17 @@ all developer working copies to a shared mainline several times a day. Before
 feature changes can be merged into a shared mainline, a complete build must run
 and pass all tests on CI server.
 
-
 This project uses [Circle CI](https://circleci.com/) as CI server: it imports
 production backups into fully built codebase and runs code linting and tests.
 When tests pass, a deployment process is triggered for nominated branches
 (usually, `master` and `develop`).
 
-Add [skip ci] to the commit subject to skip CI build. Useful for documentation
+Add `[skip ci]` to the commit subject to skip CI build. Useful for documentation
 changes.
 
 ### SSH
-Circle CI supports SSHing into the build for 30 minutes after the build is
-finished. SSH can be enabled either during the build run or when the build is
-started with SSH support.
+Circle CI provides SSH access into the build for 120 minutes after the build is
+finished. SSH can be enabled once the build is started with SSH support.
 
 ### Test artifacts
 Test artifacts (screenshots etc.) are available under &#39;Artifacts&#39; tab in

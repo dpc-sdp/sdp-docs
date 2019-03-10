@@ -770,6 +770,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#skipping-ci-builds" title="Skipping CI builds" class="md-nav__link">
+    Skipping CI builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-in-ci-build" title="SSH in CI build" class="md-nav__link">
+    SSH in CI build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-artifacts" title="Test artifacts" class="md-nav__link">
+    Test artifacts
+  </a>
+  
+</li>
+      
       
       
       
@@ -920,6 +941,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#skipping-ci-builds" title="Skipping CI builds" class="md-nav__link">
+    Skipping CI builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh-in-ci-build" title="SSH in CI build" class="md-nav__link">
+    SSH in CI build
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-artifacts" title="Test artifacts" class="md-nav__link">
+    Test artifacts
+  </a>
+  
+</li>
+      
       
       
       
@@ -1001,6 +1043,17 @@ automated builds:</p>
 <li>Build Storybook site</li>
 <li>Run unit tests (Jest), if any.</li>
 </ul>
+<h2 id="skipping-ci-builds">Skipping CI builds<a class="headerlink" href="#skipping-ci-builds" title="Permanent link">&para;</a></h2>
+<p>Add <code>[skip ci]</code> to the commit subject to skip CI build. Useful for documentation
+changes.</p>
+<h2 id="ssh-in-ci-build">SSH in CI build<a class="headerlink" href="#ssh-in-ci-build" title="Permanent link">&para;</a></h2>
+<p>Circle CI provides SSH access into the build for 120 minutes after the build is
+finished. SSH can be enabled once the build is started with SSH support.
+1. Navigate to the job page
+2. Click on the dropdown in the right top corner and select <code>Rebuild with SSH</code>.</p>
+<h2 id="test-artifacts">Test artifacts<a class="headerlink" href="#test-artifacts" title="Permanent link">&para;</a></h2>
+<p>Test artifacts (screenshots etc.) are available under 'Artifacts' tab in
+CircleCI UI.</p>
                 
                   
                 

@@ -1141,7 +1141,9 @@ provided. </p>
 query parameter and a comma-separated list of entity reference fields. For
 example, <code>/api/v1/page/&lt;UUID&gt;?include=field_page_paragraph</code>.</p>
 <h2 id="drupal-caching">Drupal caching<a class="headerlink" href="#drupal-caching" title="Permanent link">&para;</a></h2>
-<p>Response headers pass-through Drupal-generated cache tags. </p>
+<p>Response headers pass-through Drupal-generated cache tags. This means that 
+reverse proxies can bind to Drupal cache tags and invalidate their caches
+as soon as Drupal caches become invalid.</p>
                 
                   
                 
