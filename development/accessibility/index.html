@@ -782,9 +782,73 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Accessibility
+      </label>
+    
     <a href="./" title="Accessibility" class="md-nav__link md-nav__link--active">
       Accessibility
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wcag-aa-20-requirement" title="WCAG AA 2.0 Requirement" class="md-nav__link">
+    WCAG AA 2.0 Requirement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#victorian-government-accessibility-toolkit" title="Victorian Government Accessibility Toolkit" class="md-nav__link">
+    Victorian Government Accessibility Toolkit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-requirements" title="Extra Requirements" class="md-nav__link">
+    Extra Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-considerations" title="Design Considerations" class="md-nav__link">
+    Design Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content-considerations" title="Content Considerations" class="md-nav__link">
+    Content Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-implementation" title="Technical Implementation" class="md-nav__link">
+    Technical Implementation
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -847,6 +911,57 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#wcag-aa-20-requirement" title="WCAG AA 2.0 Requirement" class="md-nav__link">
+    WCAG AA 2.0 Requirement
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#victorian-government-accessibility-toolkit" title="Victorian Government Accessibility Toolkit" class="md-nav__link">
+    Victorian Government Accessibility Toolkit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-requirements" title="Extra Requirements" class="md-nav__link">
+    Extra Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-considerations" title="Design Considerations" class="md-nav__link">
+    Design Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#content-considerations" title="Content Considerations" class="md-nav__link">
+    Content Considerations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-implementation" title="Technical Implementation" class="md-nav__link">
+    Technical Implementation
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -859,7 +974,69 @@
                 
                 
                 <h1 id="accessibility-requirements">Accessibility requirements<a class="headerlink" href="#accessibility-requirements" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<h2 id="wcag-aa-20-requirement">WCAG AA 2.0 Requirement<a class="headerlink" href="#wcag-aa-20-requirement" title="Permanent link">&para;</a></h2>
+<p>All Victoria Government website must be at least WCAG AA 2.0 compliant.</p>
+<h2 id="victorian-government-accessibility-toolkit">Victorian Government Accessibility Toolkit<a class="headerlink" href="#victorian-government-accessibility-toolkit" title="Permanent link">&para;</a></h2>
+<p>The accessibility toolkit is available to assist all agencies in ensuring their
+websites are compliant with the Victoria Government standards.</p>
+<h2 id="extra-requirements">Extra Requirements<a class="headerlink" href="#extra-requirements" title="Permanent link">&para;</a></h2>
+<p>The aim for the SDP project is to go beyond the requirements and focus on
+ensuring the sites are truly user friendly for users with accessibility needs.
+The DTA has published a blog article about this topic,
+<a href="https://www.dta.gov.au/blog/Accessibility-going-beyond-the-guidelines/">https://www.dta.gov.au/blog/Accessibility-going-beyond-the-guidelines/</a>. There is
+also a good presentation here on some of the things to think about when building
+for accessibility. Some steps that should be required either per ticket or at
+least for the UAT process are:</p>
+<ul>
+<li>Colour Contrast. Check colour contrast in a tool such as
+  <a href="http://www.color-blindness.com/coblis-color-blindness-simulator/">http://www.color-blindness.com/coblis-color-blindness-simulator/</a></li>
+<li>Accessibility checker. Ensure the automated tests in Monsido have run over the
+new functionality.</li>
+<li>Keyboard only. Push the mouse away and try to operate the screen. You should
+be able to navigate with the keyboard only.</li>
+<li>Screen-reader only. Turn on a screen-reader such as NVDA or VoiceOver and turn
+off the screen (or look away). All essential content should be read out and you
+should be able to navigate the screen.</li>
+</ul>
+<h2 id="design-considerations">Design Considerations<a class="headerlink" href="#design-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>High colour contrast is good for colour blind users; it also helps users view a website on a mobile when in bright sunlight.</li>
+<li>Text over images should be avoided where possible. Some things to consider:<ul>
+<li>Can the text colour change?</li>
+<li>Can the Image change, thereby changing the colour contrast?</li>
+<li>Can a solid background colour be applied to the text to ensure visibility</li>
+</ul>
+</li>
+</ul>
+<h2 id="content-considerations">Content Considerations<a class="headerlink" href="#content-considerations" title="Permanent link">&para;</a></h2>
+<p>There are minimum requirements for WCAG compliance, however, if the users need
+is considered, the actual requirement should be more defined.</p>
+<ul>
+<li><code>alt</code> and <code>title</code> text fields help people to understand visual elements without
+being able to see them. Read through this explanation from
+<a href="https://webaim.org/">WebAIM</a>, <a href="https://webaim.org/techniques/alttext/#context">https://webaim.org/techniques/alttext/#context</a>. </li>
+<li><code>alt</code> and <code>title</code> text are required, however users should be able to override
+ this when required. For example, purely decorative images that offer no useful
+content to the user should not have alt and title text and should be ignored by
+screen readers. <a href="https://www.w3.org/WAI/tutorials/images/decorative/">https://www.w3.org/WAI/tutorials/images/decorative/</a>.</li>
+<li>Try to avoid just copying the title text into the alt text field. </li>
+<li>Videos should always have captions; look at the YouTube auto CC when using
+YouTube.</li>
+<li>When creating links, try to avoid content like 'Click here' or 'here'. A
+screen reader will read the link as something like "Leaving list | visited link
+| here". Better link text describes what the user will get to, <code>visit the
+Governors website</code>.</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation<a class="headerlink" href="#technical-implementation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>For images, <code>alt</code> and <code>title</code> text fields should be made mandatory. There must 
+   be the ability to override this when adding images that are decorative.</li>
+<li><code>alt</code> and <code>title</code> attributes must always be present, even when they are blank.</li>
+<li>Ensure headings are hierarchical; try to always ensure that headings on a page
+will be read in order.</li>
+<li>Use <code>aria-live</code> on any dynamic sections. See
+<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions</a>.</li>
+</ul>
                 
                   
                 
