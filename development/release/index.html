@@ -642,20 +642,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../local-development-environment/" title="Local development environment" class="md-nav__link">
-      Local development environment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../git/" title="Git" class="md-nav__link">
-      Git
+    <a href="../workflow/" title="Development Workflow" class="md-nav__link">
+      Development Workflow
     </a>
   </li>
 
@@ -668,6 +656,18 @@
   <li class="md-nav__item">
     <a href="../code-review/" title="Code review" class="md-nav__link">
       Code review
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../local-development-environment/" title="Local development environment" class="md-nav__link">
+      Local development environment
     </a>
   </li>
 
@@ -714,30 +714,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../compliance-vpdss/" title="Compliance with VPDSS" class="md-nav__link">
-      Compliance with VPDSS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflow/" title="Development Workflow" class="md-nav__link">
-      Development Workflow
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../module-development/" title="Module Development" class="md-nav__link">
       Module Development
     </a>
@@ -758,22 +734,60 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Release management
+      </label>
+    
     <a href="./" title="Release management" class="md-nav__link md-nav__link--active">
       Release management
     </a>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nist-self-assessment/" title="NIST self-assessment" class="md-nav__link">
-      NIST self-assessment
-    </a>
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#issues" title="Issues" class="md-nav__link">
+    Issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versions" title="Versions" class="md-nav__link">
+    Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow" title="Git workflow" class="md-nav__link">
+    Git workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing" title="Releasing" class="md-nav__link">
+    Releasing
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -847,6 +861,43 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#issues" title="Issues" class="md-nav__link">
+    Issues
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versions" title="Versions" class="md-nav__link">
+    Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-workflow" title="Git workflow" class="md-nav__link">
+    Git workflow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#releasing" title="Releasing" class="md-nav__link">
+    Releasing
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -859,7 +910,59 @@
                 
                 
                 <h1 id="managing-releases">Managing releases<a class="headerlink" href="#managing-releases" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>The purpose of this document is to describe the git management process across
+the Content repository and semi-independent sites. </p>
+<h2 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h2>
+<p>Changes to the Drupal API can have an effect on the Front end website due to
+field and entity changes. This can lead to issues on semi-independent sites if
+they are not updated at the same time as the Content repository as they rely on
+a common API. This can cause a delay in deploying Content repository while
+changes are merged to the semi-independent sites and go through QA and UAT.</p>
+<h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
+<p>Site release versions should follow <a href="https://semver.org/">semantic versioning</a>.</p>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>Given a version number <code>MAJOR.MINOR.PATCH</code>, increment the:<br/>
+<code>MAJOR</code> version when you make incompatible API changes,<br/>
+<code>MINOR</code> version when you add functionality in a backwards-compatible 
+manner, and<br/>
+<code>PATCH</code> version when you make backwards-compatible bug fixes.<br/></p>
+<p>Additional labels for pre-release and build metadata are available as 
+extensions to the <code>MAJOR.MINOR.PATCH</code> format.</p>
+</div>
+<h2 id="git-workflow">Git workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h2>
+<details><summary>Git branch schema for releases</summary><p><img alt="Git branch schema for releases" src="../../assets/multi-repo-git-release-process.png" /> </p>
+</details>
+<p>Standard feature branches are taken from the the <code>develop</code> branch.</p>
+<p>Pull requests for the current release are merged back into <code>develop</code> after QA has
+occurs in the standard process.</p>
+<p>Pull requests for subsequent releases should be taken from <code>develop</code>.</p>
+<p>These pull requests can go through the QA process but must not be merged to
+<code>develop</code> until after the current release has moved from <code>develop</code> into the
+<code>master</code> branch. This is to ensure the QA team has time to test the new features
+on the front-end sites before the backend code is tagged and released to 
+production.</p>
+<h2 id="releasing">Releasing<a class="headerlink" href="#releasing" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps below do not include any release communication steps. Always 
+prepare release plan with communication details, templates and rollback
+actions ahead of release, or, better, create a standardise release run sheet.</p>
+</div>
+<ol>
+<li>Create a release branch from <code>develop</code></li>
+<li>Copy the release branch to each of the front-end site repositories, manage
+   the conflicts and push the changes as a new pull request against <code>develop</code> 
+   for each repository.</li>
+<li>Have the QA team test the latest changes and perform a spot regression check.</li>
+<li>Merge the Content repository BE repo through to <code>master</code></li>
+<li>Once all front-end sites pass QA (or only minor bugs are found that will not
+   effect release) merge the latest changes to <code>develop</code> and follow the standard
+   release process through to <code>master</code> on each site. </li>
+<li>Request UAT on all front-end sites. Once UAT is complete or 3 business days 
+   are passed, prepare totag and release to production.</li>
+<li>Tag and deploy Content repository release to production.</li>
+</ol>
                 
                   
                 
@@ -895,13 +998,13 @@
           </a>
         
         
-          <a href="../nist-self-assessment/" title="NIST self-assessment" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../accessibility/" title="Accessibility" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                NIST self-assessment
+                Accessibility
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

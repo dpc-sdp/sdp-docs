@@ -96,17 +96,17 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/local-development-environment/</loc>
-     <lastmod>2019-03-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/git/</loc>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/workflow/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/code-review/</loc>
+     <lastmod>2019-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/local-development-environment/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -126,27 +126,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/compliance-vpdss/</loc>
-     <lastmod>2019-03-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/workflow/</loc>
-     <lastmod>2019-03-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/module-development/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/release/</loc>
-     <lastmod>2019-03-10</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/nist-self-assessment/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
     </url>

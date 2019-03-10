@@ -642,20 +642,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../local-development-environment/" title="Local development environment" class="md-nav__link">
-      Local development environment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../git/" title="Git" class="md-nav__link">
-      Git
+    <a href="../workflow/" title="Development Workflow" class="md-nav__link">
+      Development Workflow
     </a>
   </li>
 
@@ -668,6 +656,18 @@
   <li class="md-nav__item">
     <a href="../code-review/" title="Code review" class="md-nav__link">
       Code review
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../local-development-environment/" title="Local development environment" class="md-nav__link">
+      Local development environment
     </a>
   </li>
 
@@ -714,30 +714,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../compliance-vpdss/" title="Compliance with VPDSS" class="md-nav__link">
-      Compliance with VPDSS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflow/" title="Development Workflow" class="md-nav__link">
-      Development Workflow
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../module-development/" title="Module Development" class="md-nav__link">
       Module Development
     </a>
@@ -752,18 +728,6 @@
   <li class="md-nav__item">
     <a href="../release/" title="Release management" class="md-nav__link">
       Release management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../nist-self-assessment/" title="NIST self-assessment" class="md-nav__link">
-      NIST self-assessment
     </a>
   </li>
 
@@ -921,13 +885,190 @@
 <p>We provide 2 templates of <code>README.md</code> files: for consumer projects and Tide modules.</p>
 <h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span># _name_
+Drupal 8 implementation of Content API for_name_
 
-To be provided.
+[![CircleCI](https://circleci.com/gh/dpc-sdp/_machine_name_.svg?style=shield&amp;circle-token=619001ceda795d221a96315242e2782f621612d4)](https://circleci.com/gh/dpc-sdp/_machine_name_)
+![Release](https://img.shields.io/github/release/dpc-sdp/_machine_name_.svg)
+
+## Prerequisites
+1. Make sure that you have latest versions of all required software installed:   
+  - [Docker](https://www.docker.com/) 
+  - [Pygmy](https://docs.amazee.io/local_docker_development/pygmy.html)
+  - [Ahoy](https://github.com/ahoy-cli/ahoy) 
+2. Make sure that all local web development services are shut down (`apache/nginx`, `mysql`, `MAMP` etc).
+
+## Local environment setup
+3. `curl https://raw.githubusercontent.com/dpc-sdp/dev-tools/master/install | bash`
+4. `pygmy up`
+5. `ahoy build` 
+
+Local URL -- http://_machine_name_.docker.amazee.io/
+
+## Available `ahoy` commands
+Run each command as `ahoy &lt;command&gt;`.
+```
+ build                Build or rebuild project.
+   clean                Remove all build files.
+   clean-full           Remove all development files.
+   cli                  Start a shell inside CLI container or run a command.
+   composer-merge       Merge composer files.
+   deploy               Deploy or re-deploy a branch in Bay.
+   doctor               Identify problems with current stack.
+   down                 Stop Docker containers and remove container, images, volumes and networks.
+   drush                Run drush commands in the CLI service container.
+   flush-redis          Flush Redis cache.
+   info                 Print information about this project.
+   install-dev          Install dependencies.
+   install-site         Install site.
+   lint                 Lint code.
+   login                Login to a website.
+   logs                 Show Docker logs.
+   pull                 Pull latest docker images.
+   restart              Restart all stopped and running Docker containers.
+   start                Start existing Docker containers.
+   stop                 Stop running Docker containers.
+   test-behat           Run Behat tests.
+   up                   Build and start Docker containers.   
+```
+
+## SSHing into CLI container 
+`ahoy cli`
+
+## Running a command in CLI container 
+`ahoy cli ls /app`
+
+## Mailhog.
+
+Mailhog is included with `pygmy` and is available @ http://mailhog.docker.amazee.io/
+Documentation for mailhog is available of the project page -- https://github.com/mailhog/MailHog
+
+## Stage file proxy.
+
+Stage File Proxy is enabled on all non production environments so files are automatically downloaded directly from prod on demand.
+
+## Adding Drupal modules
+Modules needs to be added in 2 steps:
+1. Require module code installation (through composer).
+2. Enable module during site installation.
+
+### Adding contrib modules
+`composer require drupal/module_name`
+or for specific versions
+`composer require drupal/module_name:1.2`
+
+### Adding modules as local packages
+1. Add local package information to the root of `composer.json`:
+    ```
+    &quot;repositories&quot;: {
+        &quot;dpc-sdp/tide_page&quot;: {
+            &quot;type&quot;: &quot;path&quot;,
+            &quot;url&quot;: &quot;dpc-sdp/tide_page&quot;
+        },
+    }
+    ```
+2. `composer require tide_page` 
+3. To make sure that Composer triggers dependency tree rebuild, run `ahoy clean`.
+4. Run `composer update --lock`. This will install all dependencies and 
+   update root `composer.lock` file with newly added module. 
+
+## Adding patches for composer packages
+1. Add `title` and `url` to patch on drupal.org to the `patches` array in
+   `extra` section in `composer.json`.
+    ```
+    &quot;extra&quot;: {
+        &quot;patches&quot;: {
+            &quot;drupal/core&quot;: {
+                &quot;Contextual links should not be added inside another link - https://www.drupal.org/node/2898875&quot;: &quot;https://www.drupal.org/files/issues/contextual_links_should-2898875-3.patch&quot;
+            }
+        }    
+    }
+    ```
+
+2. `composer update --lock`
+
+## Coding standards
+PHP and JS code linting uses
+[PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with Drupal
+rules from [Coder](https://www.drupal.org/project/coder) module and additional
+local overrides in `phpcs.xml.dist` and `.eslintrc`.   
+
+## Behat tests
+Behat configuration uses multiple extensions: 
+- [Drupal Behat Extension](https://github.com/jhedstrom/drupalextension) - Drupal integration layer. Allows to work with Drupal API from within step definitions.
+- [Behat Screenshot Extension](https://github.com/integratedexperts/behat-screenshot) - Behat extension and a step definition to create HTML and image screenshots on demand or test fail.
+- [Behat Progress Fail Output Extension](https://github.com/integratedexperts/behat-format-progress-fail) - Behat output formatter to show progress as TAP and fail messages inline. Useful to get feedback about failed tests while continuing test run.
+- `YoursiteDrupalContext` - Site-specific Drupal context with custom step definitions.
+- `YoursiteMinkContext` - Site-specific Mink context with custom step definitions.
+
+Generic Behat tests should be written against the test entities from the Tide Test module. If a new test entity (node, block, etc.) is added to the Tide Test module, the relevant permissions must be also granted to Approver and Editor via the hook `tide_test_entity_bundle_create()`.
+
+### Run tests locally:
+- Run Behat tests: `ahoy test-behat`
+    - Run specific test feature: `ahoy test-behat tests/behat/features/homepage.feature`
+    - Run specific test tag: `ahoy test-behat -- --tags=wip`
+
+## Automated builds (Continuous Integration)
+In software engineering, continuous integration (CI) is the practice of merging
+all developer working copies to a shared mainline several times a day. Before
+feature changes can be merged into a shared mainline, a complete build must run
+and pass all tests on CI server.
+
+
+This project uses [Circle CI](https://circleci.com/) as CI server: it imports
+production backups into fully built codebase and runs code linting and tests.
+When tests pass, a deployment process is triggered for nominated branches
+(usually, `master` and `develop`).
+
+Add [skip ci] to the commit subject to skip CI build. Useful for documentation
+changes.
+
+### SSH
+Circle CI supports SSHing into the build for 30 minutes after the build is
+finished. SSH can be enabled either during the build run or when the build is
+started with SSH support.
+
+### Test artifacts
+Test artifacts (screenshots etc.) are available under &#39;Artifacts&#39; tab in
+CircleCI UI.
+
+## Debugging
+
+### PHP application from browser 
+1. Trigger xDebug from web browser (using one of the browser extensions) so that
+PHPStorm recognises the server `yoursite.docker.amazee.io` and
+configures the path mapping. Alternatively, you can create the server in
+PHPStorm Settings.
+  * Make sure `serverName` to be `yoursite.docker.amazee.io`
+
+### PHP scripts
+```
+ahoy cli
+xdebug.sh path/to/script
+```
+
+For example, to run a single Behat test: `xdebug.sh vendor/bin/behat path/to/test.feature`
+
+### Drush commands
+```
+ahoy cli
+`./xdebug.sh vendor/bin/drush &lt;DRUSH_COMMAND&gt;
+```
+
+### DB connection details
+Run `ahoy info` to get the port number.
+
+```
+  Host:     127.0.0.1
+  Username: drupal
+  Password: drupal
+  Database: drupal
+  Port:     &lt;get from &quot;ahoy info&quot;&gt;
+```  
 </pre></div>
 
 <h2 id="tide-modules">Tide modules<a class="headerlink" href="#tide-modules" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span># _name_
-Page content type for [Tide](https://github.com/dpc-sdp/tide) distribution for [Drupal 8](https://github.com/dpc-sdp)
+_name_ content type for [Tide](https://github.com/dpc-sdp/tide) distribution for [Drupal 8](https://github.com/dpc-sdp)
 
 Tide is a Drupal 8 distribution focused on delivering an API first, headless Drupal content administration site.
 
@@ -954,7 +1095,7 @@ your `composer.json`:
       &quot;dpc-sdp/tide_page&quot;: {
           &quot;type&quot;: &quot;vcs&quot;,
           &quot;no-api&quot;: true,
-          &quot;url&quot;: &quot;https://github.com/dpc-sdp/tide_page.git&quot;
+          &quot;url&quot;: &quot;https://github.com/dpc-sdp/_machine_name_.git&quot;
       }
   }
 }
@@ -962,7 +1103,7 @@ your `composer.json`:
 
 Require this package as any other Composer package:
 ```bash
-composer require dpc/tide_page 
+composer require dpc/_machine_name_ 
 ``` 
 
 ## Support

@@ -638,20 +638,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../development/local-development-environment/" title="Local development environment" class="md-nav__link">
-      Local development environment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../development/git/" title="Git" class="md-nav__link">
-      Git
+    <a href="../../development/workflow/" title="Development Workflow" class="md-nav__link">
+      Development Workflow
     </a>
   </li>
 
@@ -664,6 +652,18 @@
   <li class="md-nav__item">
     <a href="../../development/code-review/" title="Code review" class="md-nav__link">
       Code review
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../development/local-development-environment/" title="Local development environment" class="md-nav__link">
+      Local development environment
     </a>
   </li>
 
@@ -710,30 +710,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../development/compliance-vpdss/" title="Compliance with VPDSS" class="md-nav__link">
-      Compliance with VPDSS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../development/workflow/" title="Development Workflow" class="md-nav__link">
-      Development Workflow
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../development/module-development/" title="Module Development" class="md-nav__link">
       Module Development
     </a>
@@ -748,18 +724,6 @@
   <li class="md-nav__item">
     <a href="../../development/release/" title="Release management" class="md-nav__link">
       Release management
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../development/nist-self-assessment/" title="NIST self-assessment" class="md-nav__link">
-      NIST self-assessment
     </a>
   </li>
 
@@ -834,6 +798,106 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#local-environment-setup" title="Local environment setup" class="md-nav__link">
+    Local environment setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-ahoy-commands" title="Available ahoy commands" class="md-nav__link">
+    Available ahoy commands
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sshing-into-cli-container" title="SSHing into CLI container" class="md-nav__link">
+    SSHing into CLI container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-a-command-in-cli-container" title="Running a command in CLI container" class="md-nav__link">
+    Running a command in CLI container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mailhog" title="Mailhog." class="md-nav__link">
+    Mailhog.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stage-file-proxy" title="Stage file proxy." class="md-nav__link">
+    Stage file proxy.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-drupal-modules" title="Adding Drupal modules" class="md-nav__link">
+    Adding Drupal modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-patches-for-composer-packages" title="Adding patches for composer packages" class="md-nav__link">
+    Adding patches for composer packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coding-standards" title="Coding standards" class="md-nav__link">
+    Coding standards
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#behat-tests" title="Behat tests" class="md-nav__link">
+    Behat tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-builds-continuous-integration" title="Automated builds (Continuous Integration)" class="md-nav__link">
+    Automated builds (Continuous Integration)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" title="Debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -846,7 +910,166 @@
                 
                 
                 <h1 id="name"><em>name</em><a class="headerlink" href="#name" title="Permanent link">&para;</a></h1>
-<p>To be provided.</p>
+<p>Drupal 8 implementation of Content API for_name_</p>
+<p><a href="https://circleci.com/gh/dpc-sdp/_machine_name_"><img alt="CircleCI" src="https://circleci.com/gh/dpc-sdp/_machine_name_.svg?style=shield&amp;circle-token=619001ceda795d221a96315242e2782f621612d4" /></a>
+<img alt="Release" src="https://img.shields.io/github/release/dpc-sdp/_machine_name_.svg" /></p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Make sure that you have latest versions of all required software installed:   </li>
+<li><a href="https://www.docker.com/">Docker</a> </li>
+<li><a href="https://docs.amazee.io/local_docker_development/pygmy.html">Pygmy</a></li>
+<li><a href="https://github.com/ahoy-cli/ahoy">Ahoy</a> </li>
+<li>Make sure that all local web development services are shut down (<code>apache/nginx</code>, <code>mysql</code>, <code>MAMP</code> etc).</li>
+</ol>
+<h2 id="local-environment-setup">Local environment setup<a class="headerlink" href="#local-environment-setup" title="Permanent link">&para;</a></h2>
+<ol>
+<li><code>curl https://raw.githubusercontent.com/dpc-sdp/dev-tools/master/install | bash</code></li>
+<li><code>pygmy up</code></li>
+<li><code>ahoy build</code> </li>
+</ol>
+<p>Local URL -- http://<em>machine_name</em>.docker.amazee.io/</p>
+<h2 id="available-ahoy-commands">Available <code>ahoy</code> commands<a class="headerlink" href="#available-ahoy-commands" title="Permanent link">&para;</a></h2>
+<p>Run each command as <code>ahoy &lt;command&gt;</code>.
+<div class="codehilite"><pre><span></span> build                Build or rebuild project.
+   clean                Remove all build files.
+   clean-full           Remove all development files.
+   cli                  Start a shell inside CLI container or run a command.
+   composer-merge       Merge composer files.
+   deploy               Deploy or re-deploy a branch in Bay.
+   doctor               Identify problems with current stack.
+   down                 Stop Docker containers and remove container, images, volumes and networks.
+   drush                Run drush commands in the CLI service container.
+   flush-redis          Flush Redis cache.
+   info                 Print information about this project.
+   install-dev          Install dependencies.
+   install-site         Install site.
+   lint                 Lint code.
+   login                Login to a website.
+   logs                 Show Docker logs.
+   pull                 Pull latest docker images.
+   restart              Restart all stopped and running Docker containers.
+   start                Start existing Docker containers.
+   stop                 Stop running Docker containers.
+   test-behat           Run Behat tests.
+   up                   Build and start Docker containers.   
+</pre></div></p>
+<h2 id="sshing-into-cli-container">SSHing into CLI container<a class="headerlink" href="#sshing-into-cli-container" title="Permanent link">&para;</a></h2>
+<p><code>ahoy cli</code></p>
+<h2 id="running-a-command-in-cli-container">Running a command in CLI container<a class="headerlink" href="#running-a-command-in-cli-container" title="Permanent link">&para;</a></h2>
+<p><code>ahoy cli ls /app</code></p>
+<h2 id="mailhog">Mailhog.<a class="headerlink" href="#mailhog" title="Permanent link">&para;</a></h2>
+<p>Mailhog is included with <code>pygmy</code> and is available @ <a href="http://mailhog.docker.amazee.io/">http://mailhog.docker.amazee.io/</a>
+Documentation for mailhog is available of the project page -- <a href="https://github.com/mailhog/MailHog">https://github.com/mailhog/MailHog</a></p>
+<h2 id="stage-file-proxy">Stage file proxy.<a class="headerlink" href="#stage-file-proxy" title="Permanent link">&para;</a></h2>
+<p>Stage File Proxy is enabled on all non production environments so files are automatically downloaded directly from prod on demand.</p>
+<h2 id="adding-drupal-modules">Adding Drupal modules<a class="headerlink" href="#adding-drupal-modules" title="Permanent link">&para;</a></h2>
+<p>Modules needs to be added in 2 steps:
+1. Require module code installation (through composer).
+2. Enable module during site installation.</p>
+<h3>Adding contrib modules</h3>
+<p><code>composer require drupal/module_name</code>
+or for specific versions
+<code>composer require drupal/module_name:1.2</code></p>
+<h3>Adding modules as local packages</h3>
+<ol>
+<li>Add local package information to the root of <code>composer.json</code>:
+    <div class="codehilite"><pre><span></span>&quot;repositories&quot;: {
+    &quot;dpc-sdp/tide_page&quot;: {
+        &quot;type&quot;: &quot;path&quot;,
+        &quot;url&quot;: &quot;dpc-sdp/tide_page&quot;
+    },
+}
+</pre></div></li>
+<li><code>composer require tide_page</code> </li>
+<li>To make sure that Composer triggers dependency tree rebuild, run <code>ahoy clean</code>.</li>
+<li>Run <code>composer update --lock</code>. This will install all dependencies and 
+   update root <code>composer.lock</code> file with newly added module. </li>
+</ol>
+<h2 id="adding-patches-for-composer-packages">Adding patches for composer packages<a class="headerlink" href="#adding-patches-for-composer-packages" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Add <code>title</code> and <code>url</code> to patch on drupal.org to the <code>patches</code> array in
+   <code>extra</code> section in <code>composer.json</code>.
+    <div class="codehilite"><pre><span></span>&quot;extra&quot;: {
+    &quot;patches&quot;: {
+        &quot;drupal/core&quot;: {
+            &quot;Contextual links should not be added inside another link - https://www.drupal.org/node/2898875&quot;: &quot;https://www.drupal.org/files/issues/contextual_links_should-2898875-3.patch&quot;
+        }
+    }    
+}
+</pre></div></p>
+</li>
+<li>
+<p><code>composer update --lock</code></p>
+</li>
+</ol>
+<h2 id="coding-standards">Coding standards<a class="headerlink" href="#coding-standards" title="Permanent link">&para;</a></h2>
+<p>PHP and JS code linting uses
+<a href="https://github.com/squizlabs/PHP_CodeSniffer">PHP_CodeSniffer</a> with Drupal
+rules from <a href="https://www.drupal.org/project/coder">Coder</a> module and additional
+local overrides in <code>phpcs.xml.dist</code> and <code>.eslintrc</code>.   </p>
+<h2 id="behat-tests">Behat tests<a class="headerlink" href="#behat-tests" title="Permanent link">&para;</a></h2>
+<p>Behat configuration uses multiple extensions: 
+- <a href="https://github.com/jhedstrom/drupalextension">Drupal Behat Extension</a> - Drupal integration layer. Allows to work with Drupal API from within step definitions.
+- <a href="https://github.com/integratedexperts/behat-screenshot">Behat Screenshot Extension</a> - Behat extension and a step definition to create HTML and image screenshots on demand or test fail.
+- <a href="https://github.com/integratedexperts/behat-format-progress-fail">Behat Progress Fail Output Extension</a> - Behat output formatter to show progress as TAP and fail messages inline. Useful to get feedback about failed tests while continuing test run.
+- <code>YoursiteDrupalContext</code> - Site-specific Drupal context with custom step definitions.
+- <code>YoursiteMinkContext</code> - Site-specific Mink context with custom step definitions.</p>
+<p>Generic Behat tests should be written against the test entities from the Tide Test module. If a new test entity (node, block, etc.) is added to the Tide Test module, the relevant permissions must be also granted to Approver and Editor via the hook <code>tide_test_entity_bundle_create()</code>.</p>
+<h3>Run tests locally:</h3>
+<ul>
+<li>Run Behat tests: <code>ahoy test-behat</code><ul>
+<li>Run specific test feature: <code>ahoy test-behat tests/behat/features/homepage.feature</code></li>
+<li>Run specific test tag: <code>ahoy test-behat -- --tags=wip</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="automated-builds-continuous-integration">Automated builds (Continuous Integration)<a class="headerlink" href="#automated-builds-continuous-integration" title="Permanent link">&para;</a></h2>
+<p>In software engineering, continuous integration (CI) is the practice of merging
+all developer working copies to a shared mainline several times a day. Before
+feature changes can be merged into a shared mainline, a complete build must run
+and pass all tests on CI server.</p>
+<p>This project uses <a href="https://circleci.com/">Circle CI</a> as CI server: it imports
+production backups into fully built codebase and runs code linting and tests.
+When tests pass, a deployment process is triggered for nominated branches
+(usually, <code>master</code> and <code>develop</code>).</p>
+<p>Add [skip ci] to the commit subject to skip CI build. Useful for documentation
+changes.</p>
+<h3>SSH</h3>
+<p>Circle CI supports SSHing into the build for 30 minutes after the build is
+finished. SSH can be enabled either during the build run or when the build is
+started with SSH support.</p>
+<h3>Test artifacts</h3>
+<p>Test artifacts (screenshots etc.) are available under 'Artifacts' tab in
+CircleCI UI.</p>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<h3>PHP application from browser</h3>
+<ol>
+<li>Trigger xDebug from web browser (using one of the browser extensions) so that
+PHPStorm recognises the server <code>yoursite.docker.amazee.io</code> and
+configures the path mapping. Alternatively, you can create the server in
+PHPStorm Settings.</li>
+<li>Make sure <code>serverName</code> to be <code>yoursite.docker.amazee.io</code></li>
+</ol>
+<h3>PHP scripts</h3>
+<div class="codehilite"><pre><span></span>ahoy cli
+xdebug.sh path/to/script
+</pre></div>
+
+<p>For example, to run a single Behat test: <code>xdebug.sh vendor/bin/behat path/to/test.feature</code></p>
+<h3>Drush commands</h3>
+<div class="codehilite"><pre><span></span>ahoy cli
+`./xdebug.sh vendor/bin/drush &lt;DRUSH_COMMAND&gt;
+</pre></div>
+
+<h3>DB connection details</h3>
+<p>Run <code>ahoy info</code> to get the port number.</p>
+<div class="codehilite"><pre><span></span>  Host:     127.0.0.1
+  Username: drupal
+  Password: drupal
+  Database: drupal
+  Port:     &lt;get from &quot;ahoy info&quot;&gt;
+</pre></div>
                 
                   
                 
