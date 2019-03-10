@@ -6,6 +6,16 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/terminology/</loc>
+     <lastmod>2019-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/overview/</loc>
+     <lastmod>2019-03-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/architecture/</loc>
      <lastmod>2019-03-10</lastmod>
      <changefreq>daily</changefreq>
