@@ -674,9 +674,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Local development environment
+      </label>
+    
     <a href="./" title="Local development environment" class="md-nav__link md-nav__link--active">
       Local development environment
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -811,6 +847,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -823,7 +882,23 @@
                 
                 
                 <h1 id="local-development-environment">Local development environment<a class="headerlink" href="#local-development-environment" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<p>We are using <a href="https://github.com/dpc-sdp/dev-tools">Dev Tools</a> for module and 
+site development.   </p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Make sure that you have latest versions of all required software installed:   </li>
+<li><a href="https://www.docker.com/">Docker</a> </li>
+<li><a href="https://docs.amazee.io/local_docker_development/pygmy.html">Pygmy</a></li>
+<li><a href="https://github.com/ahoy-cli/ahoy">Ahoy</a> </li>
+<li>Make sure that all local web development services are shut down (<code>apache/nginx</code>, <code>mysql</code>, <code>MAMP</code> etc).</li>
+</ol>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<ol>
+<li><code>curl https://raw.githubusercontent.com/dpc-sdp/dev-tools/master/install | bash</code></li>
+<li><code>pygmy up</code></li>
+<li><code>ahoy build</code> </li>
+</ol>
+<p>Find more information about Dev Tools at <a href="https://github.com/dpc-sdp/dev-tools">https://github.com/dpc-sdp/dev-tools</a>. </p>
                 
                   
                 
