@@ -592,8 +592,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../ripple/content-rendering-pipeline/" title="Content rendering pipeline" class="md-nav__link">
-      Content rendering pipeline
+    <a href="../../ripple/content-data-flow/" title="Content data flow" class="md-nav__link">
+      Content data flow
     </a>
   </li>
 
@@ -710,9 +710,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Front-end coding standards
+      </label>
+    
     <a href="./" title="Front-end coding standards" class="md-nav__link md-nav__link--active">
       Front-end coding standards
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#components-styling-agreements" title="Components styling agreements" class="md-nav__link">
+    Components styling agreements
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -823,6 +852,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#components-styling-agreements" title="Components styling agreements" class="md-nav__link">
+    Components styling agreements
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -836,6 +881,38 @@
                 
                 <h1 id="front-end-coding-standards">Front-End Coding Standards<a class="headerlink" href="#front-end-coding-standards" title="Permanent link">&para;</a></h1>
 <p>Content for this page has not been migrated yet.</p>
+<h2 id="components-styling-agreements">Components styling agreements<a class="headerlink" href="#components-styling-agreements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>rpl</code> prefix is used for all classes.</li>
+<li>Use hyphen <code>-</code> to separate words within class, use 2 hyphens <code>--</code> to separate
+  class parts. For example, <code>.rpl-vertical-tabs--open</code>.</li>
+<li>Use underscore <code>_</code> to separate words within mixins, use 2 underscores <code>__</code> to 
+  separate mixin parts. For example, <code>rpl_vertical_tabs__tabs()</code>.    </li>
+<li>Class names are based on hierarchy:</li>
+<li>Component class name: <code>.rpl-[component-name]</code></li>
+<li>Element class name: <code>.rpl-[component-name]__[element-name]</code></li>
+<li>Modifier class name: <code>.rpl-[component-name]--[modifier-name]</code></li>
+<li>Each component should define as variables:</li>
+<li>colours </li>
+<li>font sizes</li>
+<li>padding</li>
+<li>margins (Not needed on margins if values are used for absolute placement, 
+     e.g. <code>auto</code>, <code>0</code>).</li>
+<li>Variables should use <code>rpl</code> prefix.</li>
+<li>HTML elements can be defined by their tag (not just class) where suitable.</li>
+</ul>
+<p>Component example:
+<div class="codehilite"><pre><span></span><span class="c1">// Core</span>
+<span class="c1">// =====================================</span>
+<span class="c1">// Variables.</span>
+<span class="nv">$rpl-core-link-color</span><span class="o">:</span> <span class="ni">blue</span><span class="p">;</span>
+
+<span class="c1">// Mixins.</span>
+<span class="k">@mixin</span><span class="nf"> rpl_core_link</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nt">color</span><span class="nd">:</span> <span class="err">$</span><span class="nt">rpl-core-link-color</span><span class="o">;</span>
+  <span class="nt">text-decoration</span><span class="nd">:</span> <span class="nt">underline</span><span class="o">;</span>
+<span class="p">}</span>
+</pre></div></p>
                 
                   
                 

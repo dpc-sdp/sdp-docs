@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Single Digital Presence">
       
       
-        <link rel="canonical" href="https://dpc-sdp.github.io/sdp-docs/ripple/content-rendering-pipeline/">
+        <link rel="canonical" href="https://dpc-sdp.github.io/sdp-docs/ripple/content-data-flow/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Content rendering pipeline - Single Digital Presence</title>
+        <title>Content data flow - Single Digital Presence</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#content-delivery-and-rendering-pipeline" tabindex="1" class="md-skip">
+      <a href="#content-data-flow" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -131,7 +131,7 @@
               Single Digital Presence
             </span>
             <span class="md-header-nav__topic">
-              Content rendering pipeline
+              Content data flow
             </span>
           
         </div>
@@ -602,9 +602,38 @@
       
     
     
-    <a href="./" title="Content rendering pipeline" class="md-nav__link md-nav__link--active">
-      Content rendering pipeline
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Content data flow
+      </label>
+    
+    <a href="./" title="Content data flow" class="md-nav__link md-nav__link--active">
+      Content data flow
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-round-trip" title="Request round trip" class="md-nav__link">
+    Request round trip
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -823,6 +852,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-round-trip" title="Request round trip" class="md-nav__link">
+    Request round trip
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -834,8 +879,40 @@
               
                 
                 
-                <h1 id="content-delivery-and-rendering-pipeline">Content delivery and rendering pipeline<a class="headerlink" href="#content-delivery-and-rendering-pipeline" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+                <h1 id="content-data-flow">Content data flow<a class="headerlink" href="#content-data-flow" title="Permanent link">&para;</a></h1>
+<p>This chapter describes how data requested from Content repository flows to 
+front-end website implementation and how it is then rendered to the visitor 
+in the browser.</p>
+<h2 id="request-round-trip">Request round trip<a class="headerlink" href="#request-round-trip" title="Permanent link">&para;</a></h2>
+<p>The diagram below shows how a visitor's request travels through all systems
+to render a page and, subsequently, update a component.</p>
+<details><summary>Component request diagram</summary><p><img alt="Component data flow diagram" src="../../assets/component-data-diagram.png" /></p>
+</details>
+<p>There are multiple caching layers to speed up the initial page render:
+- Static HTML page cache in CloudFront<br/>
+  Cache of the previously rendered front-end page. This completely avoids
+  requests to API, making the site render solely in the browser.
+- Static API JSON response cache in CloudFront<br/>
+  Cache of the previously requested API response. This allows to speedup page
+  assembly from several API endpoints.
+- Content repository entity cache and other caches<br/>
+  Internal caching mechanism within Content repository. Allows to lower load
+  and minimise expensive data retrieval operations from the database.   </p>
+<p>Once rendered, components may request an update for a part of the page, 
+bypassing all static cache layers, but still re-using caching within Content
+repository.</p>
+<p>Note that Content repository refreshes internal caches and notifies external
+proxies (CloudFront etc.) once the content changes. This mechanism is inbuilt 
+in Drupal.</p>
+<h1 id="nuxt-data-processing">NUXT data processing<a class="headerlink" href="#nuxt-data-processing" title="Permanent link">&para;</a></h1>
+<p>Once request reaches front-end website, NUXT receives a request, fetches 
+internal configuration and requests content from Content repository via <code>tide</code> 
+package, which has field mappings and other integrations defined. Once the 
+content is received, the page template assembles page using Ripple component 
+library, after which the page is sent to the browser.</p>
+<p>Note that Ripple is completely separate from the <code>tide</code> package and NUXT 
+configuration - this makes it unbound to Tide Content repository. </p>
+<p><img alt="NUXT Request processing diagram" src="../../assets/nuxt-request-handling.png" /></p>
                 
                   
                 

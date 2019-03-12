@@ -2,162 +2,162 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/terminology/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/overview/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/architecture/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/bay/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/bay/onboarding/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/bay/preview-environments/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/tide/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/tide/modules/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/tide/api/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/tide/sites-sections/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/tide/fields-components/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/tide/setup/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/ripple/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/ripple/components/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/ripple/api/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/ripple/search/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/content-rendering-pipeline/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <loc>https://dpc-sdp.github.io/sdp-docs/ripple/content-data-flow/</loc>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/ripple/setup/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/workflow/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/code-review/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/local-development-environment/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/back-end-coding-standards/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/front-end-coding-standards/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/automated-builds/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/module-development/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/release/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/accessibility/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/readme-files/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/troubleshooting/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/documentation/</loc>
-     <lastmod>2019-03-10</lastmod>
+     <lastmod>2019-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
