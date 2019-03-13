@@ -705,15 +705,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#drupal-tools-setup" title="Drupal tools setup" class="md-nav__link">
+    Drupal tools setup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" title="Setup" class="md-nav__link">
-    Setup
+  <a href="#vuejs-tools-setup" title="Vue.js tools setup" class="md-nav__link">
+    Vue.js tools setup
   </a>
   
 </li>
@@ -863,15 +863,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" title="Prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#drupal-tools-setup" title="Drupal tools setup" class="md-nav__link">
+    Drupal tools setup
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup" title="Setup" class="md-nav__link">
-    Setup
+  <a href="#vuejs-tools-setup" title="Vue.js tools setup" class="md-nav__link">
+    Vue.js tools setup
   </a>
   
 </li>
@@ -894,9 +894,10 @@
                 
                 
                 <h1 id="local-development-environment">Local development environment<a class="headerlink" href="#local-development-environment" title="Permanent link">&para;</a></h1>
-<p>We are using <a href="https://github.com/dpc-sdp/dev-tools">Dev Tools</a> for module and 
-site development.   </p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h2 id="drupal-tools-setup">Drupal tools setup<a class="headerlink" href="#drupal-tools-setup" title="Permanent link">&para;</a></h2>
+<p>We are using <a href="https://github.com/dpc-sdp/dev-tools">Dev Tools</a> for Drupal module 
+and  site development.   </p>
+<h3>Prerequisites</h3>
 <ol>
 <li>Make sure that you have latest versions of all required software installed:   </li>
 <li><a href="https://www.docker.com/">Docker</a> </li>
@@ -904,13 +905,33 @@ site development.   </p>
 <li><a href="https://github.com/ahoy-cli/ahoy">Ahoy</a> </li>
 <li>Make sure that all local web development services are shut down (<code>apache/nginx</code>, <code>mysql</code>, <code>MAMP</code> etc).</li>
 </ol>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<h3>Setup</h3>
 <ol>
 <li><code>curl https://raw.githubusercontent.com/dpc-sdp/dev-tools/master/install | bash</code></li>
 <li><code>pygmy up</code></li>
 <li><code>ahoy build</code> </li>
 </ol>
 <p>Find more information about Dev Tools at <a href="https://github.com/dpc-sdp/dev-tools">https://github.com/dpc-sdp/dev-tools</a>. </p>
+<h2 id="vuejs-tools-setup">Vue.js tools setup<a class="headerlink" href="#vuejs-tools-setup" title="Permanent link">&para;</a></h2>
+<p>The steps below describe how to setup IDE (PHPStorm/WebStorm) to work with 
+Vue.js application.</p>
+<h3>Setup JS version</h3>
+<ol>
+<li>Install Vue.js plugin (follow the setup guide at  <a href="https://www.jetbrains.com/help/phpstorm/vue-js.html">https://www.jetbrains.com/help/phpstorm/vue-js.html</a>)</li>
+<li>Set "JavaScript language version" to "ECMAScript 6" 
+<img alt="Screenshot of PHPStorm settings window" src="../../assets/tools-phpstorm-js-version.png" /></li>
+</ol>
+<h3>Setup JS Debugging</h3>
+<ol>
+<li>Create a new JavaScript debug configuration</li>
+<li>Specify the URL the app is running on (<a href="http://localhost:8080">http://localhost:8080</a>)</li>
+<li>Set a breakpoint </li>
+<li>Start the debug session by pressing "Debug" button in WebStorm/PHPStorm.</li>
+</ol>
+<p>Once the code where the breakpoint is has been triggered, the execution will
+stop, and you’ll see the local and global variables, the call stack, and many
+other things in the IDE debug tools window.</p>
+<p><img alt="Screecast of debugging session running in PHPStorm window" src="../../assets/tools-phpstorm-debugging-vue-app.gif" /></p>
                 
                   
                 

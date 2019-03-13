@@ -566,9 +566,38 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Components
+      </label>
+    
     <a href="./" title="Components" class="md-nav__link md-nav__link--active">
       Components
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#forms" title="Forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -823,6 +852,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#forms" title="Forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -835,7 +880,575 @@
                 
                 
                 <h1 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<h2 id="forms">Forms<a class="headerlink" href="#forms" title="Permanent link">&para;</a></h2>
+<p>Ripple supports Drupal <a href="https://www.drupal.org/project/webform">Webform</a>. </p>
+<p>All backend Drupal <a href="https://www.drupal.org/project/webform">webforms</a> in Ripple
+frontend are rendered dynamically using <a href="https://icebob.gitbooks.io/vueformgenerator/">Vue Form Generator</a>(VFG).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only limited set functionality is currently supported. See "Support status"
+column.</p>
+</div>
+<h3>Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Webform field</th>
+<th>Support status</th>
+<th>VFG form field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#title</code></td>
+<td>IMPLEMENTED</td>
+<td>label</td>
+</tr>
+<tr>
+<td><code>#required</code></td>
+<td>IMPLEMENTED</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>#options</code></td>
+<td>IMPLEMENTED</td>
+<td>values</td>
+</tr>
+<tr>
+<td><code>#empty_option</code></td>
+<td>IMPLEMENTED</td>
+<td>placeholder</td>
+</tr>
+<tr>
+<td><code>#description</code></td>
+<td>IMPLEMENTED</td>
+<td>hint</td>
+</tr>
+<tr>
+<td><code>#placeholder</code></td>
+<td>IMPLEMENTED</td>
+<td>placeholder</td>
+</tr>
+</tbody>
+</table>
+<h3>Elements</h3>
+<table>
+<thead>
+<tr>
+<th>Webform element name</th>
+<th>Webform Category</th>
+<th>Webform element ID</th>
+<th>Support status</th>
+<th>VFG form element </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checkbox</td>
+<td>Basic</td>
+<td><code>checkbox</code></td>
+<td>PLANNED</td>
+<td><code>checkbox</code></td>
+</tr>
+<tr>
+<td>Hidden</td>
+<td>Basic</td>
+<td><code>hidden</code></td>
+<td>IMPLEMENTED</td>
+<td><code>input: hidden</code></td>
+</tr>
+<tr>
+<td>Textarea</td>
+<td>Basic</td>
+<td><code>textarea</code></td>
+<td>IMPLEMENTED</td>
+<td><code>textArea</code></td>
+</tr>
+<tr>
+<td>Text field</td>
+<td>Basic</td>
+<td><code>textfield</code></td>
+<td>IMPLEMENTED</td>
+<td><code>input: text</code></td>
+</tr>
+<tr>
+<td>Autocomplete</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>CAPTCHA</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>CodeMirror</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Color</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Advanced</td>
+<td><code>email</code></td>
+<td>IMPLEMENTED</td>
+<td><code>input: email</code></td>
+</tr>
+<tr>
+<td>Email confirm</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Email multiple</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Mapping</td>
+<td>Advanced</td>
+<td>Mapping</td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Number</td>
+<td>Advanced</td>
+<td><code>number</code></td>
+<td>IMPLEMENTED</td>
+<td><code>input: number</code></td>
+</tr>
+<tr>
+<td>Range</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Rating</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Search</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Signature</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Telephone</td>
+<td>Advanced</td>
+<td><code>tel</code></td>
+<td></td>
+<td><code>input: tel</code></td>
+</tr>
+<tr>
+<td>Terms of service</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Text format</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Toggle</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>URL</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Advanced</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Basic address</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Advanced address</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Contact</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Custom composite</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Link</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Telephone advanced?</td>
+<td>Composite</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Advanced HTML/Text</td>
+<td>Markup</td>
+<td><code>processed_text</code></td>
+<td>PLANNED</td>
+<td><code>label</code></td>
+</tr>
+<tr>
+<td>Basic HTML</td>
+<td>Markup</td>
+<td><code>webform_markup</code></td>
+<td>PLANNED</td>
+<td><code>label</code></td>
+</tr>
+<tr>
+<td>Horizontal rule</td>
+<td>Markup</td>
+<td><code>horizontal_rule</code></td>
+<td>PLANNED</td>
+<td><code>custom</code></td>
+</tr>
+<tr>
+<td>Message</td>
+<td>Markup</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Label</td>
+<td>Markup</td>
+<td><code>label</code></td>
+<td>PLANNED</td>
+<td><code>label</code></td>
+</tr>
+<tr>
+<td>Audio file</td>
+<td>File upload</td>
+<td><code>file</code></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Document file</td>
+<td>File upload</td>
+<td><code>file</code></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>File</td>
+<td>File upload</td>
+<td><code>file</code></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Image file</td>
+<td>File upload</td>
+<td><code>file</code></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Video file</td>
+<td>File upload</td>
+<td><code>file</code></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Buttons</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Checkboxes</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Checkboxes other</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Likert</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Radios</td>
+<td>Options</td>
+<td><code>radios</code></td>
+<td>IMPLEMENTED</td>
+<td><code>radios</code></td>
+</tr>
+<tr>
+<td>Radios other</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Select</td>
+<td>Options</td>
+<td><code>select</code></td>
+<td>LIMITED</td>
+<td><code>vueMultiSelect</code></td>
+</tr>
+<tr>
+<td>Multi Select</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Select other</td>
+<td>Options</td>
+<td><code>select_other</code></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Table select</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Tableselect sort</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Table sort</td>
+<td>Options</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Computed token</td>
+<td>Computed</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Computed Twig</td>
+<td>Computed</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Container</td>
+<td>Container</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Details</td>
+<td>Container</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Fieldset</td>
+<td>Container</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Flexbox layout</td>
+<td>Container</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Container</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Section</td>
+<td>Container</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Date</td>
+<td>Date/time</td>
+<td><code>date</code></td>
+<td>PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Date/time</td>
+<td>Date/time</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Date list</td>
+<td>Date/time</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Time</td>
+<td>Date/time</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Submit button(s)</td>
+<td>Buttons</td>
+<td><code>webform_actions</code></td>
+<td>LIMITED</td>
+<td></td>
+</tr>
+<tr>
+<td>Entity autocomplete</td>
+<td>Entity reference</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Entity checkboxes</td>
+<td>Entity reference</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Entity radios</td>
+<td>Entity reference</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Entity select</td>
+<td>Entity reference</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Term checkboxes</td>
+<td>Entity reference</td>
+<td></td>
+<td>NOT PLANNED</td>
+<td></td>
+</tr>
+<tr>
+<td>Term select</td>
+<td>Entity reference</td>
+<td><code>webform_term_select</code></td>
+<td>PLANNED</td>
+<td></td>
+</tr>
+</tbody>
+</table>
                 
                   
                 
