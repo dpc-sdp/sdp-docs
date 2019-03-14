@@ -789,8 +789,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#projects" title="Projects" class="md-nav__link">
-    Projects
+  <a href="#content-repository" title="Content repository" class="md-nav__link">
+    Content repository
   </a>
   
 </li>
@@ -798,6 +798,13 @@
         <li class="md-nav__item">
   <a href="#tide-modules" title="Tide modules" class="md-nav__link">
     Tide modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#front-end-implementation-site" title="Front-end implementation site" class="md-nav__link">
+    Front-end implementation site
   </a>
   
 </li>
@@ -863,8 +870,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#projects" title="Projects" class="md-nav__link">
-    Projects
+  <a href="#content-repository" title="Content repository" class="md-nav__link">
+    Content repository
   </a>
   
 </li>
@@ -872,6 +879,13 @@
         <li class="md-nav__item">
   <a href="#tide-modules" title="Tide modules" class="md-nav__link">
     Tide modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#front-end-implementation-site" title="Front-end implementation site" class="md-nav__link">
+    Front-end implementation site
   </a>
   
 </li>
@@ -894,13 +908,28 @@
                 
                 
                 <h1 id="readmemd-files">README.md files<a class="headerlink" href="#readmemd-files" title="Permanent link">&para;</a></h1>
-<p>We provide 2 templates of <code>README.md</code> files: for consumer projects and Tide modules.</p>
-<h2 id="projects">Projects<a class="headerlink" href="#projects" title="Permanent link">&para;</a></h2>
+<p>There are 3 templates for readme files that can be used within projects:</p>
+<ul>
+<li><a href="#content-repository">Content repository</a></li>
+<li><a href="#tide-modules">Tide modules</a></li>
+<li><a href="#front-end-implementation-site">Front-end implementation site</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note that you would need to replace several tokens within these files:</p>
+<ul>
+<li><code>_name_</code> - the name of the project</li>
+<li><code>_machine_name_</code> - the machine name of the project</li>
+<li><code>_org_machine_name_</code> - the machine name of the organisation </li>
+</ul>
+</div>
+<h2 id="content-repository">Content repository<a class="headerlink" href="#content-repository" title="Permanent link">&para;</a></h2>
+<p><a href="/assets/README.site">README.site.md</a></p>
 <div class="codehilite"><pre><span></span># _name_
-Drupal 8 implementation of Content API for_name_
+Drupal 8 implementation of Content repository for _name_
 
-[![CircleCI](https://circleci.com/gh/dpc-sdp/_machine_name_.svg?style=shield&amp;circle-token=619001ceda795d221a96315242e2782f621612d4)](https://circleci.com/gh/dpc-sdp/_machine_name_)
-![Release](https://img.shields.io/github/release/dpc-sdp/_machine_name_.svg)
+[![CircleCI](https://circleci.com/gh/_org_machine_name_/_machine_name_.svg?style=shield)](https://circleci.com/gh/_org_machine_name_/_machine_name_)
+![Release](https://img.shields.io/github/release/_org_machine_name_/_machine_name_.svg)
 
 ## Prerequisites
 1. Make sure that you have latest versions of all required software installed:   
@@ -950,13 +979,14 @@ Run each command as `ahoy &lt;command&gt;`.
 `ahoy cli ls /app`
 
 ## Mailhog.
-
-Mailhog is included with `pygmy` and is available @ http://mailhog.docker.amazee.io/
-Documentation for mailhog is available of the project page -- https://github.com/mailhog/MailHog
+[Mailhog](https://github.com/mailhog/MailHog) is included with `pygmy` and is available at
+http://mailhog.docker.amazee.io/ 
 
 ## Stage file proxy.
 
-Stage File Proxy is enabled on all non production environments so files are automatically downloaded directly from prod on demand.
+[Stage File Proxy](https://www.drupal.org/project/stage_file_proxy) is enabled
+on all non production environments so files are automatically downloaded
+directly from prod on demand.
 
 ## Adding Drupal modules
 Modules needs to be added in 2 steps:
@@ -1006,13 +1036,17 @@ local overrides in `phpcs.xml.dist` and `.eslintrc`.
 
 ## Behat tests
 Behat configuration uses multiple extensions: 
-- [Drupal Behat Extension](https://github.com/jhedstrom/drupalextension) - Drupal integration layer. Allows to work with Drupal API from within step definitions.
-- [Behat Screenshot Extension](https://github.com/integratedexperts/behat-screenshot) - Behat extension and a step definition to create HTML and image screenshots on demand or test fail.
-- [Behat Progress Fail Output Extension](https://github.com/integratedexperts/behat-format-progress-fail) - Behat output formatter to show progress as TAP and fail messages inline. Useful to get feedback about failed tests while continuing test run.
+- [Drupal Behat Extension](https://github.com/jhedstrom/drupalextension) -
+  Drupal integration layer. Allows to work with Drupal API from within step
+  definitions.
+- [Behat Screenshot Extension](https://github.com/integratedexperts/behat-screenshot) - Behat
+  extension and a step definition to create HTML and image screenshots on demand
+  or test fail.
+- [Behat Progress Fail Output Extension](https://github.com/integratedexperts/behat-format-progress-fail) -
+  Behat output formatter to show progress as TAP and fail messages inline. Useful
+  to get feedback about failed tests while continuing test run.
 - `YoursiteDrupalContext` - Site-specific Drupal context with custom step definitions.
 - `YoursiteMinkContext` - Site-specific Mink context with custom step definitions.
-
-Generic Behat tests should be written against the test entities from the Tide Test module. If a new test entity (node, block, etc.) is added to the Tide Test module, the relevant permissions must be also granted to Approver and Editor via the hook `tide_test_entity_bundle_create()`.
 
 ### Run tests locally:
 - Run Behat tests: `ahoy test-behat`
@@ -1077,12 +1111,13 @@ Run `ahoy info` to get the port number.
 </pre></div>
 
 <h2 id="tide-modules">Tide modules<a class="headerlink" href="#tide-modules" title="Permanent link">&para;</a></h2>
+<p><a href="/assets/README.module">README.module.md</a></p>
 <div class="codehilite"><pre><span></span># _name_
 _name_ content type for [Tide](https://github.com/dpc-sdp/tide) distribution for [Drupal 8](https://github.com/dpc-sdp)
 
 Tide is a Drupal 8 distribution focused on delivering an API first, headless Drupal content administration site.
 
-[![CircleCI](https://circleci.com/gh/dpc-sdp/_machine_name_.svg?style=shield&amp;circle-token=2a0e49166724ac193636fba5b458024e00342dce)](https://circleci.com/gh/dpc-sdp/_machine_name_)
+[![CircleCI](https://circleci.com/gh/dpc-sdp/_machine_name_.svg?style=shield)](https://circleci.com/gh/dpc-sdp/_machine_name_)
 [![Release](https://img.shields.io/github/release/dpc-sdp/_machine_name_.svg)](https://github.com/dpc-sdp/_machine_name_/releases/latest)
 ![https://www.drupal.org/8](https://img.shields.io/badge/Drupal-8-blue.svg)
 [![Licence: GPL 2](https://img.shields.io/badge/licence-GPL2-blue.svg)](https://github.com/dpc-sdp/_machine_name_/blob/master/LICENSE.txt)
@@ -1117,15 +1152,18 @@ composer require dpc/_machine_name_
 ``` 
 
 ## Support
-[Digital Engagement, Department of Premier and Cabinet, Victoria, Australia](https://github.com/dpc-sdp) 
-is a maintainer of this package.
+[Digital Engagement, Department of Premier and Cabinet, Victoria,
+Australia](https://github.com/dpc-sdp) is a maintainer of this package.
 
 ## Contribute
-[Open an issue](https://github.com/dpc-sdp) on GitHub or submit a pull request with suggested changes.
+[Open an issue](https://github.com/dpc-sdp) on GitHub or submit a pull request
+with suggested changes.
 
 ## Development and maintenance
-Development is powered by [Dev-Tools](https://github.com/dpc-sdp/dev-tools). Please refer to Dev-Tools&#39; 
-page for [system requirements](https://github.com/dpc-sdp/dev-tools/#prerequisites) and other details.
+Development is powered by [Dev-Tools](https://github.com/dpc-sdp/dev-tools).
+Please refer to Dev-Tools&#39; page for [system 
+requirements](https://github.com/dpc-sdp/dev-tools/#prerequisites) and other
+details.
 
 To start local development stack:
 1. Checkout this project 
@@ -1149,6 +1187,96 @@ To start local development stack:
 
 ## License
 This project is licensed under [GPL2](https://github.com/dpc-sdp/_machine_name_/blob/master/LICENSE.txt)
+</pre></div>
+
+<h2 id="front-end-implementation-site">Front-end implementation site<a class="headerlink" href="#front-end-implementation-site" title="Permanent link">&para;</a></h2>
+<p><a href="/assets/README.fe">README.fe.md</a></p>
+<div class="codehilite"><pre><span></span># _name_
+Front-end Nuxt.js client for _name_.
+
+[![CircleCI](https://circleci.com/gh/_org_machine_name_/_machine_name_.svg?style=svg)](https://circleci.com/gh/_org_machine_name_/_machine_name_)
+![Release](https://img.shields.io/github/release/dpc-sdp/_machine_name_.svg)
+
+## Prerequisites
+1. Make sure that you have latest versions of all required software installed:   
+  - [NodeJS](https://nodejs.org/) 
+  - [NPM](https://www.npmjs.com/) 
+2. Make sure that all local web development services are shut down
+   (`apache/nginx`, `mysql`, `MAMP` etc).
+
+## Prerequisites - using Docker
+1. Make sure that you have latest versions of all required software installed:   
+  - [Docker](https://www.docker.com/) 
+  - [Pygmy](https://docs.amazee.io/local_docker_development/pygmy.html)
+  - [Ahoy](https://github.com/ahoy-cli/ahoy) 
+2. Make sure that all local web development services are shut down (`apache/nginx`, `mysql`, `MAMP` etc).
+
+## Setting up `SITE_ID`
+In order to connect to the Content repository, a `SITE_ID` must be issued.  
+
+1. Contact your Content repository administrators and ask them for a `SITE_ID`.
+2. Add `SITE_ID` to `.env` file.
+
+## Local environment setup
+
+``` bash
+npm install
+npm run dev
+```
+
+Local URL -- [http://localhost:3000](http://localhost:3000)
+
+Without content in your site, you may see 404 in homepage, but you should able
+to visit path `/demo-landing-page` to start with a demo content page.
+
+## Local environment setup (with Docker)
+Run `npm run bay:start`
+
+Local URL -- http://_machine_name_.docker.amazee.io/
+
+### Available workflow commands
+
+- `npm run bay:start` - start local development environment without build.
+- `npm run bay:rebuild-full` - rebuild local development environment and start.
+- `npm run bay:stop` - stop all Bay containers.
+- `npm run bay:destroy` - stop and remove all Bay containers.
+- `npm run bay:logs` - get logs from all running Bay containers.
+- `npm run bay:cli` - run a command in `node` container. Example: `npm run bay:cli -- ls -al`.
+- `npm run bay:pull` - pull latest Bay containers.
+
+### Logs
+
+Using the npm run helper script you can get logs from any running container.
+
+`npm run bay:logs`
+
+To continue streaming logs, use `--follow`.
+`npm run bay:logs -- --follow`
+
+You can also filter the output to show only logs from a particular service.
+For example `npm run bay:logs -- app` will show the log output from the node container.
+The full list of services can be found in the `docker-compose.yml`
+
+### SSHing into container
+
+SSH into app service
+`docker-compose exec app sh`
+
+SSH into test service
+`docker-compose exec test sh`
+
+## Lint code
+
+``` bash
+npm run lint
+```
+
+## Test
+We uses [Jest](https://jestjs.io/) for unit test and end-to-end test.
+
+``` bash
+npm test
+```
 </pre></div>
                 
                   
