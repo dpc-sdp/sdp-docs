@@ -101,6 +101,81 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/setup/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/local-development-environment/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/automated-builds/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/coding-standards/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/module-development/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/readme-file/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/setup/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/styleguide/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/local-development-environment/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/automated-builds/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/coding-standards/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/component-development/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://dpc-sdp.github.io/sdp-docs/development/frontend-website/readme-file/</loc>
+     <lastmod>2019-03-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/workflow/</loc>
      <lastmod>2019-03-14</lastmod>
      <changefreq>daily</changefreq>
@@ -111,42 +186,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/local-development-environment/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/back-end-coding-standards/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/front-end-coding-standards/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/automated-builds/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/module-development/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/release/</loc>
      <lastmod>2019-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/accessibility/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/readme-files/</loc>
      <lastmod>2019-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
