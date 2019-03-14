@@ -13,7 +13,7 @@
         <meta name="description" content="Documentation for Single Digital Presence">
       
       
-        <link rel="canonical" href="https://dpc-sdp.github.io/sdp-docs/development/frontend-website/styleguide/">
+        <link rel="canonical" href="https://dpc-sdp.github.io/sdp-docs/development/frontend-website/style-guide/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Styleguide * - Single Digital Presence</title>
+        <title>Style guide - Single Digital Presence</title>
       
     
     
@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#styleguide" tabindex="1" class="md-skip">
+      <a href="#style-guide" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -131,7 +131,7 @@
               Single Digital Presence
             </span>
             <span class="md-header-nav__topic">
-              Styleguide *
+              Style guide
             </span>
           
         </div>
@@ -791,9 +791,38 @@
       
     
     
-    <a href="./" title="Styleguide *" class="md-nav__link md-nav__link--active">
-      Styleguide *
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Style guide
+      </label>
+    
+    <a href="./" title="Style guide" class="md-nav__link md-nav__link--active">
+      Style guide
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -957,6 +986,22 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -968,11 +1013,32 @@
               
                 
                 
-                <h1 id="styleguide">Styleguide<a class="headerlink" href="#styleguide" title="Permanent link">&para;</a></h1>
-<div class="admonition todo">
-<p class="admonition-title">This content has not been developed yet</p>
-<p>What is Styleguide and how to set it up</p>
+                <h1 id="style-guide">Style guide<a class="headerlink" href="#style-guide" title="Permanent link">&para;</a></h1>
+<p>A style guide is a document that provides guidelines for the way your brand should
+be presented from both a graphic and language perspective. The purpose of a
+style guide is to make sure that multiple contributors create in a clear and
+cohesive way that reflects the corporate style and ensures brand consistency
+with everything from design to writing.</p>
+<p>Ripple Component Library uses <a href="https://storybook.js.org/">Storybook</a> open-source
+software for a "living" style guide: any changes to the components in code 
+are reflected within Storybook. </p>
+<div class="admonition example">
+<p class="admonition-title">Example of style guide</p>
+<p>Example of the style guide take from <a href="https://ripple.sdp.vic.gov.au">Ripple Component library</a></p>
+<p><a href="../../../assets/screenshot-styleguide.png"><img alt="Screenhot of storybook" src="../../../assets/screenshot-styleguide.png" /></a></p>
 </div>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>Frontend Websites can add Storybook configuration and publish it as GitHub pages
+using automated builds.</p>
+<p>See official setup guide <a href="https://storybook.js.org/docs/guides/guide-vue/">https://storybook.js.org/docs/guides/guide-vue/</a></p>
+<p>Components can be organised as required (Ripple uses atomic design) - Storybook
+supports flexible configuration. See
+<a href="https://github.com/dpc-sdp/ripple/tree/master/.storybook">https://github.com/dpc-sdp/ripple/tree/master/.storybook</a></p>
+<p>The components can also be customised to be displayed in groups etc. See
+<a href="https://github.com/dpc-sdp/ripple/tree/master/src/storybook-components">https://github.com/dpc-sdp/ripple/tree/master/src/storybook-components</a></p>
+<p>The demo data to use in Storybook components can be provided in a separate file.
+See
+<a href="https://github.com/dpc-sdp/ripple/blob/master/src/storybook-components/_data/demoData.js">https://github.com/dpc-sdp/ripple/blob/master/src/storybook-components/_data/demoData.js</a></p>
                 
                   
                 
