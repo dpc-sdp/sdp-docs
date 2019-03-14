@@ -450,8 +450,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../bay/onboarding/" title="Onboarding" class="md-nav__link">
-      Onboarding
+    <a href="../bay/onboarding/" title="* Onboarding" class="md-nav__link">
+      * Onboarding
     </a>
   </li>
 
@@ -805,8 +805,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/frontend-website/" title="Overview" class="md-nav__link">
-      Overview
+    <a href="../development/frontend-website/setup/" title="* Setup" class="md-nav__link">
+      * Setup
     </a>
   </li>
 
@@ -817,20 +817,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/frontend-website/setup/" title="Setup" class="md-nav__link">
-      Setup
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../development/frontend-website/styleguide/" title="Styleguide" class="md-nav__link">
-      Styleguide
+    <a href="../development/frontend-website/styleguide/" title="* Styleguide" class="md-nav__link">
+      * Styleguide
     </a>
   </li>
 
@@ -877,8 +865,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../development/frontend-website/component-development/" title="Component Development" class="md-nav__link">
-      Component Development
+    <a href="../development/frontend-website/component-development/" title="* Component Development" class="md-nav__link">
+      * Component Development
     </a>
   </li>
 
@@ -1036,13 +1024,21 @@
                 
                 
                 <h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
-<p>Single Digital Presence is a distribution that consists of content repository
+<p>Single Digital Presence is a distribution that consists of Content Repository
 with exposed API (headless <a href="https://www.drupal.org">Drupal</a> distribution called
 <strong><a href="/tide">Tide</a></strong>) and a front-end components library (<a href="https://vuejs
 .org/">Vue.js</a> with <a href="https://nuxtjs.org/">Nuxt</a> server rendering framework called 
 <strong><a href="/ripple">Ripple</a></strong>) hosted on the latest generation hosting platform 
 (<a href="https://kubernetes.io/">Kubernetes</a>-based <a href="https://www.docker.com/">Docker</a>
 container platform called <strong><a href="/bay">Bay</a></strong>). </p>
+<h2 id="application-system-components">Application system components<a class="headerlink" href="#application-system-components" title="Permanent link">&para;</a></h2>
+<p>At the application layer, there are 2 main components of the system:</p>
+<ul>
+<li><strong><a href="/tide">Tide</a></strong> - Drupal 8 headless distribution that serves as a content 
+  repository.</li>
+<li><strong><a href="/ripple">Ripple</a></strong> - Vue.js-based library of front-end components. Each 
+  instance of Ripple serves as a standalone front-end application for a website.</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The two main requirements that have significant affect on the architecture
@@ -1059,14 +1055,6 @@ were: </p>
 organisation, however the solutions are highly complex and the publicly
 available options are not mature enough for immediate use.</p>
 </div>
-<h2 id="application-system-components">Application system components<a class="headerlink" href="#application-system-components" title="Permanent link">&para;</a></h2>
-<p>At the application layer, there are 2 main components of the system:</p>
-<ul>
-<li><strong><a href="/tide">Tide</a></strong> - Drupal 8 headless distribution that serves as a content 
-  repository.</li>
-<li><strong><a href="/ripple">Ripple</a></strong> - Vue.js-based library of front-end components. Each 
-  instance of Ripple serves as a standalone front-end application for a website.</li>
-</ul>
 <h2 id="system-components-inheritance">System components inheritance<a class="headerlink" href="#system-components-inheritance" title="Permanent link">&para;</a></h2>
 <p>There are 3 layer of components in the Distribution. The features provided by
 every layer contribute to a final particular website feature set.</p>
@@ -1087,7 +1075,7 @@ implemented as a separate front-end application.</p>
 <p>Content Repository site has only a basic frontend and its IP restricted to a
 list of allowed IP addresses, so that content editors from designated offices
 could access the editorial interface.</p>
-<p>The API endpoints for the content repository site are accessible to the world
+<p>The API endpoints for the Content Repository site are accessible to the world
 over the same predefined domain (e.g., <a href="https://api.agency.gov.au">https://api.agency.gov.au</a>). There is no
 authentication for content consumers.</p>
 <p>All content editing for all sites is performed through the central content

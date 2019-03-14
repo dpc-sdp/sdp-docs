@@ -400,8 +400,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../bay/onboarding/" title="Onboarding" class="md-nav__link">
-      Onboarding
+    <a href="../../../bay/onboarding/" title="* Onboarding" class="md-nav__link">
+      * Onboarding
     </a>
   </li>
 
@@ -714,8 +714,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#build-checks" title="Build checks" class="md-nav__link">
-    Build checks
+  <a href="#build-steps" title="Build steps" class="md-nav__link">
+    Build steps
   </a>
   
 </li>
@@ -818,8 +818,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../frontend-website/" title="Overview" class="md-nav__link">
-      Overview
+    <a href="../../frontend-website/setup/" title="* Setup" class="md-nav__link">
+      * Setup
     </a>
   </li>
 
@@ -830,20 +830,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../frontend-website/setup/" title="Setup" class="md-nav__link">
-      Setup
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../frontend-website/styleguide/" title="Styleguide" class="md-nav__link">
-      Styleguide
+    <a href="../../frontend-website/styleguide/" title="* Styleguide" class="md-nav__link">
+      * Styleguide
     </a>
   </li>
 
@@ -890,8 +878,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../frontend-website/component-development/" title="Component Development" class="md-nav__link">
-      Component Development
+    <a href="../../frontend-website/component-development/" title="* Component Development" class="md-nav__link">
+      * Component Development
     </a>
   </li>
 
@@ -1011,8 +999,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#build-checks" title="Build checks" class="md-nav__link">
-    Build checks
+  <a href="#build-steps" title="Build steps" class="md-nav__link">
+    Build steps
   </a>
   
 </li>
@@ -1058,14 +1046,15 @@
                 <h1 id="automated-builds">Automated builds<a class="headerlink" href="#automated-builds" title="Permanent link">&para;</a></h1>
 <p>SDP uses <a href="https://circleci.com/gh/dpc-sdp">CircleCI</a> for all automated build
 (CI) runs.   </p>
-<h2 id="build-checks">Build checks<a class="headerlink" href="#build-checks" title="Permanent link">&para;</a></h2>
+<h2 id="build-steps">Build steps<a class="headerlink" href="#build-steps" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Check coding standards in custom site code for modules and themes: PHP, JS, 
-  SCSS/CSS.</li>
+<li>Download production database</li>
 <li>Build a site from supplied <code>composer.json</code> file (dependencies are locked in 
   at specific versions) and production database.<br/>
   This builds the site which is identical to the production site before running 
   tests.  </li>
+<li>Check coding standards in custom site code for modules and themes: PHP, JS, 
+  SCSS/CSS.</li>
 <li>Run unit tests (PHPUnit), if any.</li>
 <li>Run behavioural tests (Behat), if any.</li>
 </ul>
