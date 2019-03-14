@@ -1055,15 +1055,16 @@
                 
                 <h1 id="managing-releases">Managing releases<a class="headerlink" href="#managing-releases" title="Permanent link">&para;</a></h1>
 <p>The purpose of this document is to describe the git management process across
-the Content Repository and semi-independent sites. </p>
+the Content Repository and Frontend Websites. </p>
 <h2 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h2>
 <p>Changes to the Drupal API can have an effect on the Front end website due to
-field and entity changes. This can lead to issues on semi-independent sites if
+field and entity changes. This can lead to issues on Frontend Websites if
 they are not updated at the same time as the Content Repository as they rely on
 a common API. This can cause a delay in deploying Content Repository while
-changes are merged to the semi-independent sites and go through QA and UAT.</p>
+changes are merged to the Frontend Websites and go through QA and UAT.</p>
 <h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
-<p>Site release versions should follow <a href="https://semver.org/">semantic versioning</a>.</p>
+<p>Both Content Repository and Frontend Websites release versions should follow 
+<a href="https://semver.org/">semantic versioning</a>.</p>
 <div class="admonition quote">
 <p class="admonition-title">Quote</p>
 <p>Given a version number <code>MAJOR.MINOR.PATCH</code>, increment the:<br/>
@@ -1075,18 +1076,35 @@ manner, and<br/>
 extensions to the <code>MAJOR.MINOR.PATCH</code> format.</p>
 </div>
 <h2 id="git-workflow">Git workflow<a class="headerlink" href="#git-workflow" title="Permanent link">&para;</a></h2>
-<details><summary>Git branch schema for releases</summary><p><img alt="Git branch schema for releases" src="../../assets/multi-repo-git-release-process.png" /> </p>
+<details><summary>Git branch schema for releases</summary><p>Note that on this diagram <code>production</code> branch only receives release commits 
+(commits tagged with release versions). Such setup is used in hosting 
+that is deploying code for branches rather then for tags. If your hosting 
+provider supports deploying tags, the <code>production</code> branch may be replaced 
+with <em>switching a tag on production environment</em>.</p>
+<p><img alt="Git branch schema for releases" src="../../assets/multi-repo-git-release-process.png" /> </p>
 </details>
-<p>Standard feature branches are taken from the the <code>develop</code> branch.</p>
-<p>Pull requests for the current release are merged back into <code>develop</code> after QA has
-occurs in the standard process.</p>
-<p>Pull requests for subsequent releases should be taken from <code>develop</code>.</p>
-<p>These pull requests can go through the QA process but must not be merged to
-<code>develop</code> until after the current release has moved from <code>develop</code> into the
-<code>master</code> branch. This is to ensure the QA team has time to test the new features
-on the front-end sites before the backend code is tagged and released to 
-production.</p>
+<p>Feature branches for both Content Repository and Frontend Websites start from 
+the the <code>develop</code> branch. Frontend Websites may connect to the feature 
+branch environments of the Content Repository to test front-end and back-end 
+changes together. Once ready, the feature branches are merged back as pull 
+requests against <code>develop</code> branch. </p>
+<p>Release branch for Content Repository starts from the <code>develop</code> branch. It stays
+unmerged until Frontend Websites validate (through QA process) that newly 
+introduced changes to Content Repository do not break Frontend Websites'
+functionality.  </p>
+<p>Once Frontend Websites confirm that release for Content Repository is stable, 
+the release branch get's merged into <code>master</code>. At this point, both Content 
+Repository and all Frontend Websites need to coordinate release time frame. </p>
+<p>Once ready to release, new release tags created in all projects and are deployed 
+to production environments. </p>
 <h2 id="releasing">Releasing<a class="headerlink" href="#releasing" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the steps below, it is assumed that both Content Repository and Frontend
+Websites have changes to result in release. If Frontend Websites do not have
+any new feature changes, they need to release only in case if Content 
+Repository API changes.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The steps below do not include any release communication steps. Always 
@@ -1094,18 +1112,19 @@ prepare release plan with communication details, templates and rollback
 actions ahead of release, or, better, create a standardise release run sheet.</p>
 </div>
 <ol>
-<li>Create a release branch from <code>develop</code></li>
-<li>Copy the release branch to each of the front-end site repositories, manage
-   the conflicts and push the changes as a new pull request against <code>develop</code> 
-   for each repository.</li>
-<li>Have the QA team test the latest changes and perform a spot regression check.</li>
-<li>Merge the Content Repository BE repo through to <code>master</code></li>
-<li>Once all front-end sites pass QA (or only minor bugs are found that will not
-   effect release) merge the latest changes to <code>develop</code> and follow the standard
-   release process through to <code>master</code> on each site. </li>
-<li>Request UAT on all front-end sites. Once UAT is complete or 3 business days 
-   are passed, prepare totag and release to production.</li>
+<li>Create a release branch from <code>develop</code> in Content Repository</li>
+<li>Create a release branch for each Frontend Website repository and push the
+   changes as a new pull request against <code>develop</code> for each repository.</li>
+<li>Have the QA team test the latest changes and perform a spot regression check
+   in both Content Repository and all Frontend Websites.</li>
+<li>Merge the Content Repository release branch to <code>master</code></li>
+<li>Once all Frontend Websites pass QA (or only minor bugs are found that will not
+   effect release), merge the release branch on each Frontend Website to <code>develop</code> 
+   and follow the standard release process through to <code>master</code>. </li>
+<li>Request UAT on all Frontend Websites. Once UAT is complete or 3 business days 
+   are passed, prepare to tag and release to production.</li>
 <li>Tag and deploy Content Repository release to production.</li>
+<li>Tag and deploy each Frontend Website release to production.</li>
 </ol>
                 
                   
