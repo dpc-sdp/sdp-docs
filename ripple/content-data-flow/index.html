@@ -558,8 +558,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/" title="API" class="md-nav__link">
-      API
+    <a href="../api/" title="* API" class="md-nav__link">
+      * API
     </a>
   </li>
 
@@ -1024,15 +1024,15 @@ repository.</p>
 <p>Note that Content Repository refreshes internal caches and notifies external
 proxies (CloudFront etc.) once the content changes. This mechanism is inbuilt 
 in Drupal.</p>
-<h1 id="nuxt-data-processing">NUXT data processing<a class="headerlink" href="#nuxt-data-processing" title="Permanent link">&para;</a></h1>
-<p>Once request reaches front-end website, NUXT receives a request, fetches 
+<h1 id="nuxt-data-processing">Nuxt data processing<a class="headerlink" href="#nuxt-data-processing" title="Permanent link">&para;</a></h1>
+<p>Once request reaches front-end website, Nuxt receives a request, fetches 
 internal configuration and requests content from Content Repository via <code>tide</code> 
 package, which has field mappings and other integrations defined. Once the 
 content is received, the page template assembles page using Ripple component 
 library, after which the page is sent to the browser.</p>
-<p>Note that Ripple is completely separate from the <code>tide</code> package and NUXT 
+<p>Note that Ripple is completely separate from the <code>tide</code> package and Nuxt 
 configuration - this makes it unbound to Tide Content Repository. </p>
-<p><img alt="NUXT Request processing diagram" src="../../assets/nuxt-request-handling.png" /></p>
+<p><img alt="Nuxt Request processing diagram" src="../../assets/nuxt-request-handling.png" /></p>
                 
                   
                 

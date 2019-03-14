@@ -40,7 +40,7 @@
     
     
       
-        <title>API - Single Digital Presence</title>
+        <title>* API - Single Digital Presence</title>
       
     
     
@@ -131,7 +131,7 @@
               Single Digital Presence
             </span>
             <span class="md-header-nav__topic">
-              API
+              * API
             </span>
           
         </div>
@@ -566,38 +566,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        API
-      </label>
-    
-    <a href="./" title="API" class="md-nav__link md-nav__link--active">
-      API
+    <a href="./" title="* API" class="md-nav__link md-nav__link--active">
+      * API
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api-mocking" title="API mocking" class="md-nav__link">
-    API mocking
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -972,22 +943,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#api-mocking" title="API mocking" class="md-nav__link">
-    API mocking
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1000,103 +955,11 @@
                 
                 
                 <h1 id="ripple-api">Ripple API<a class="headerlink" href="#ripple-api" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
-<h2 id="api-mocking">API mocking<a class="headerlink" href="#api-mocking" title="Permanent link">&para;</a></h2>
-<h3>Why do we need mocking</h3>
-<p>We need to develop FE sites against stable API. When Content Repository is 
-still being developed alongside with FE application, it is very hard for FE 
-developers to develop against non-stable API.</p>
-<h3>3 ways of mocking</h3>
-<ol>
-<li>Internal mocking inside of NUXT<br/>
-   Inject mock HTTP client inside of NUXT application and use it to read JSON
-   responses from generated responses as a part of the test.</li>
-<li>Automated mock generation<br/>
-   Generate API response mocks using automatically generated API schema and 
-   serve it to FE framework as a predictable and stable alternative API 
-   endpoint.</li>
-<li>Manual mock generation<br/>
-   Generate dummy data on API side and store responses as JSON files to serve it 
-   to the FE framework as a predictable and stable alternative API endpoint.</li>
-</ol>
-<h3>Internal mocking inside of NUXT</h3>
-<p>Inject mock HTTP client inside of NUXT application and use it to read JSON
-responses from generated responses as a part of the test.</p>
-<h4>How it would look like for a developer (DX)</h4>
-<p><em>Initial setup</em></p>
-<ol>
-<li>Write a test that would test specific functionality.</li>
-<li>Write a mock generation code within a test.</li>
-<li>Repeat 1-2 for each test.</li>
-<li>Commit code to the codebase</li>
-</ol>
-<p><em>When API is updated (for example, new field is added to a content type)</em></p>
-<ol>
-<li>Update mock generation and assertions for all relevant tests.</li>
-<li>Commit code to the codebase</li>
-</ol>
-<h4>Problems</h4>
-<ol>
-<li>Writing mock generation code is complex and tiresome. When/if API changes, 
-   there may need to be a change to a lot of mock generation code.</li>
-<li>These mocks will not be used to browse full FE site. I.e., it will not be
-   possible to browse homepage using these mocks.</li>
-<li>Changes to API require manual update of files.</li>
-</ol>
-<h3>Automated mock generation</h3>
-<p>Generate API response mocks using automatically generated API schema and serve
-it to FE framework as a predictable and stable alternative API endpoint.</p>
-<h4>How it would look like for a developer (DX)</h4>
-<p><em>Initial setup</em></p>
-<ol>
-<li>Drupal exposes API schema.</li>
-<li>Fake generator reads the schema and generates response JSON files.</li>
-<li>Files committed to FE repository.</li>
-<li>Mock server serves JSON files.</li>
-</ol>
-<p><em>When API is updated (for example, new field is added to a content type)</em></p>
-<ol>
-<li>Re-genearate JSON response files (same as step 2 above).</li>
-<li>Commit updated JSON files to FE repo (same as step 1 above).</li>
-</ol>
-<h4>Problems</h4>
-<ol>
-<li>The biggest problem is that current Drupal schema, provided by Schemata module,
-does not provide enough context to allow automated generation and relationships
-linking. For example, while descibing 'UUID' field, it says that the type is
-'string', but says nothing about the format of such string. As a result -
-generated UUID is a random string in incorrect format. And this goes on for all
-fields.</li>
-<li>Even if p.1 is resolved, the generated content uses random apporach to fill
-fields. This has 2 issues: </li>
-<li>the content will be constantly changing making a lot of changes in 
-      committed files and confusing developers that expect specific data to be 
-      shown</li>
-<li>optional fields will be randomly filled-in (which is what we want), but 
-      there is no guarantee that <em>all</em> optional fields are used in a set of 
-      produced mocks. In other words, we need not just content with some 
-      randomised fields, but a full content set of permutations of all fields.</li>
-<li>Changes to API require manual update of files.</li>
-</ol>
-<h3>Manual mock generation</h3>
-<p>Generate dummy data on API side and store responses as JSON files to serve it to
-the FE framework as a predictable and stable alternative API endpoint.</p>
-<h4>How it would look like for a developer (DX)</h4>
-<p><em>Initial setup</em>
-1. API has some dummy content generated in predictable way that covers all permutations.
-2. Manually ran script (or drush command) downloads all JSON responses as files.
-3. Files committed to FE repository.
-4. Mock server serves JSON files.</p>
-<p><em>When API is updated (for example, new field is added to a content type)</em></p>
-<ol>
-<li>Re-genearate JSON response files (same as step 2 above).</li>
-<li>Commit updated JSON files to FE repo (same as step 1 above).</li>
-</ol>
-<h3>Problems</h3>
-<ol>
-<li>Requires dummy content to exist on API site.</li>
-<li>Changes to API require manual update of files.</li>
-</ol>
+<div class="admonition todo">
+<p class="admonition-title">This content has not been developed yet</p>
+<p>This chapter describes how to use Ripple/Nuxt API and how to configure
+field mapping.</p>
+</div>
                 
                   
                 
