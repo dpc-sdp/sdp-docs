@@ -515,8 +515,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#endpoints" title="Endpoints" class="md-nav__link">
-    Endpoints
+  <a href="#endpoints-example" title="Endpoints example" class="md-nav__link">
+    Endpoints example
   </a>
   
 </li>
@@ -1039,8 +1039,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#endpoints" title="Endpoints" class="md-nav__link">
-    Endpoints
+  <a href="#endpoints-example" title="Endpoints example" class="md-nav__link">
+    Endpoints example
   </a>
   
 </li>
@@ -1127,7 +1127,11 @@ entities as endpoints and provides support for REST operations. </p>
 JSONAPI config: endpoints prefix (we are using <code>/api/v1</code>) and enable/disable
 endpoints for automatically exposed entities (we use this to limit access to
 internal entities). </p>
-<h2 id="endpoints">Endpoints<a class="headerlink" href="#endpoints" title="Permanent link">&para;</a></h2>
+<h2 id="endpoints-example">Endpoints example<a class="headerlink" href="#endpoints-example" title="Permanent link">&para;</a></h2>
+<p>While providing a list of all endpoints would be to publish whole Drupal API 
+(which is neither maintainable no required), the example page below demonstrates
+how Frontend Website can be mapped to Content Repository endpoints.</p>
+<p><img alt="Page built using API data" src="../../assets/api-page-example.png" /></p>
 <table>
 <thead>
 <tr>
@@ -1142,7 +1146,7 @@ internal entities). </p>
 <td>1</td>
 <td>route</td>
 <td><code>/api/v1/route?alias=&lt;alias&gt;</code></td>
-<td></td>
+<td>Given an alias, returns information about current route, including entity UUID.</td>
 </tr>
 <tr>
 <td>2</td>
@@ -1160,7 +1164,7 @@ internal entities). </p>
 <td>4</td>
 <td>breadcrumbs</td>
 <td>TBD</td>
-<td>Not supported out of the box. May need to use main menu to build breadcrumbs by FEF.</td>
+<td>Not supported out of the box. May need to use main menu to build breadcrumbs by Frontend Website.</td>
 </tr>
 <tr>
 <td>5</td>
@@ -1178,7 +1182,7 @@ internal entities). </p>
 <td>7</td>
 <td>share block</td>
 <td><code>/api/v1/block_content/share_block</code></td>
-<td>Content is static HTML</td>
+<td>Content is a static HTML</td>
 </tr>
 <tr>
 <td>8</td>
@@ -1196,7 +1200,7 @@ internal entities). </p>
 <td>10</td>
 <td>copyright</td>
 <td><code>/api/v1/block_content/copyright</code></td>
-<td>Content is static HTML</td>
+<td>Content is a static HTML</td>
 </tr>
 <tr>
 <td>11</td>
@@ -1208,26 +1212,33 @@ internal entities). </p>
 <td>12</td>
 <td>Sites information</td>
 <td><code>/api/v1/taxonomy_term/sites</code></td>
-<td></td>
+<td>Allows to retrieve custom site information stored in the Content Repository</td>
 </tr>
 <tr>
 <td>13</td>
 <td>Router</td>
 <td><code>/api/v1/router</code></td>
-<td>Alias lookup. May be required for ad-hoc queries from FEF.</td>
+<td>Alias lookup. May be required for ad-hoc queries from Frontend Website.</td>
 </tr>
 </tbody>
 </table>
-<p>Page example that may use these endpoints
-<img alt="Page built using API data" src="../../assets/api-page-example.png" /></p>
 <h2 id="request-flow">Request flow<a class="headerlink" href="#request-flow" title="Permanent link">&para;</a></h2>
-<p>The diagram below demonstrates how a single page is assembled by VueJS when
+<p>The diagram below demonstrates how a single page is assembled by VueJS/Nuxt when
 hitting multiple endpoints.</p>
-<p>VueJS retrieves site information and caches it internally until the next cache
-clear. Each consumer site has only site UUID (taxonomy term UUID from <code>Site</code>
+<p>VueJS/Nuxt retrieves site information and caches it internally until the next cache
+clear. Each Frontend Website has only site UUID (taxonomy term UUID from <code>Site</code>
 vocabulary) hardcoded. The rest of configuration comes from taxonomy term: logo,
 slogan, footer text, main menu name, footer menu name. This information is later
-used in follow-up requests to retrieve relevant information.</p>
+used in follow-up requests to retrieve relevant information. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since Frontend Websites information is stored using fieldsable taxonomy terms,
+it is possible to add more fields to capture site information in the Content
+Repository. The data stored in these fields will become automatically 
+exposed through API.</p>
+<p>See <a href="../sites-sections/">Sites and sections</a> for more information about 
+organising per-site information.</p>
+</div>
 <p><em>Content API Content</em>, <em>Content API Menu</em>, and <em>Content API Block</em> are shown
 here as separated endpoints (they are indeed separate), but are handled by the
 same internal entity controller from JSONAPI Drupal module. The content is
@@ -1243,7 +1254,7 @@ aliases without additional Drupal-to-Drupal request.</p>
 <p><a href="../../assets/api-parallel-requests.png"> <img alt="" src="../../assets/api-parallel-requests.png" /> </a></p>
 <h2 id="end-to-end-url-resolution">End-to-end URL resolution<a class="headerlink" href="#end-to-end-url-resolution" title="Permanent link">&para;</a></h2>
 <p>The diagram below describes how URL requested by a web browser is resolved by
-Drupal and served by VueJS. It covers both front-end and back-end mechanisms.</p>
+Drupal and served by VueJS/Nuxt. It covers both front-end and back-end mechanisms.</p>
 <p>To leverage JSONAPI module in Drupal, we are using <em>API Router</em> to resolve
 requested paths to a set of information about the route (UUID, content type,
 path, alias). This information then used by <em>Client API path builder</em> to
@@ -1260,7 +1271,7 @@ when entity is updated).</p>
 <p><a href="../../assets/api-end-to-end-url-resolution.png"> <img alt="" src="../../assets/api-end-to-end-url-resolution.png" /> </a></p>
 <h2 id="router-api-endpoint">Router API endpoint<a class="headerlink" href="#router-api-endpoint" title="Permanent link">&para;</a></h2>
 <p>To control content aliases from Drupal and resolve requests
-coming from Browser into FEF, a special <em>Router</em> endpoint exists to perform a
+coming from Browser into Frontend Website, a special <em>Router</em> endpoint exists to perform a
 lookup on provided path. Because the provided path can be either internal Drupal
 path or an alias, the lookup searches through all existing aliases and internal
 paths. </p>

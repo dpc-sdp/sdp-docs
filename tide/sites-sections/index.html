@@ -1055,7 +1055,7 @@ prevent creating of terms with depth more than 1.</p>
 <p>We decided to use Drupal taxonomy for sites and sections for multiple
 reasons: </p>
 <ul>
-<li>Taxonomy terms are fieldable entities. This means that consumer sites can
+<li>Taxonomy terms are fieldable entities. This means that Frontend Websites can
 extend per-site properties as required, exposing them to the API.</li>
 <li>Taxonomy terms support hierarchy, which helps to define site-section
 relationship, and, as a result of this, easily filter associated content by 
@@ -1064,18 +1064,21 @@ site.</li>
 widgets.</li>
 <li>Taxonomy terms have full Token and Pathauto support, which makes it easy 
 to use them for building content URLs based on IA.</li>
-<li>Taxonomy terms have full JSONAPI support and can be queried by consumer 
-front-ends in the same way as any other entities.</li>
-<li>The concept of using taxonomy terms to group content is easy to grasp. </li>
+<li>Taxonomy terms have full JSONAPI support and can be queried by Frontend 
+  Websites in the same way as any other entities.</li>
+<li>The concept of using taxonomy terms to group content is easy to understand.</li>
+<li>The concept of using taxonomy terms to store per-site settings is easy to understand. </li>
 </ul>
 <p>Content may be shared between sites, but never between sections, as this would
 lead to the same content being served from different URLs, which is highly
-discouraged by search engines. To mitigate the problem when the same content is
-shared between different websites, a selection of <code>Primary site</code> is required,
-which will be used to generate canonical URL for the content piece. As a result,
-every content type has 2 fields created automatically: <code>site</code> and
-<code>primary_site</code>. Both fields are compulsory. Editors are expected to select 
-destination site and section for each content piece.</p>
+discouraged by search engines. </p>
+<h3>Primary site</h3>
+<p>To mitigate the problem when the same content is shared between different
+websites, a selection of <code>Primary site</code> is required, which will be used to
+generate canonical URL for the content piece. As a result, every content type
+has 2 fields created automatically: <code>site</code> and <code>primary_site</code>. Both fields are
+compulsory. Editors are expected to select destination site and section for each
+content piece.</p>
 <h2 id="site-and-section-fields">Site and Section Fields<a class="headerlink" href="#site-and-section-fields" title="Permanent link">&para;</a></h2>
 <p>To provide site and section-specific information through API, every <code>Site</code> 
 taxonomy term has a set of the following information fields:</p>
@@ -1117,12 +1120,19 @@ taxonomy term has a set of the following information fields:</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since Frontend Websites information is stored using fieldsable taxonomy terms,
+it is possible to add more fields to capture site information in the Content
+Repository. The data stored in these fields will become automatically 
+exposed through API.  </p>
+</div>
 <h2 id="site-menus">Site menus<a class="headerlink" href="#site-menus" title="Permanent link">&para;</a></h2>
 <p>Per-site and per-section menus may be helpful to build section-based navigation 
 experience. They allow to provide custom menu items for specific sites and 
 sections.  </p>
 <p>Site menus automatically created when a new <code>Site</code> taxonomy term is created. </p>
-<p>Basically, instead of creating a site and then creating a
+<p>Basically, instead of creating a site and then manually creating a
 menu on the separate screen, we automatically create and assign a menu
 for each site within the site creation screen by checking relevant checkbox
 on <code>Site</code> term ctreation page.</p>
@@ -1131,33 +1141,45 @@ on <code>Site</code> term ctreation page.</p>
 <h2 id="multi-site-url-rendering">Multi-site URL rendering<a class="headerlink" href="#multi-site-url-rendering" title="Permanent link">&para;</a></h2>
 <p>When content piece belongs to multiple sites or sections, it may have links to
 it from other content pieces of the current domain or other domains. Drupal has
-to render these links with correct domains as a part of url, so that front-end
-consumers could output these links as-is.</p>
-<p>For example, if we have:
-- 2 sites first.com and second.com 
-- 2 pages <code>page1</code> and <code>page2</code>
-- <code>page1</code> has a link to <code>page2</code>
-- <code>page1</code> belongs to first.com
-- <code>page2</code> belongs to both first.com and second.com; the <code>primary site</code> is set to
-<code>second.com</code></p>
+to render these links with correct domains as a part of url, so that Frontend
+Websites could output these links as-is.</p>
+<div class="admonition info">
+<p class="admonition-title">Example of multi-site URL rendering</p>
+<p>For example, if we have:</p>
+<ul>
+<li>2 sites <code>first.com</code> and <code>second.com</code> </li>
+<li>2 pages <code>page1</code> and <code>page2</code></li>
+<li><code>page1</code> has a link to <code>page2</code></li>
+<li><code>page1</code> belongs to <code>first.com</code></li>
+<li><code>page2</code> belongs to both <code>first.com</code> and <code>second.com</code>; the <em>primary site</em> 
+  is set to <code>second.com</code></li>
+</ul>
 <p>When the visitor is on the page <code>first.com/page1</code> and follows the link <code>/page2</code>
-she should end up on <code>first.com/page2</code> and not <code>second.com/page2</code>.</p>
+she should end up on <code>first.com/page2</code> and not <code>second.com/page2</code>. This is
+because she is currently on <code>first.com</code> domain and <em>continues</em> browsing the 
+same domain. </p>
 <p>And if the visitor comes from Google search to <code>page2</code>, she should end up at
 <code>second.com/page2</code>, because <code>second.com</code> is a <em>primary site</em> for <code>page2</code>.</p>
+</div>
 <p>This is just an example of the part of the problem. There are more use-cases and
 they are explained below. </p>
-<p>For content exposed through API, the links may come from different places:
-- For link fields, this should be fairly straightforward: the user enters the
-link and we have an internal node id. 
-- For links entered in WYSIWYG, we need to use the LinkIt module so that we 
-can extract a node id.
-- For links entered in WYSIWYG within referenced entities (for example, field on
-the paragraph belonging to the page) the API output will contains the path alias.</p>
-<p>For all links presented to the user: 
-- internal links should be rendered as a relative path. If the link is to a page
-available on the current site, either primary or not, render as relative link
-- external links (including links to other sites/section) should be rendered
-with an absolute path.</p>
+<p>For content exposed through API, the links may come from different places and we
+need to be able to extract internal entity id:</p>
+<ul>
+<li>For link fields, this should be fairly straightforward: the user enters the
+link and we have an internal entity id. </li>
+<li>For links entered in WYSIWYG, we need to use the LinkIt module so that we 
+can extract an internal entity id.</li>
+<li>For links entered in WYSIWYG within referenced entities (for example, field on
+the paragraph belonging to the page) the API output will contains the path alias.</li>
+</ul>
+<p>For all links presented to the user: </p>
+<ul>
+<li>Internal links should be rendered as a relative path. If the link is to a page
+available on the current site, either primary or not, render as a relative link.</li>
+<li>External links (including links to other sites/section) should be rendered
+with an absolute path.</li>
+</ul>
 <p>For links within WYSIWYG, Drupal has to extract, analyse and replace links
 before rendering it through API. For this, we use an enhancer (special piece of
 code to manipulate content output before it is rendered through API) to scrape
@@ -1168,11 +1190,11 @@ the content, then render the relevant link.</p>
 Drupal sanitizes WYSIWYG field output. Every extracted link is then passed 
 to a <em>Link Resolver</em>.</p>
 <p><em>Link Resolver</em> takes node id, loads up the path alias using some complex 
-logic (see diagram below) and then swaps it within the href. Resolved URL 
+logic (see diagram below) and then swaps it within the <code>href</code>. Resolved URL 
 is then passed to <em>Link Replacer</em>.</p>
 <p><em>Link Replacer</em> replaces old extracted links with new resolved ones within 
 contents of the WYSIWYG field. The processsed field contents is then passed
-to API for normal rendering. </p>
+to API for normal rendering as JSONAPI response. </p>
 <p>For links coming from Link fields, the above applies, but starting from 
 <em>Link Resolver</em> (there is no HTML to extarct teh link from , so 
 <em>Link Extractor</em> is not required).</p>

@@ -1028,15 +1028,15 @@
                 
                 
                 <h1 id="fields-and-components">Fields and components<a class="headerlink" href="#fields-and-components" title="Permanent link">&para;</a></h1>
-<p>Tide utilises Drupal fields within content types and other entities such as 
-paragraphs and taxonomy terms.</p>
+<p>This section describes how Tide Drupal profile and modules use and re-use fields
+within content types and other entities such as paragraphs and taxonomy terms.</p>
 <h2 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Fields are re-used between system components as much as possible.</li>
 <li>Fields names are kept to the minimum length.</li>
 <li>Fields always have a prefix that describes the entity or the feature they 
    belong to.<br/> 
-   For example: <code>field_page_intro_text</code> is a Introductory text for Page content 
+   For example: <code>field_page_intro_text</code> is a <em>Introductory text</em> for <em>Page</em> content 
    type. </li>
 <li>Fields configuration is bundled within Tide modules.   </li>
 <li>Some fields are programmatically created when specific Tide modules are 
@@ -1048,19 +1048,21 @@ paragraphs and taxonomy terms.</p>
   through API and consumed by the front-end.<br/>
   For example, <code>Body</code> or <code>Summary</code> fields. </li>
 <li>Flag (on/off) fields - used to enable/disable rendering of a pre-defined 
-  component/block/feature within front-end.<br/>
-  For example, <code>Show social links</code> field that tells consumer front-end to show or hide <code>Social links</code> component.   </li>
+  component / block / feature in Frontend Websites.<br/>
+  For example, <code>Show social links</code> field that tells Frontend Website to show 
+  or hide <code>Social links</code> component (which exists only in Frontend Website).   </li>
 <li>Reference fields - used to reference other content items. These are rendered
   in API as references; API consumers are expected to use <code>?include</code> JSONAPI
   standard mechanism to include the contents of the referenced entity into the 
   API response. <br/> 
-  For example, Cards components are <em>paragraphs</em> referenced from within the
-  content type. Front-end must include paragraph name to retrieve required
+  For example, <em>Cards</em> components are <em>paragraphs</em> referenced from within the
+  content type. Frontend Website must include paragraph name to retrieve required
   paragraph content.</li>
 </ul>
 <h2 id="cards">Cards<a class="headerlink" href="#cards" title="Permanent link">&para;</a></h2>
 <p>Cards are front-end components that are implemented as <em>paragraph items</em> in 
 Tide.</p>
+<p><img alt="Screenshot of cards components" src="../../assets/fe-cards.png" /></p>
 <ul>
 <li>Cards implemented as Paragraphs</li>
 <li>Cards are reusing fields storage (see the list of fields below).</li>
@@ -1128,24 +1130,30 @@ Tide.</p>
 </table>
 </details>
 <ul>
-<li>Cards have 1-to-1 mapping to paragraphs. This means that:</li>
-<li>cards can be added/removed from/to consumer front-end websites and have 
-    their <em>paragraphs</em> counterparts created in Content Repository</li>
+<li>Cards have 1-to-1 mapping to paragraphs. This means that:<ul>
+<li>cards can be added/removed from/to Frontend Websites and have 
+  their <em>paragraphs</em> counterparts added/removed in Content Repository</li>
 <li>mandatory state of the fields on cards is easier to configure and manage</li>
 <li>there is no need to manage any other 'types' of the same card (i.e. no 
-    special fields that would modify the 'type' of the card)</li>
-<li>Automated cards are using list entity reference field to reference items.</li>
-<li>Listing cards are comprised of paragraphs (for example, Key Dates paragraph 
-  will have a list of Event paragraphs).</li>
+  special fields that would modify the 'type' of the card making it appear 
+  differently)</li>
 </ul>
-<div class="admonition info">
-<p class="admonition-title">About Automated cards</p>
-<p>Automated cards are cards that source their content from a pre-defined 
-mapping in the Content APU. For example, a card with a list of latest 3 
+</li>
+<li><em>Automated cards</em> are using list entity reference field to reference items.</li>
+</ul>
+<details class="info"><summary>About Automated cards</summary><p>Automated cards are cards that source their content from a pre-defined 
+mapping in the Content API. For example, a card with a list of latest 3 
 events that automatically fetches only 3 latest events.  </p>
-</div>
+<p>Note that fetching the page with the information about the card does not 
+fetch the contents of the card; Frontend Website must perform an additional 
+request to get this data.</p>
+</details>
+<ul>
+<li>Listing cards are comprised of paragraphs, resulting in nesting paragraphs 
+  (for example, <em>Key Dates</em> paragraph will have a list of <em>Event</em> paragraphs).</li>
+</ul>
 <h3>Cards and paragraphs</h3>
-<p>The table below describes how every Card component is represented with Tide
+<p>The table below describes how every <em>Card</em> component is represented with Tide
 <em>paragraphs</em>. </p>
 <table>
 <thead>
