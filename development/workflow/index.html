@@ -709,8 +709,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../content-repository/module-development/" title="Module Development" class="md-nav__link">
-      Module Development
+    <a href="../content-repository/module-development/" title="* Module Development" class="md-nav__link">
+      * Module Development
     </a>
   </li>
 
@@ -967,44 +967,47 @@
                 
                 
                 <h1 id="development-workflow">Development workflow<a class="headerlink" href="#development-workflow" title="Permanent link">&para;</a></h1>
-<p>This workflow describes working on features as a developer on websites that
-use Tide or Ripple. </p>
+<p>This workflow describes working on features as a developer on Content Repository
+and Frontend Website projects. </p>
 <ol>
 <li>Pick a ticket in your issue tracker:<ol>
 <li>Make sure that all requirements, solution direction and acceptance criteria
-   are clear. If not, address issues with Technical Lead or product Owner.</li>
-<li>Assign to yourself.</li>
+   are clear. If not, address issues with Technical Lead or Product Owner.</li>
+<li>Assign the ticket to yourself.</li>
 </ol>
 </li>
-<li>Create new feature branch named <code>feature/CODE123-short-hyphenated-description</code>. </li>
+<li>Create a new feature branch named <code>feature/CODE123-short-hyphenated-description</code>. </li>
 <li>Work on the ticket functionality:<ol>
 <li>Install new contributed modules or packages as required.</li>
-<li>For back-end - configure and export configuration changes; write 
- <code>hook_update_N()</code> implementations (but be mindful that Drupal 8 does not 
- require many of those).</li>
-<li>For front-end - identify and use existing or create new Ripple components;
- update styles according to style guide as required; make sure that 
- Storybook has updated and new components added (it is important to always 
- have style guide up to date).</li>
+<li>For Content Repository - configure and export configuration changes; write 
+   <code>hook_update_N()</code> implementations (but be mindful that Drupal 8 does not 
+   require many of these).</li>
+<li>For Frontend Website - identify and use existing or create new Ripple
+   components; update styles according to style guide as required; make sure 
+   that Styleguide has been updated and new components were added (it is 
+   important to always have Styleguide up to date).</li>
 </ol>
 </li>
 <li>Add tests:<ol>
-<li>For back-end - identify required Behat tests (only test your custom 
+<li>For Content Repository - identify required Behat tests (only test your custom 
  configuration, and critical user journeys; do not test Drupal's standard
  behaviour); identify and implement PHPUnit tests.</li>
-<li>For front-end - identify required tests and mocks, and implement them; add 
- unit tests for any custom Nux functionality.  </li>
+<li>For Frontend Website - identify required tests and mocks, and implement 
+ them; add unit tests for any custom Nuxt functionality.  </li>
 </ol>
 </li>
 <li>Commit all changed and added files. Pay special attention to configuration 
    files and their counterparts (<code>composer.json</code>, <code>composer.lock</code>, 
    <code>package.json</code>,  <code>package-lock.json</code>). </li>
-<li>Create a pull request in your issue tracker - see <a href="/development/code-review/#preparing-code-for-code-review">Preparing code for code review</a></li>
+<li>Create a pull request in your issue tracker - see <a href="/development/code-review/#preparing-code-for-code-review">Preparing code for code
+   review</a></li>
 <li>If your are using a messenger to communicate with your development team - 
-   copy and paste the link to the created pull request into messenger 
+   copy and paste the link to the created pull request into the messenger 
    and ask for a review.</li>
 <li>Move the ticket in your issue tracker to <code>In code review</code> state (create this 
    state if it does not exist to help identify tickets pending review).</li>
+<li>Once pull request is approved - merge it to the mainline branch and make
+   sure that automated tests passed after the merge.</li>
 </ol>
                 
                   

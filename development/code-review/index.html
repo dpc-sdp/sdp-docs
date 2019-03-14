@@ -709,8 +709,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../content-repository/module-development/" title="Module Development" class="md-nav__link">
-      Module Development
+    <a href="../content-repository/module-development/" title="* Module Development" class="md-nav__link">
+      * Module Development
     </a>
   </li>
 
@@ -1077,7 +1077,7 @@ teams.</p>
 <li>Are functions and class methods broken down to each fulfill one discrete 
   requirement?</li>
 <li>Have unit tests been written?</li>
-<li>Has documentation been written / updated? Do comments in the code point to it 
+<li>Has documentation been written/updated? Do comments in the code point to it 
   and vice versa?</li>
 <li>Is an upgrade script needed? If so, does it run to completion and without 
   an error?</li>
@@ -1086,40 +1086,28 @@ teams.</p>
   check what protocol was used for the request and/or making the URL ambivalent 
   (start with <code>//</code>).</li>
 <li>Is code secure or does it avoid creating new vulnerabilities implementations 
-  for an existing functionality.   </li>
+  for an existing functionality?</li>
 </ul>
 <h2 id="preparing-code-for-code-review">Preparing code for code review<a class="headerlink" href="#preparing-code-for-code-review" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Provide clear description about what, why and how has been changed.</li>
+<li>Provide clear description about <em>what</em>, <em>why</em> and <em>how</em> the code has been changed.</li>
 <li>Provide screenshots, if applicable.</li>
 <li>Read your own code changes and add comments to parts that may raise questions.</li>
-<li>Provide a link to the issue tracker</li>
-<li>Assign relevant review developers.</li>
+<li>Provide a link to the issue tracker.</li>
+<li>Assign relevant developers to review the pull request.</li>
 <li>Assign yourself as an owner of the pull request.</li>
+<li>Add <em>Needs review</em> label to the pull request.  </li>
 </ul>
 <p>Read more about <a href="../../assets/mindful-communication-in-code-reviews.pdf">Mindful Communication in Code
 Reviews</a>.</p>
 <h2 id="labels">Labels<a class="headerlink" href="#labels" title="Permanent link">&para;</a></h2>
-<p>We advise to use labels on GitHub to help organise pull requests and issues.</p>
-<ul>
-<li><code>CONFLICT</code> - pull request has a conflict that needs to be resolved before it can 
-  be merged.</li>
-<li><code>DO NOT MERGE</code> - do not merge this pull request</li>
-<li><code>DO NOT REVIEW</code> - do not review this pull request</li>
-<li><code>Needs review</code> - a pull request needs a review from assigned developers </li>
-<li><code>Questions</code> - a pull request has some questions that needs to be answered before 
-  further review can progress </li>
-<li><code>Ready for test</code> - a pull request is ready for manual testing</li>
-<li><code>Ready to be merged</code> - a pull request is ready to be merged (required for 
-  delayed feature delivery)</li>
-<li><code>Requires more work</code> - a pull request was reviewed and reviewer(s) asked to 
-  work further on the pull request</li>
-<li><code>URGENT</code> - a pull request needs to be urgently reviewed.</li>
-</ul>
+<p>Using labels on GitHub can help organise pull requests and issues. Here are the 
+labels that describe the most of the states of pull request.</p>
+<p><img alt="Pull Request labels" src="../../assets/pr-labels.png" style="width:500px;" /></p>
 <p>An example of the pull request progression through labels:</p>
 <p><code>DO NOT REVIEW</code> -&gt; <code>Needs review</code> -&gt; <code>Ready for test</code> -&gt; <code>Ready to be merged</code></p>
-<p>Use <a href="https://github.com/integratedexperts/github-labels">Github Labels</a> script
-to automatically create consistent labels in your projects.</p>
+<p><a href="https://github.com/integratedexperts/github-labels">Github Labels</a> script
+can automatically create above labels in your projects.</p>
                 
                   
                 
