@@ -106,7 +106,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#back-end-coding-standards" tabindex="1" class="md-skip">
+      <a href="#coding-standards" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -726,15 +726,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#php" title="PHP" class="md-nav__link">
-    PHP
+  <a href="#composer" title="Composer" class="md-nav__link">
+    Composer
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#composer" title="Composer" class="md-nav__link">
-    Composer
+  <a href="#setting-project-coding-standards-inspections-in-phpstorm" title="Setting project coding standards inspections in PHPStorm" class="md-nav__link">
+    Setting project coding standards inspections in PHPStorm
   </a>
   
 </li>
@@ -997,15 +997,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#php" title="PHP" class="md-nav__link">
-    PHP
+  <a href="#composer" title="Composer" class="md-nav__link">
+    Composer
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#composer" title="Composer" class="md-nav__link">
-    Composer
+  <a href="#setting-project-coding-standards-inspections-in-phpstorm" title="Setting project coding standards inspections in PHPStorm" class="md-nav__link">
+    Setting project coding standards inspections in PHPStorm
   </a>
   
 </li>
@@ -1027,30 +1027,20 @@
               
                 
                 
-                <h1 id="back-end-coding-standards">Back-End Coding Standards<a class="headerlink" href="#back-end-coding-standards" title="Permanent link">&para;</a></h1>
-<h2 id="php">PHP<a class="headerlink" href="#php" title="Permanent link">&para;</a></h2>
+                <h1 id="coding-standards">Coding Standards<a class="headerlink" href="#coding-standards" title="Permanent link">&para;</a></h1>
 <p>We use Drupal <a href="http://drupal.org/coding-standards">Coding Standards</a> for all our
 <a href="../../../tide/modules/">contributed</a> and custom modules.</p>
-<p><a href="https://github.com/squizlabs/PHP_CodeSniffer">PHPCodeSniffer</a> runs our code linting
-using rules from <a href="https://www.drupal.org/project/coder">Drupal Coder</a> module
-and additional customizations. See our the PHPCodeSniffer <a href="https://github.com/dpc-sdp/dev-tools/blob/master/phpcs.xml">configuration file</a>. </p>
-<h3>Running locally</h3>
+<p><a href="https://github.com/squizlabs/PHP_CodeSniffer">PHPCodeSniffer</a> runs our code
+linting using rules from <a href="https://www.drupal.org/project/coder">Drupal Coder</a>
+module and additional customizations. See our the PHPCodeSniffer <a href="https://github.com/dpc-sdp/dev-tools/blob/master/phpcs.xml">configuration
+file</a>.</p>
+<p>Run all coding standards checks:
 <div class="codehilite"><pre><span></span><span class="go">ahoy lint</span>
-</pre></div>
-
-<h3>Setting project coding standards in PHPStorm</h3>
-<ol>
-<li>PHPStorm &gt; Preferences &gt; Code Style</li>
-<li>Select the appropriate language (in the example image below it is <code>PHP</code>)</li>
-<li>Select the Set from... link</li>
-<li>Select Predefined Style &gt; Drupal</li>
-</ol>
-<p>It is then possible to use the keyboard shortcut <kbd>Alt</kbd> + 
-<kbd>command</kbd> + <kbd>l</kbd> to format a file or selection.</p>
-<p><img alt="Screenshot of PHPStorm settings" src="../../../assets/setup_backend_code_standards_phpstorm.png" /></p>
+</pre></div></p>
+<p>Note that these checks run during <a href="../automated-builds/">automated builds</a>.</p>
 <h2 id="composer">Composer<a class="headerlink" href="#composer" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Alphabetise where possible<br/>
+<li>Alphabetise package order where possible<br/>
   This helps developers to visually scan code faster.</li>
 <li>Include information to make reviews easier<br/>
   Each patch attribute name should contain the title of the Drupal.org (d.o) issue, 
@@ -1072,6 +1062,16 @@ and additional customizations. See our the PHPCodeSniffer <a href="https://githu
 <span class="p">}</span><span class="err">,</span>
 </pre></div></li>
 </ul>
+<h2 id="setting-project-coding-standards-inspections-in-phpstorm">Setting project coding standards inspections in PHPStorm<a class="headerlink" href="#setting-project-coding-standards-inspections-in-phpstorm" title="Permanent link">&para;</a></h2>
+<ol>
+<li><em>PHPStorm</em> &gt; <em>Preferences</em> &gt; <em>Code Style</em></li>
+<li>Select the appropriate language (in the example image below it is <code>PHP</code>)</li>
+<li>Select the <em>Set from...</em> link</li>
+<li>Select <em>Predefined Style</em> &gt; <em>Drupal</em></li>
+</ol>
+<p>It is then possible to use the keyboard shortcut <kbd>Alt</kbd> + 
+<kbd>command</kbd> + <kbd>l</kbd> to format a file or selection.</p>
+<p><img alt="Screenshot of PHPStorm settings" src="../../../assets/setup_backend_code_standards_phpstorm.png" /></p>
                 
                   
                 
