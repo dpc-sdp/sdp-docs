@@ -61,11 +61,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/tide/setup/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/ripple/</loc>
      <lastmod>2019-03-14</lastmod>
      <changefreq>daily</changefreq>
@@ -97,11 +92,6 @@
     </url>
     <url>
      <loc>https://dpc-sdp.github.io/sdp-docs/development/</loc>
-     <lastmod>2019-03-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://dpc-sdp.github.io/sdp-docs/development/content-repository/</loc>
      <lastmod>2019-03-14</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -502,18 +502,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../tide/setup/" title="Content repository setup" class="md-nav__link">
-      Content repository setup
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -673,18 +661,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -695,9 +671,52 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Setup
+      </label>
+    
     <a href="./" title="Setup" class="md-nav__link md-nav__link--active">
       Setup
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-on-bay" title="Hosting on Bay" class="md-nav__link">
+    Hosting on Bay
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environments" title="Environments" class="md-nav__link">
+    Environments
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -981,6 +1000,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-on-bay" title="Hosting on Bay" class="md-nav__link">
+    Hosting on Bay
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environments" title="Environments" class="md-nav__link">
+    Environments
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -993,7 +1042,56 @@
                 
                 
                 <h1 id="setting-up-a-new-content-repository">Setting up a new Content Repository<a class="headerlink" href="#setting-up-a-new-content-repository" title="Permanent link">&para;</a></h1>
-<p>Content for this page has not been migrated yet.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This chapter describes how to setup Content Repository using whole Tide
+distribution with all Tide modules included. It does not cover setting up
+of Tide modules outside of the  distribution. </p>
+</div>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>Setting up Content Repository is similar to setting up a Drupal site from
+any other contributed profile.</p>
+<ol>
+<li>Create drupal project. <br/>
+   Using <a href="https://github.com/drupal-composer/drupal-project">drupal-project</a> 
+    <div class="codehilite"><pre><span></span>composer create-project drupal-composer/drupal-project:8.x-dev some-dir --no-interaction
+</pre></div></li>
+<li>Add Tide profile:
+    <div class="codehilite"><pre><span></span>composer require dpc-sdp/tide
+</pre></div></li>
+<li>Commit scaffolding files.</li>
+<li>Install a site using <code>drush site-install</code>:<br />
+    <div class="codehilite"><pre><span></span>drush site-install tide --db-url=mysql://user:pwd@localhost/db_name --site-name=Example --account-name=admin --account-pass=pwd
+</pre></div></li>
+<li>Export the database and import it into your production database.     </li>
+</ol>
+<h2 id="hosting-on-bay">Hosting on Bay<a class="headerlink" href="#hosting-on-bay" title="Permanent link">&para;</a></h2>
+<p>Content Repository can be hosted on Bay. See
+<a href="/bay/onboarding/">Onboarding to Bay</a> chapter.</p>
+<h2 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">&para;</a></h2>
+<p>The diagram below describes recommended environments for efficient front-end and
+back-end development:</p>
+<ul>
+<li>Production front-end sites are connected to production Content Repository
+  where API is stable and content is live.<br/>
+  This is standard environments for production sites.</li>
+<li>UAT front-end sites are connected to UAT Content Repository, where API is
+  stable and content is live, but changes are not public.<br/>
+  These environments allow to work with a copy of the live content without
+  exposing it to public, which is useful during new feature testing.</li>
+<li>Local, CI and Preview (per branch) environments are connected to API-DEV
+  Content Repository, where the latest API is still being developed and
+  demonstrative-only but consistent content.<br/>
+  This provides access to the latest API changes while developing new front-end 
+  or back-end functionality.</li>
+<li>Other content consumers under active development may connect to the API 
+  Content Repository with stable API and demonstrative-only but consistent 
+  content.<br/>
+  This allows predictable API behaviour and data, but without access to change 
+  it. </li>
+</ul>
+<details class="details"><summary>Expand to see the diagram</summary><p><a href="../../../assets/tide-setup-environments.png"> <img alt="" src="../../../assets/tide-setup-environments.png" /> </a>  </p>
+</details>
                 
                   
                 
@@ -1014,7 +1112,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../" title="Overview" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
