@@ -8,15 +8,12 @@ https://dpc-sdp.github.io/sdp-docs/
 - [Ahoy](https://github.com/ahoy-cli/ahoy)
 
 ## Quickstart
-To build locally: `ahoy build`
-
-To serve locally: `ahoy deploy`
+To build and serve locally: `ahoy build`
 
 ## Available commands
 ```
    build        Build site
    deploy       Deploy site
-   serve        Serve site in browser
    version      MkDocs version   
 ```
 

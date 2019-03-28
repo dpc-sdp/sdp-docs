@@ -3,26 +3,24 @@ aliases:
 
   - &deploy_ssh_fingerprint "30:83:f2:c7:69:42:6b:5f:4d:1d:25:99:54:a9:d6:97"
 
-  - &container_config
+jobs:
+  build:
+    working_directory: /app
+    docker:
+      - image: integratedexperts/ci-builder
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: sed -i -e "/###/d" docker-compose.yml
+      - run: ahoy build
+      - run: ahoy test
+
+  deploy:
     working_directory: /app
     environment:
       DEPLOY_SSH_FINGERPRINT: *deploy_ssh_fingerprint
     docker:
       - image: squidfunk/mkdocs-material
-
-jobs:
-  build:
-    <<: *container_config
-    steps:
-      - checkout
-      - run: pip install mdx_include
-      - run: mkdocs build -s
-      - store_artifacts:
-          path: /app/site
-          when: always
-
-  deploy:
-    <<: *container_config
     steps:
       - checkout
       - add_ssh_keys:
