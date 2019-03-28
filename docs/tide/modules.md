@@ -86,4 +86,4 @@ SDP development team is committed to support development, maintain all
 Tide modules and follow versioning rules.
 
 ## Developing modules
-See [Module development](/development/module-development) chapter.
+See [Module development](../../development/content-repository/module-development) chapter.

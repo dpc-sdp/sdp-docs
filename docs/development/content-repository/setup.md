@@ -28,7 +28,7 @@ any other contributed profile.
 
 ## Hosting on Bay
 Content Repository can be hosted on Bay. See
-[Onboarding to Bay](/bay/onboarding/) chapter.
+[Onboarding to Bay](../../../bay/onboarding/) chapter.
 
 ## Environments
 The diagram below describes recommended environments for efficient front-end and
