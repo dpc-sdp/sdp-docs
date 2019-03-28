@@ -17,7 +17,7 @@ communicate with one another. An API is not a database. It is an access point to
 an app that can access a database.
 
 ## Bay
-[Bay](/bay) is a fully managed platform and hosting environment that provides an open
+[Bay](../bay) is a fully managed platform and hosting environment that provides an open
 Platform as a Service model managed by SDP. It:
 - is an open-source hosting platform based on Lagoon.
 - allows agencies to build, test and deliver websites via the cloud.
@@ -70,7 +70,7 @@ of changes, discuss potential modifications, and even push follow-up commits if
 necessary.
 
 ## Ripple
-[Ripple](/ripple) offers a consistent design system, making it easier for citizens to find,
+[Ripple](../ripple) offers a consistent design system, making it easier for citizens to find,
 understand and use Victorian Government information maintained by SDP. It:
 - is fully open and includes a library of reusable components, based on atomic 
   pattern design.
@@ -91,7 +91,7 @@ Front-end application to demonstrate components of the Ripple Pattern Library.
 [Storybook](https://storybook.js.org/) software that powers [style guide](#style guide).
 
 ## Tide
-[Tide](/tide) is an API first, headless content management system using Drupal 8 and 
+[Tide](../tide) is an API first, headless content management system using Drupal 8 and 
 maintained by SDP. 
 
 Custom built to meet Victorian Government requirements, it offers:
