@@ -114,9 +114,9 @@ nav:
     - Overview: ripple/index.md
     - Components: ripple/components.md
     - API *: ripple/api.md
-    - Search: ripple/search.md
+    - Search *: ripple/search.md
     - Content data flow: ripple/content-data-flow.md
-    - Setup new site: ripple/setup.md
+    - Setup new site *: ripple/setup.md
   - Development:
     - Overview: development/index.md
     - Content Repository:
