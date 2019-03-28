@@ -124,7 +124,7 @@ nav:
         - Local development environment: development/content-repository/local-development-environment.md
         - Automated builds: development/content-repository/automated-builds.md
         - Coding standards: development/content-repository/coding-standards.md
-        - Module Development *: development/content-repository/module-development.md
+        - Module Development: development/content-repository/module-development.md
         - README.md file: development/content-repository/readme-file.md
     - Frontend Website:
         - Setup *: development/frontend-website/setup.md
