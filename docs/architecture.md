@@ -1,11 +1,11 @@
 # Architecture
 
-Single Digital Presence is a distribution that consists of Content Repository
-with exposed API (headless [Drupal](https://www.drupal.org) distribution called
-**[Tide](/tide)**) and a front-end components library ([Vue.js](https://vuejs
-.org/) with [Nuxt](https://nuxtjs.org/) server rendering framework called 
-**[Ripple](/ripple)**) hosted on the latest generation hosting platform 
-([Kubernetes](https://kubernetes.io/)-based [Docker](https://www.docker.com/)
+Single Digital Presence (SDP) is a distribution that consists of:
+- a content repository with exposed API (headless [Drupal](https://www.drupal.org) distribution called
+**[Tide](/tide)**)
+- a front-end components library ([Vue.js](https://vuejs.org/) with [Nuxt](https://nuxtjs.org/) server rendering framework called 
+**[Ripple](/ripple)**),
+- hosted on the latest generation hosting platform([Kubernetes](https://kubernetes.io/)-based [Docker](https://www.docker.com/)
 container platform called **[Bay](/bay)**). 
 
 ## Application system components
@@ -19,23 +19,23 @@ At the application layer, there are 2 main components of the system:
 
 !!! note
 
-    The two main requirements that have significant affect on the architecture
-    were: 
+    Two main requirements had a significant effect on the SDP architecture:  
     
     - Content sharing across multiple sites.
     
     - Content syndication via API.
       
-    [Content Sharing](#content-sharing) is a common issue amongst larger
-    organisation, however the solutions are highly complex and the publicly
+    [Content sharing](#content-sharing) is a common requirement in larger
+    organisations, however the solutions are highly complex and the publicly
     available options are not mature enough for immediate use.
 
 ## System components inheritance
 
-There are 3 layer of components in the Distribution. The features provided by
+There are 3 layers of components in the distribution. The features provided by
 every layer contribute to a final particular website feature set.
 
-Each of the layers is owned, supported and maintained by a distinct community: 
+Each of the layers is owned, supported and maintained by a distinct community:
+
 - Open Source - provides Drupal core and contributed modules. It is maintained
   by a worldwide Drupal community.
 - Distribution - provides content types, multi-channel and API features. It is 
