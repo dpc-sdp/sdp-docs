@@ -5,11 +5,11 @@
 Atomic design is methodology for creating design systems. There are five
 distinct levels in atomic design:
 
-- Atoms
-- Molecules
-- Organisms
-- Templates
-- Pages
+1. Atoms
+2. Molecules
+3. Organisms
+3. Templates
+3. Pages
 
 ## API
 Application Programming Interface (API) is a mechanism to allow applications to 
