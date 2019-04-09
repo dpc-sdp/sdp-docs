@@ -72,6 +72,7 @@ necessary.
 ## Ripple
 [Ripple](../ripple) offers a consistent design system, making it easier for citizens to find,
 understand and use Victorian Government information maintained by SDP. It:
+
 - is fully open and includes a library of reusable components, based on atomic 
   pattern design.
 - uses Vue.js and Nuxt to deliver a consistent look and feel across government 
@@ -95,6 +96,7 @@ Front-end application to demonstrate components of the Ripple Pattern Library.
 maintained by SDP. 
 
 Custom built to meet Victorian Government requirements, it offers:
+
 - multi-site content distribution
 - pick and mix features
 - centralised feature governance
