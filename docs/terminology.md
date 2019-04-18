@@ -8,8 +8,8 @@ distinct levels in atomic design:
 1. Atoms
 2. Molecules
 3. Organisms
-3. Templates
-3. Pages
+4. Templates
+5. Pages
 
 ## API
 Application Programming Interface (API) is a mechanism to allow applications to 
@@ -19,6 +19,7 @@ an app that can access a database.
 ## Bay
 [Bay](../bay) is a fully managed platform and hosting environment that provides an open
 Platform as a Service model managed by SDP. It:
+
 - is an open-source hosting platform based on Lagoon.
 - allows agencies to build, test and deliver websites via the cloud.
 
