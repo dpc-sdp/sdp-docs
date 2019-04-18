@@ -508,8 +508,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automated-testing" title="Automated testing" class="md-nav__link">
-    Automated testing
+  <a href="#tide-profile-vs-tide-core-module" title="Tide Profile vs Tide Core module" class="md-nav__link">
+    Tide Profile vs Tide Core module
   </a>
   
 </li>
@@ -517,6 +517,13 @@
         <li class="md-nav__item">
   <a href="#versions" title="Versions" class="md-nav__link">
     Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-testing" title="Automated testing" class="md-nav__link">
+    Automated testing
   </a>
   
 </li>
@@ -787,8 +794,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../development/content-repository/module-development/" title="Module Development *" class="md-nav__link">
-      Module Development *
+    <a href="../../development/content-repository/module-development/" title="Module Development" class="md-nav__link">
+      Module Development
     </a>
   </li>
 
@@ -1023,8 +1030,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automated-testing" title="Automated testing" class="md-nav__link">
-    Automated testing
+  <a href="#tide-profile-vs-tide-core-module" title="Tide Profile vs Tide Core module" class="md-nav__link">
+    Tide Profile vs Tide Core module
   </a>
   
 </li>
@@ -1032,6 +1039,13 @@
         <li class="md-nav__item">
   <a href="#versions" title="Versions" class="md-nav__link">
     Versions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automated-testing" title="Automated testing" class="md-nav__link">
+    Automated testing
   </a>
   
 </li>
@@ -1177,21 +1191,14 @@ standalone (provided that other dependency modules installed as well).</p>
 </tr>
 </tbody>
 </table>
-<h2 id="automated-testing">Automated testing<a class="headerlink" href="#automated-testing" title="Permanent link">&para;</a></h2>
-<p>Tide modules use PHPUnit and Behat for unit and integration/behavioural 
-testing. The tests are running inside of the Continuous Integration pipeline 
-provided by <a href="https://circleci.com">CircleCI</a>. </p>
-<p>For every change pushed to the repository, CircleCI starts the build, where 
-tests are running in 2 modes: <code>normal</code> and <code>suggested</code>. </p>
-<p>In <code>normal</code> mode the module is installed with it's required dependencies into
-freshly built Drupal site. Once installed, the tests will run and check that 
-the configuration shipped with the module indeed works.</p>
-<p>In <code>suggested</code> mode, the module is installed with it's requires and <strong>optional</strong>
-dependencies. Once installed, the tests will run and check that the<br />
-configuration shipped with the module indeed works and that it does not conflict
-with other optional modules.</p>
-<p>This "double-testing" is very powerful tool to keep configuration in 
-releasable state.</p>
+<h2 id="tide-profile-vs-tide-core-module">Tide Profile vs Tide Core module<a class="headerlink" href="#tide-profile-vs-tide-core-module" title="Permanent link">&para;</a></h2>
+<p>In order to allow using of Tide modules outside of profile, it was decided to 
+use Drupal profile <code>tide</code> only as a collection of <code>tide_*</code> modules (required in 
+profile's <code>composer.json</code> and profiles info yml file as dependency), while all 
+of the common site configuration is captured in the <code>tide_core</code> module, making
+it a main dependency for all other modules. </p>
+<details><summary>Diagram of Tide module dependency</summary><p><img alt="Diagram of the module dependency" src="../../assets/tide_module_dependency.png" /> </p>
+</details>
 <h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
 <p>Modules versions follow <a href="https://semver.org/">semantic versioning</a>:</p>
 <div class="admonition quote">
@@ -1220,6 +1227,75 @@ modules, it has to "tighten" versioning rules.</p>
 <li><code>PATCH</code> version when there is a backwards-compatible bug fixes (no change 
   from SemVer).</li>
 </ul>
+<p>It is important to understand that a module's <code>MAJOR</code> version must be
+incremented if it's API has changed, since other modules now have to update
+their integrations with current module to use a new version.</p>
+<h3>Example of version increments</h3>
+<p>Consider this module dependency tree:
+<div class="codehilite"><pre><span></span>|-consumer site
+  |-tide@1.1.1
+    |- tide_page@2.2.2
+    | |- tide_core@3.3.3
+    |    |- drupal@8.5.6 
+    |- tide_api@4.4.4
+      |- jsonapi@1.2.0
+</pre></div></p>
+<p>Consumer site requires Tide profile, which is normal practice to solely rely on 
+upstream maintenance and receive updates. </p>
+<p>Tide profile requires Tide page, which relies on Tide Core, and Tide API. Note
+that Tide Page has some optional API configuration that is used only when Tide 
+API is enabled.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since <code>tide_core</code> is a module with most profile configuration, it
+also has Drupal versions constraint.</p>
+</div>
+<p>When Tide Page adds a new field, it changes it's "contract" with other modules, 
+making it's <code>MAJOR</code> version to increment, resulting in version <code>4.0.0</code>. However, 
+the <code>tide</code> profile that was referencing the <code>tide_page</code> module at <code>2.2.2</code> has 
+not changed it's own "contract", making the release a <code>MINOR</code> change, resulting 
+in version <code>1.2.0</code>.</p>
+<p>Another case - dependency is updated. When <code>tide_api</code> updates integration with
+<code>jsonapi</code> from <code>1.2.0</code> to <code>2.0.0</code>, the <code>MAJOR</code> version of <code>tide_api</code> must be
+incremented as well, since <code>jsonapi@2.0.0</code> brings configuration changes
+incompatible with version <code>1.*</code>. Now, <code>tide_page</code> has optional configuration for
+<code>jsonapi</code> module, which now has to be updated, so <code>tide_page</code> <code>MINOR</code> version is
+updated from <code>2.2.2</code> to <code>2.3.0</code>. This is because <code>tide_page</code> does not change
+it's own "contract" with other modules - the fields are the same, the output of
+API requests is the same, other functionality provided by <code>tide_api</code> is the same
+as before, but just internal implementation was changed.</p>
+<p>Last example - updating Drupal core to <code>8.6.12</code>, which releases API changes within it's 
+<code>MINOR</code> versions. This is a special case for versioning of the Tide module - 
+<code>tide_core</code> has to increment it's <code>MAJOR</code> version. </p>
+<p>The resulting dependency tree would look like this:</p>
+<div class="codehilite"><pre><span></span>|-consumer site
+  |-tide@1.2.0            &lt;-- MINOR version updated
+    |- tide_page@2.3.0    &lt;-- MINOR version updated
+    | |- tide_core@4.0.0  &lt;-- MAJOR version updated
+    |    |- drupal@8.6.12 &lt;-- MINOR version updated 
+    |- tide_api@5.0.0     &lt;-- MAJOR version updated
+      |- jsonapi@2.0.0    &lt;-- MAJOR version updated
+</pre></div>
+
+<h2 id="automated-testing">Automated testing<a class="headerlink" href="#automated-testing" title="Permanent link">&para;</a></h2>
+<p>Tide modules use PHPUnit and Behat for unit and integration/behavioural 
+testing. The tests are running inside of the Continuous Integration pipeline 
+provided by <a href="https://circleci.com">CircleCI</a>. </p>
+<p>For every change pushed to the repository, CircleCI starts the build, where 
+tests are running in 2 modes: <code>normal</code> and <code>suggested</code>. </p>
+<p>In <code>normal</code> mode the module is installed with it's required dependencies into
+freshly built Drupal site. Once installed, the tests will run and check that 
+the configuration shipped with the module indeed works.</p>
+<p>In <code>suggested</code> mode, the module is installed with it's requires and <strong>optional</strong>
+dependencies. Once installed, the tests will run and check that the
+configuration shipped with the module indeed works and that <strong>it does not
+conflict with other optional modules</strong>.</p>
+<p>This "double-testing" is very powerful tool to keep configuration in 
+releasable state. Without it, there is a high chance of committing conflicting
+configurations into multiple modules, releasing modules without knowing about
+this problem, and becoming to a "stale mate" situation, where Content Repository
+implementation site needs to be updated, but there are no modules that can be 
+installed without breaking configuration.  </p>
 <h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">&para;</a></h2>
 <p>SDP development team is committed to support development, maintain all 
 Tide modules and follow versioning rules.</p>

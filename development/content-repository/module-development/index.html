@@ -40,7 +40,7 @@
     
     
       
-        <title>Module Development * - Single Digital Presence</title>
+        <title>Module Development - Single Digital Presence</title>
       
     
     
@@ -131,7 +131,7 @@
               Single Digital Presence
             </span>
             <span class="md-header-nav__topic">
-              Module Development *
+              Module Development
             </span>
           
         </div>
@@ -732,11 +732,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Module Development *
+        Module Development
       </label>
     
-    <a href="./" title="Module Development *" class="md-nav__link md-nav__link--active">
-      Module Development *
+    <a href="./" title="Module Development" class="md-nav__link md-nav__link--active">
+      Module Development
     </a>
     
       
@@ -757,8 +757,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#releasing-contributed-module" title="Releasing contributed module" class="md-nav__link">
-    Releasing contributed module
+  <a href="#releasing-a-contributed-module" title="Releasing a contributed module" class="md-nav__link">
+    Releasing a contributed module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-dependent-modules" title="Working with dependent modules" class="md-nav__link">
+    Working with dependent modules
   </a>
   
 </li>
@@ -1004,8 +1011,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#releasing-contributed-module" title="Releasing contributed module" class="md-nav__link">
-    Releasing contributed module
+  <a href="#releasing-a-contributed-module" title="Releasing a contributed module" class="md-nav__link">
+    Releasing a contributed module
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-dependent-modules" title="Working with dependent modules" class="md-nav__link">
+    Working with dependent modules
   </a>
   
 </li>
@@ -1029,15 +1043,195 @@
                 
                 <h1 id="module-development">Module development<a class="headerlink" href="#module-development" title="Permanent link">&para;</a></h1>
 <h2 id="developing-contributed-module">Developing contributed module<a class="headerlink" href="#developing-contributed-module" title="Permanent link">&para;</a></h2>
-<div class="admonition todo">
-<p class="admonition-title">This content has not been developed yet</p>
-<p>How to include a module into Content Repository.</p>
+<p>Development of the brand new contributed module (Tide or not) may take place
+either in the separate repository or within an instance of the Content
+Repository installation (followed by extraction into a separate module).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are using <code>dpc-sdp</code> as an organisation and <code>tide_mymodule</code> in the
+examples below. Update these values to your real organisation and module
+name as required.</p>
 </div>
-<h2 id="releasing-contributed-module">Releasing contributed module<a class="headerlink" href="#releasing-contributed-module" title="Permanent link">&para;</a></h2>
-<div class="admonition todo">
-<p class="admonition-title">This content has not been developed yet</p>
-<p>How to extract a module from the codebase and release it. </p>
+<h3>Developing within an instance of Content Repository.</h3>
+<ol>
+<li>Create a local vendor directory <code>dpc-sdp</code> in the root of your project.</li>
+<li>Create a module <code>tide_mymodule</code> in <code>dpc-sdp</code> directory with required 
+   functionality.</li>
+<li>Add repository information to your <code>composer.json</code>:
+    <div class="codehilite"><pre><span></span>&quot;repositories&quot;: {
+    &quot;dpc-sdp/tide_mymodule&quot;: {
+        &quot;type&quot;: &quot;path&quot;,
+        &quot;url&quot;: &quot;dpc-sdp/tide_mymodule&quot;
+    }
+}
+</pre></div></li>
+<li>Require this new module as a standard Composer package:
+    <div class="codehilite"><pre><span></span>composer require dpc-sdp/tide_mymodule
+</pre></div></li>
+<li>Commit the changes to <code>composer.json</code> and <code>composer.lock</code>.</li>
+<li>Enable module in Drupal.</li>
+</ol>
+<h3>Extracting contributed module into a separate repository</h3>
+<ol>
+<li>Create a repository on GitHub with the name of yor module: <code>dpc-sdp/tide_mymodule</code></li>
+<li>Copy the contents from one of the existing tide repositories (for example,
+   <a href="https://github.com/dpc-sdp/tide_page">Tide Page</a> or use 
+   (Dev-Tools)[<a href="https://github.com/dpc-sdp/dev-tools">https://github.com/dpc-sdp/dev-tools</a>] for scaffolding.</li>
+<li>Commit required files and push to remote.</li>
+<li>Configure CircleCI to run tests for your module. Note that you must be an
+   administrator of the repository to setup CircleCI.</li>
+<li>Update <code>README.md</code> file with relevant information, including CircleCI build 
+   status badge. </li>
+<li>Depending if this module becomes a part of the Tide profile after being 
+   extracted:</li>
+<li>
+<p>If this module becomes a part of Tide profile and your Content Repository 
+     instance uses Tide profile, open a new PR to Tide profile repository and add the code below:
+      <div class="codehilite"><pre><span></span>&quot;dpc-sdp/tide_mymodule&quot;: {
+    &quot;type&quot;: &quot;vcs&quot;,
+    &quot;no-api&quot;: true,
+    &quot;url&quot;: &quot;https://github.com/dpc-sdp/tide_mymodule.git&quot;
+},
+</pre></div>
+      Once added, reference this module in the Tide profile's <code>composer.json</code>.  </p>
+</li>
+<li>
+<p>If this module is not going to be a part of the Tide profile or going
+     to be included in your Content Repository instance directly, replace 
+     configuration with the following:
+      <div class="codehilite"><pre><span></span>&quot;dpc-sdp/tide_mymodule&quot;: {
+ &quot;type&quot;: &quot;vcs&quot;,
+ &quot;no-api&quot;: true,
+ &quot;url&quot;: &quot;https://github.com/dpc-sdp/tide_mymodule.git&quot;
+},
+</pre></div></p>
+</li>
+<li>
+<p>Run <code>composer update --lock</code> to update version information and references.</p>
+</li>
+<li>Commit the changes to <code>composer.json</code> and <code>composer.lock</code>.</li>
+</ol>
+<h2 id="releasing-a-contributed-module">Releasing a contributed module<a class="headerlink" href="#releasing-a-contributed-module" title="Permanent link">&para;</a></h2>
+<p>Once the contributed module is ready to be released as a stable version, make 
+sure that release versioning follows <a href="https://semver.org/">semantic versioning</a>. 
+See <a href="http://sdp-docs.docker.amazee.io:8000/tide/modules/#versions">Versions</a> for 
+more information about version increments. </p>
+<h3>Patching modules</h3>
+<p>During development of Content Repository instance or one of the Tide modules, 
+there may become a need to apply a patch to one or more of the Tide modules. 
+The patching process is similar to patching any other Composer dependency:
+1. Create a PR with required change in the <code>dpc-sdp/tide_mymodule</code> GitHub page
+2. Add <code>.patch</code> to the URL of the PR and go to that page in the browser.
+3. Copy resulting redirected URL to the "patches" section of <code>composer.json</code>:
+   <div class="codehilite"><pre><span></span>&quot;patches&quot;: {
+    &quot;dpc-sdp/tide_mymodule&quot;: {
+        &quot;Descritoipn of the PR&quot;: &quot;https://patch-diff.githubusercontent.com/raw/dpc-sdp/tide_mymodule/pull/123.patch&quot;
+    },
+}
+</pre></div>
+4. For Content repository instance, run <code>composer update --lock</code>
+5. Commit changed <code>composer.json</code> and <code>composer.lock</code>.</p>
+<h2 id="working-with-dependent-modules">Working with dependent modules<a class="headerlink" href="#working-with-dependent-modules" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Before proceeding further, make sure that you are familiar with Tide modules 
+<a href="../../../tide/modules/#tide-profile-vs-tide-core-module">dependency tree and versioning</a></p>
 </div>
+<p>In Tide ecosystem, there are modules that contain shared configuration (e.g. <code>tide_core</code>)
+and configuration based on that shared one (e.g. <code>tide_page</code>). The simplest 
+example is a field storage and field instance - fields may be re-used across
+content types (each of which is a separate module), but the configuration for a 
+field instance is shipped with a relevant module.</p>
+<p>In this case, <code>tide_core</code> is a <em>dependent</em> and <code>tide_page</code> is a <em>dependee</em> module 
+from the point of configuration hierarchy (field instance cannot exist without
+filed storage),</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the explanation below we are using field storage and field instance as 
+an example of configuration that has one shared parent and many unique 
+children: a single field storage may be shared accross multiple content 
+types and therefore have multiple field instances.</p>
+</div>
+<h3>Updating <em>dependee</em> module</h3>
+<p>Updating <em>dependee</em> module is no different then updating any other modules when
+updates do not require adding a new shared fields: create a PR with a change,
+QA it, merge and release. </p>
+<p>But updating <em>dependee</em> to add a shared storage to <em>dependant</em> module requires
+additional coordination.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are using <code>tide_core</code> as an example of the shared configuration storage 
+module and <code>tide_page</code> as an example of the unique configuration sotrage 
+module. But these can be any modules with similar configuration dependency 
+hierarchy.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The steps below assume that change always triggers a release. Obvously, 
+multiple changes can be bundled before publishing a new release.</p>
+<p>The "<em>absolutely must</em>" is used in context "to immidiately apply the 
+change". If the changes needs to be bundled, the  "<em>absolutely must</em>" is 
+used to the last applied change only.    </p>
+</div>
+<ol>
+<li>Add field storage configuration to <code>tide_core</code>, commit it, push to remote and 
+   open new PR. </li>
+<li>Add field instance configuration to <code>tide_page</code>, commit it.</li>
+<li>Add a patch from <code>tide_core</code> PR (see 
+   <a href="#releasing-a-contributed-module">Patching modules</a> above) to the <code>tide_page</code>
+   <code>composer.json</code>, commit it, push to remote and open a new PR.</li>
+<li>
+<p>Assuming that QA/UAT process happens within an instance of the Content 
+   repository, create a new branch, add both patches to <code>composer.json</code> and 
+   create a PR that will allow to QA/UAT this change within fully installed site.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>At this point, there are 3 PRs opened and waiting for QA/UAT to approve 
+changes.  </p>
+</div>
+</li>
+<li>
+<p>Once QA approved, perform a PR merge starting from the most deepest 
+   <em>dependent</em> - <code>tide_core</code>. This is because field storage configuration may
+   exist by itself, while field instance cannot.</p>
+</li>
+<li>Once merged, <code>tide_core</code> absolutely must increment it's version (see 
+     <a href="../../../tide/modules/#tide-profile-vs-tide-core-module">dependency tree and versioning</a>)</li>
+<li>The <em>dependee</em> <code>tide_page</code> PR has to now replace patch with a version
+     constraint for <code>tide_core</code> to make sure that the latest version is used.
+     Once this change is made, a PR should pass the CI checks and should be 
+     merged to the main branch.</li>
+<li>Once merged, the <em>dependee</em> <code>tide_page</code> absolutely must increment it's 
+     release version.</li>
+<li>If changed modules were required by <code>tide</code> profile, a new PR should be 
+   created with new version constraints updated. Note that this step is required 
+   only with constraints needs to be updated. I.e., <code>tide_page</code> would have it's
+   <code>MAJOR</code> version incremented (due to an added field which is an API breaking 
+   change), so the <code>tide</code> profile has to adjust it's version constraints 
+   accordingly, if required. <br/>
+   When PR passes CI, it may be merged to a <code>master</code> branch of the <code>tide</code> 
+   profile. <br/>
+   Once there are enough updates (according to release cycle or other release 
+   schedule), a new release of the <code>tide</code> profile must be created. <br/>   </li>
+<li>
+<p>All consumer sites will receive the updated code once they run 
+   <code>composer update</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>At this point, there will be 2 releases in Tide modules, 1 release 
+in Tide  profile and 1 release in consumer site.</p>
+</div>
+</li>
+</ol>
+<h3>Conclusion</h3>
+<p>Although this change management process seemed over-complicated and cumbersome,
+it provides:</p>
+<ul>
+<li>ability to QA and UAT every change independently</li>
+<li>flexibility for consumer sites to include not-yet-merged changes as patches</li>
+<li>utilise granular versioning for a large number of consumer websites </li>
+<li>bundle changes before making a release        </li>
+</ul>
                 
                   
                 
