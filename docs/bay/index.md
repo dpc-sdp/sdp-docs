@@ -1,9 +1,7 @@
 # Bay
 
 Bay is a fully managed platform and hosting environment that provides an open
-Platform as a Service model managed by SDP. It:
-- is an open-source hosting platform based on Lagoon.
-- allows agencies to build, test and deliver websites via the cloud.
+Platform as a Service model managed by SDP. It is an open-source hosting platform based on [Lagoon](https://github.com/amazeeio/lagoon) which allows agencies to build, test and deliver websites via the cloud.
 
 Bay is a Kubernetes-based (OpenShift) Docker container hosting platform with
 auto-scaling, auto-recovery and high-availability at core.
