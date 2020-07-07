@@ -101,10 +101,6 @@ to production environments.
 
 !!! note
 
-    The steps below require access to the Lagoon UI to access database archives.
-
-!!! note
-
     This process highlights the importance of release tags.
 
 !!! danger
