@@ -3,6 +3,10 @@
 The purpose of this document is to describe the git management process across
 the Content Repository and Frontend Websites. 
 
+!!! note
+  
+    For release management of Tide modules, please see [Versions](../../tide/modules/#versions)
+
 ## Issues
 Changes to the Drupal API can have an effect on the Front end website due to
 field and entity changes. This can lead to issues on Frontend Websites if
