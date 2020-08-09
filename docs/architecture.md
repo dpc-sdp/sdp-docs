@@ -47,29 +47,29 @@ Each of the layers is owned, supported and maintained by a distinct community:
 
 See [Tide](../tide) and [Ripple](../ripple) for more information about architecture.
 
-## Content Sharing
+## Content sharing
 
-Content Editors author content and select content sharing targets
-(Frontend Websites and site sections) for each content piece. Drupal will
-then serve this content as data through API to each Frontend Website,
+Content editors create content and select content sharing targets such as 
+frontend websites and site sections for each content piece. Drupal 
+then serves this content as data through an API to each frontend website,
 implemented as a separate front-end application.
 
-Content Repository site has only a basic frontend and its IP restricted to a
-list of allowed IP addresses, so that content editors from designated offices
-could access the editorial interface.
+The content repository site has only a basic frontend and its IP is restricted to a
+list of allowed IP addresses. This allows content editors from designated offices
+access to the editorial interface.
 
-The API endpoints for the Content Repository site are accessible to the world
+The API endpoints for the content repository site are accessible to the world
 over the same predefined domain (e.g., https://api.agency.gov.au). There is no
 authentication for content consumers.
 
-All content editing for all sites is performed through the central content
+Content editing for all sites is performed through the central content
 repository instance (e.g. https://content.agency.gov.au).
 
-There are no restrictions for editing content between the various sites,
+There are no restrictions on editing content between various sites,
 allowing content editors to be used across sites to better utilise limited
 resources.
 
-Content Approvals are still restricted to ensure content is only published upon
+Content approvals are still restricted to ensure content is only published upon
 approval by relevant users. This ensures cross site changes do not go public
 without proper approval. All content changes are tracked, so users making
 changes to the wrong site can receive further training to prevent future
