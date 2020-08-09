@@ -133,5 +133,5 @@ to production environments.
       `git checkout production`
    3. Identify the previous and reset the branch to this commit.
        `git reset --hard {tag}
-   4. Force push
+   4. Force push - adminstrator access to the repository is required 
       `git push -f`
