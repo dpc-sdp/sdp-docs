@@ -12,7 +12,7 @@ Vue.js application.
 
 ### Setup JS Debugging
 1. Create a new JavaScript debug configuration
-2. Specify the URL the app is running on (http://localhost:8080)
+2. Specify the URL the app is running on (http://localhost:8000)
 3. Set a breakpoint 
 4. Start the debug session by pressing "Debug" button in WebStorm/PHPStorm.
 

@@ -28,7 +28,7 @@ any other contributed profile.
 
 ## Hosting on Bay
 Content Repository can be hosted on Bay. See
-[Onboarding to Bay](/bay/onboarding/) chapter.
+[Onboarding to Bay](../../../bay/onboarding/) chapter.
 
 ## Environments
 The diagram below describes recommended environments for efficient front-end and
@@ -41,7 +41,7 @@ back-end development:
   stable and content is live, but changes are not public.<br/>
   These environments allow to work with a copy of the live content without
   exposing it to public, which is useful during new feature testing.
-- Local, CI and Preview (per branch) environments are connected to API-DEV
+- Local, CI and Preview (per branch) front-end environments are connected to API-DEV
   Content Repository, where the latest API is still being developed and
   demonstrative-only but consistent content.<br/>
   This provides access to the latest API changes while developing new front-end 

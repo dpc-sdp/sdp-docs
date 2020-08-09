@@ -5,11 +5,11 @@
 Atomic design is methodology for creating design systems. There are five
 distinct levels in atomic design:
 
-- Atoms
-- Molecules
-- Organisms
-- Templates
-- Pages
+1. Atoms
+2. Molecules
+3. Organisms
+4. Templates
+5. Pages
 
 ## API
 Application Programming Interface (API) is a mechanism to allow applications to 
@@ -19,6 +19,7 @@ an app that can access a database.
 ## Bay
 [Bay](../bay) is a fully managed platform and hosting environment that provides an open
 Platform as a Service model managed by SDP. It:
+
 - is an open-source hosting platform based on Lagoon.
 - allows agencies to build, test and deliver websites via the cloud.
 
@@ -72,6 +73,7 @@ necessary.
 ## Ripple
 [Ripple](../ripple) offers a consistent design system, making it easier for citizens to find,
 understand and use Victorian Government information maintained by SDP. It:
+
 - is fully open and includes a library of reusable components, based on atomic 
   pattern design.
 - uses Vue.js and Nuxt to deliver a consistent look and feel across government 
@@ -95,6 +97,7 @@ Front-end application to demonstrate components of the Ripple Pattern Library.
 maintained by SDP. 
 
 Custom built to meet Victorian Government requirements, it offers:
+
 - multi-site content distribution
 - pick and mix features
 - centralised feature governance

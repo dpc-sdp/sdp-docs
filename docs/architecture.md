@@ -2,19 +2,19 @@
 
 Single Digital Presence (SDP) is a distribution that consists of:
 - a content repository with exposed API (headless [Drupal](https://www.drupal.org) distribution called
-**[Tide](/tide)**)
+**[Tide](../tide)**)
 - a front-end components library ([Vue.js](https://vuejs.org/) with [Nuxt](https://nuxtjs.org/) server rendering framework called 
-**[Ripple](/ripple)**),
+**[Ripple](../ripple)**),
 - hosted on the latest generation hosting platform([Kubernetes](https://kubernetes.io/)-based [Docker](https://www.docker.com/)
-container platform called **[Bay](/bay)**). 
+container platform called **[Bay](../bay)**). 
 
 ## Application system components
 
 At the application layer, there are 2 main components of the system:
 
-- **[Tide](/tide)** - Drupal 8 headless distribution that serves as a content 
+- **[Tide](../tide)** - Drupal 8 headless distribution that serves as a content 
   repository.
-- **[Ripple](/ripple)** - Vue.js-based library of front-end components. Each 
+- **[Ripple](../ripple)** - Vue.js-based library of front-end components. Each 
   instance of Ripple serves as a standalone front-end application for a website.
 
 !!! note
@@ -45,7 +45,7 @@ Each of the layers is owned, supported and maintained by a distinct community:
 
 ![System componets inheritance](assets/system-components-inheritance.png)
 
-See [Tide](/tide) and [Ripple](/ripple) for more information about architecture.
+See [Tide](../tide) and [Ripple](../ripple) for more information about architecture.
 
 ## Content Sharing
 

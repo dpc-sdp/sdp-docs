@@ -4,6 +4,7 @@ Tide is an API first, headless content management system using Drupal 8 and
 maintained by SDP. 
 
 Custom built to meet Victorian Government requirements, it offers:
+
 - multi-site content distribution
 - pick and mix features
 - centralised feature governance

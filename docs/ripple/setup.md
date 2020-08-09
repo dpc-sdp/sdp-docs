@@ -1,9 +1,9 @@
-# Setting up a new Ripple site 
+# Setting up a new Ripple site
 
-Content for this page has not been migrated yet.
+## Setting up a new site with Tide
 
+See [development/frontend-website/setup](../../development/frontend-website/setup/) for instructions.
 
-## Connecting to Content Repository
+## Setting up a new site with Ripple pattern library only
 
-See [Environments](/development/content-repository/setup.md#environments) for instructions how to 
-connect to relevant Content Repository environment.
+It's on the road map but untested at this stage.

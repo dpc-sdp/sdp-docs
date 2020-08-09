@@ -13,13 +13,14 @@ to render a page and, subsequently, update a component.
     ![Component data flow diagram](../assets/component-data-diagram.png)
 
 There are multiple caching layers to speed up the initial page render:
-- Static HTML page cache in CloudFront<br/>
+
+- Static HTML page cache in CloudFront
   Cache of the previously rendered front-end page. This completely avoids
   requests to API, making the site render solely in the browser.
-- Static API JSON response cache in CloudFront<br/>
+- Static API JSON response cache in CloudFront
   Cache of the previously requested API response. This allows to speedup page
   assembly from several API endpoints.
-- Content Repository entity cache and other caches<br/>
+- Content Repository entity cache and other caches
   Internal caching mechanism within Content Repository. Allows to lower load
   and minimise expensive data retrieval operations from the database.   
   
