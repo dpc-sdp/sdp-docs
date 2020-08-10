@@ -15,8 +15,7 @@ a common API. This can cause a delay in deploying Content Repository while
 changes are merged to the Frontend Websites and go through QA and UAT.
 
 ## Versions
-Both Content Repository and Frontend Websites release versions should follow 
-[semantic versioning](https://semver.org/).
+Both Content Repository and Frontend Websites release versions should follow [semantic versioning](https://semver.org/).
 
 !!! quote
     
@@ -74,6 +73,16 @@ to production environments.
     prepare release plan with communication details, templates and rollback
     actions ahead of release, or, better, create a standardise release run sheet.
 
+??? "Create and download a backup of the production database
+
+    1. Log in to the Lagoon UI service
+    2. Navigate to the project
+    3. Select the `production` branch
+    4. Select tasks from the menu
+    5. Add a database backup task
+       1. Select "Generate database backup [drush sql-dump]" from the drop-down
+    6. When the task has completed you can download the archive by selecting the task item.
+
 1. Create a release branch from `develop` in Content Repository
 2. Create a release branch for each Frontend Website repository and push the
    changes as a new pull request against `develop` for each repository.
@@ -87,3 +96,42 @@ to production environments.
    are passed, prepare to tag and release to production.
 7. Tag and deploy Content Repository release to production.
 8. Tag and deploy each Frontend Website release to production.
+
+## Deployment rollback plan
+
+!!! note
+
+    This process highlights the importance of release tags.
+
+!!! danger
+
+    This process should only be followed in the event of a failed deployment that is 
+    impacting a sites uptime.
+
+    This is a last resort and only to be used for expendiency.
+    
+    It is a destructive process and will require commiting directly 
+    to the production branch.
+
+??? "Synchronise the database archive with the production instance.
+
+    The database archive should exist from the earlier release preparations.
+
+    This step is required before any further code changes are pushed because they will trigger
+    database updates. Although none should run this is a safety measure to ensure the codebase 
+    will successfully deploy.
+
+    The database archive should exist from the earlier release preparations.
+    
+    Drush is the simplest way to synchronise a database.
+
+??? "Reset the branch to the last release"
+
+   1. Ensure you have all the latest branch and tags
+      `git fetch --all --tags`
+   2. Checkout the `production` branch.
+      `git checkout production`
+   3. Identify the previous and reset the branch to this commit.
+       `git reset --hard {tag}
+   4. Force push - administrator access to the repository is required.
+      `git push -f`
