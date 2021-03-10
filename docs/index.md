@@ -2,7 +2,7 @@
 
 !!! info
     
-    Your are viewing a version of the documentation that is currently under 
+    You are viewing a version of the documentation that is currently under 
     active development.
     
     Some of the sections are missing or incomplete - they are marked with 
