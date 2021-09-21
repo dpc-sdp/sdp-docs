@@ -12,7 +12,6 @@ your project.
     - `_org_machine_name_` - the machine name of the organisation 
 
 ## Content Repository
-[README.content-repository.md](/assets/README.content-repository)
 
 ````
 {! docs/assets/README.content-repository.md !}

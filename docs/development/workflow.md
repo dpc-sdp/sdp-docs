@@ -26,8 +26,8 @@ and Frontend Website projects.
 5. Commit all changed and added files. Pay special attention to configuration 
    files and their counterparts (`composer.json`, `composer.lock`, 
    `package.json`,  `package-lock.json`). 
-6. Create a pull request in your issue tracker - see [Preparing code for code
-   review](/development/code-review/#preparing-code-for-code-review)
+6. Create a pull request in your issue tracker - see [Preparing code for 
+   code review](../code-review#preparing-code-for-code-review)
 7. If you are using a messenger to communicate with your development team - 
    copy and paste the link to the created pull request into the messenger 
    and ask for a review.
