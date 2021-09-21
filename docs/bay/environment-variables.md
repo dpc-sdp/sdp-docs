@@ -92,8 +92,8 @@ https://github.com/amazeeio/lagoon/blob/3a99548f20275b85525b2909905df819680bbe1f
 https://github.com/dpc-sdp/content-vic-gov-au/pull/617
 * PHP_MEMORY_LIMIT - The [PHP Memory Limit](https://www.php.net/manual/en/ini.core.php#ini.memory-limit) value, this will be injected into the PHP container.
 * PROJECT_NAME - The name of the Lagoon Project.
-* SECTION_IO_PASSWORD - This is the password used to authenticate cache
-invalidation requests to the [Section](Section.io) API.
+* SECTION_IO_PASSWORD - This is the password used to authenticate cache invalidation 
+requests to the [Section](https://section.io) API.
 * ENABLE_SMTP - Global toggle for SMTP.
 * SMTP_HOST - Hostname of SES SMTP endpoint.
 * SMTP_PORT - Port of SES SMTP endpoint.

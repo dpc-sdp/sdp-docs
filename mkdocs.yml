@@ -25,7 +25,7 @@ repo_url: https://github.com/dpc-sdp/sdp-docs
 edit_uri: ""
 
 # Copyright
-copyright: 'Copyright &copy; 2019 Department of Premier and Cabinet of Victoria'
+copyright: 'Copyright &copy; 2021 Department of Premier and Cabinet of Victoria'
 
 # Configuration
 theme:
@@ -51,7 +51,7 @@ theme:
 ## Customization
 extra:
   social:
-    - type: github-alt
+    - icon: fontawesome/brands/github-alt
       link: https://github.com/dpc-sdp
 
 # Extensions
@@ -102,6 +102,7 @@ nav:
   - Bay:
     - Overview: bay/index.md
     - Onboarding *: bay/onboarding.md
+    - Environment Variables: bay/environment-variables.md
     - Preview environments: bay/preview-environments.md
     - Search *: bay/search.md
   - Tide:
