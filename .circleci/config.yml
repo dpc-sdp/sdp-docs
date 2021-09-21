@@ -1,7 +1,7 @@
 version: 2
 aliases:
 
-  - &deploy_ssh_fingerprint "30:83:f2:c7:69:42:6b:5f:4d:1d:25:99:54:a9:d6:97"
+  - &deploy_ssh_fingerprint "36:03:e3:ca:b3:0b:82:18:e2:e9:ae:5d:81:17:86:b1"
 
 jobs:
   build:
