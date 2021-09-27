@@ -4,3 +4,4 @@
     
     This chapter describes how to use Search components and connect to 
     the Elasticsearch backend.
+

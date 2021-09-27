@@ -1,5 +1,9 @@
 # Front-End Coding Standards
 
+!!! todo "This content is out of date"
+    
+    This content is out of date, see https://github.com/dpc-sdp/ripple/blob/develop/CONTRIBUTING.md#coding-standards
+
 We use [JavaScript Standard Style](https://standardjs.com/) and 
 [Official ESLint plugin for Vue.js](https://eslint.vuejs.org/) for all our [contributed](../../ripple/components.md) 
 and custom components.
