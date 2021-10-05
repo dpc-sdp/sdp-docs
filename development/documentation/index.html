@@ -1006,6 +1006,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#checklists" class="md-nav__link">
+    Checklists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
@@ -1036,6 +1043,13 @@
         <li class="md-nav__item">
   <a href="#maintenance" class="md-nav__link">
     Maintenance
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues-and-resolutions" class="md-nav__link">
+    Known issues and resolutions
   </a>
   
 </li>
@@ -1081,6 +1095,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#checklists" class="md-nav__link">
+    Checklists
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
@@ -1115,6 +1136,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#known-issues-and-resolutions" class="md-nav__link">
+    Known issues and resolutions
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1131,9 +1159,22 @@
                 <h1 id="documentation-for-sdp">Documentation for SDP<a class="headerlink" href="#documentation-for-sdp" title="Permanent link">&para;</a></h1>
 <p><a href="https://circleci.com/gh/dpc-sdp/sdp-docs"><img alt="CircleCI" src="https://circleci.com/gh/dpc-sdp/sdp-docs.svg?style=shield&amp;circle-token=0da7eab7e8846f957d1276d2da70258b81c8a1d3" /></a></p>
 <p><a href="https://dpc-sdp.github.io/sdp-docs/">https://dpc-sdp.github.io/sdp-docs/</a></p>
+<h2 id="checklists">Checklists<a class="headerlink" href="#checklists" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Before starting with the <em>"Requirements"</em> section, please ensure you have the following done:</li>
+<li>A completed ticket request <em>(email)</em> for Open Workspace/Local Admin rights for elevated permissions to run/install softwares.</li>
+<li>WSL2 and Linux distro installed.</li>
+<li>Development Tools i.e Visual Studio Code</li>
+<li><a href="https://github.com/">GitHub</a> account created and username sent to your manager for project invites.</li>
+<li><a href="https://dashboard.amazeeio.cloud/projects/">Lagoon</a> account created.</li>
+<li>SSH key pair created. If not, follow these <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent"><em>(instructions)</em></a> and add the SSH key to your GitHub <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account"><em>(instructions)</em></a>. Start cloning your GitHub project using 'SSH' link provided in the page.</li>
+<li>Add SSH key to Lagoon settings.</li>
+</ol>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Docker</li>
+<li><a href="https://github.com/uselagoon/lagoon-cli/releases">Lagoon CLI</a></li>
+<li><a href="https://pygmy.readthedocs.io/en/master/installation/">Pygmy</a></li>
+<li>Docker Desktop from <a href="https://www.docker.com/get-started">Docker</a>.</li>
 <li><a href="https://github.com/ahoy-cli/ahoy">Ahoy</a></li>
 </ul>
 <h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h2>
@@ -1153,6 +1194,24 @@ using <code>ahoy deploy</code> command manually (it is used by CI).</strong></p>
 <p><a href="https://github.com/dpc-sdp/sdp-docs">SDP development team</a> is a main maintainer of this documentation.</p>
 <p>We welcome contributions to this documentation! Please <a href="https://github.com/dpc-sdp/sdp-docs/issues/new">open an
 issue</a> or submit a pull request.</p>
+<h2 id="known-issues-and-resolutions">Known issues and resolutions<a class="headerlink" href="#known-issues-and-resolutions" title="Permanent link">&para;</a></h2>
+<ul>
+<li>GitHub and Lagoon CLI <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection">SSH connections</a>.</li>
+<li>
+<p>Unable to resolve host/hostname for Linux or UNIX OS.
+<div class="highlight"><pre><span></span><code># Retrieved your default gateway IP address (ipconfig) and replace the IP address in /etc/resolv.conf
+
+   sudo vi /etc/resolv.conf
+</code></pre></div></p>
+</li>
+<li>
+<p>Windows/Citrix <em>requires elevated permissions</em>. Issue related to Open Workspace not fully set up while working remotely.</p>
+</li>
+<li>Logoff from Citrix Gateway. Close the app from Task Manager if taking too long.</li>
+<li>Open GO Connect from Windows. It will open Internet Explorer and ask to log into Citrix Web Connect with your workstation credentials. Note: This only works in Internet Explorer.</li>
+<li>The process might take longer than expected (1 - 2 hours) to complete until it loads the DPC Intranet page.</li>
+<li>Retry the software installation that requires elevated permission again. If this fails, restart your laptop and repeat step 1-3.</li>
+</ul>
                 
               
               
