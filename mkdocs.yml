@@ -116,13 +116,17 @@ nav:
     - Usage: ripple/usage.md
     - Packages: 
       - Overview: ripple/packages/index.md
-      - Ripple Nuxt Tide: ripple/packages/ripple-nuxt-tide.md
-    - Modules:
-      - Search: ripple/modules/search.md
-      - Forms: ripple/modules/forms.md
-    - Concepts:
-      - Overview: ripple/concepts/index.md
-      - Content data flow: ripple/concepts/content-data-flow.md
+      - Ripple Nuxt Tide: 
+        - Overview: ripple/packages/ripple-nuxt-tide.md
+        - Modules:
+          - Search: ripple/packages/tide-modules/search.md
+          - Webforms: ripple/packages/tide-modules/forms.md
+    - How to guides:
+      - Extending Ripple Nuxt Tide: ripple/guides/extending-ripple-nuxt-tide.md
+    - Reference:
+      - Overview: ripple/reference/index.md
+      - Content data flow: ripple/reference/content-data-flow.md
+
   - Development:
     - Overview: development/index.md
     - Content Repository:
@@ -136,10 +140,6 @@ nav:
         - Creating a new project: development/frontend-website/creating-a-new-project.md
         - Style guide: development/frontend-website/style-guide.md
         - Local development environment: development/frontend-website/local-development-environment.md
-        # - Automated builds: development/frontend-website/automated-builds.md
-        # - Coding standards: development/frontend-website/coding-standards.md
-        # - Component Development *: development/frontend-website/component-development.md
-        # - README.md file: development/frontend-website/readme-file.md
     - Development workflow: development/workflow.md
     - Code review: development/code-review.md
     - Release management: development/release.md

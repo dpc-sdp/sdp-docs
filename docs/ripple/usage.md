@@ -2,7 +2,7 @@
 
 This is an overview of how Ripple can be used in different SDP projects.
 
-See [development/frontend-website/setup](../../development/frontend-website/setup/) for more details on development with Ripple and getting started.
+See [development/frontend-website/setup](/sdp-docs/development/frontend-website/creating-a-new-project) for more details on development with Ripple and getting started.
 
 ## Using with Nuxt
 

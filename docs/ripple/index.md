@@ -5,7 +5,7 @@
 
 The Ripple is the front-end layer of Single Digital Presence , an initiative of the Department of Premier and Cabinet. It provides a single source of truth for styles, components and patterns when creating digital experiences on SDP. It is both a [Vue JS](https://vuejs.org/) component based design system and a site builder using [Nuxt](https://nuxtjs.org/).
 
-For more information about key concepts of Ripple see the [Concepts section](concepts/index.md)
+For more information about key concepts of Ripple see the [Concepts section](./reference/index.md)
 
 
 ## Who is it for?
@@ -18,9 +18,9 @@ Ripple is open source and available for Victorian State Government departments a
 
 Ripple is open source and more information about its usage is available via its GitHub repository - https://github.com/dpc-sdp/ripple
 
-Ripple is distributed via Node package manager [NPM](https://www.npmjs.com/org/dpc-sdp), more information about the various packages that make up Ripple is available [here](ripple/packages.md)
+Ripple is distributed via Node package manager [NPM](https://www.npmjs.com/org/dpc-sdp), more information about the various packages that make up Ripple is available [here](./packages/index.md)
 
-For information about how you can use Ripple in a project see [Usage](usage.md)
+For information about how you can use Ripple in a project see [Usage](./usage.md)
 
-For more information about Ripple site development see [Development - Frontend Website](development/frontend-website/setup.md)
+For more information about Ripple site development see [Development - Frontend Website](./../development/frontend-website/local-development-environment.md)
 
