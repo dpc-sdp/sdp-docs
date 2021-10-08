@@ -1,5 +1,9 @@
 # Style guide 
 
+!!! todo "This content is out of date"
+
+## Developing custom component
+
 A style guide is a document that provides guidelines for the way your brand should
 be presented from both a graphic and language perspective. The purpose of a
 style guide is to make sure that multiple contributors create in a clear and

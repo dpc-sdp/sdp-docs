@@ -10,7 +10,7 @@ to render a page and, subsequently, update a component.
 
 ??? "Component request diagram"
 
-    ![Component data flow diagram](../assets/component-data-diagram.png)
+    ![Component data flow diagram](../../assets/component-data-diagram.png)
 
 There are multiple caching layers to speed up the initial page render:
 
@@ -43,4 +43,4 @@ library, after which the page is sent to the browser.
 Note that Ripple is completely separate from the `tide` package and Nuxt 
 configuration - this makes it unbound to Tide Content Repository. 
 
-![Nuxt Request processing diagram](../assets/nuxt-request-handling.png)
+![Nuxt Request processing diagram](../../assets/nuxt-request-handling.png)
