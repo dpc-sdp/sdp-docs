@@ -12,7 +12,7 @@ see [Content Repository](content-repository/setup) section. Also
 [Tide](../tide) section may become useful to learn more about architecture.
 
 If you are working on a **standalone installation of Fronted Website**, please
-see [Frontend Website](frontend-website/setup) section. Also 
+see [Frontend Website](frontend-website/creating-a-new-project) section. Also 
 [Ripple](../ripple) section may become useful to learn more about architecture.
 
 If you are looking for best practices and other project organisation

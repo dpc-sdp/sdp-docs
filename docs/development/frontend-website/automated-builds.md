@@ -15,7 +15,7 @@ SDP uses [CircleCI](https://circleci.com/gh/dpc-sdp) for all automated build
 ## Skipping CI builds
 
 Add `[skip ci]` to the commit subject to skip CI build. Useful for documentation
-changes.
+changes [Circle CI Docs](https://circleci.com/docs/2.0/skip-build/).
 
 ## SSH into CI build
 Circle CI provides SSH access into the build for 120 minutes after the build is

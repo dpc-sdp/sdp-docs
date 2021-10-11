@@ -1,8 +1,4 @@
-# Components
-
-Ripple provides components library hosted at https://ripple.sdp.vic.gov.au
-
-## Forms
+# Forms
 
 Ripple supports Drupal [Webform](https://www.drupal.org/project/webform). 
 
