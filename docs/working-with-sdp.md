@@ -61,13 +61,27 @@ Download and setup Lagoon CLI. Latest [*(releases)*](https://github.com/uselagoo
     pygmy-go up
     ```
 
+- Create a new .pygmy.yml file so haproxy can be configured to another port other than 80
+    ```
+    services:
+    amazeeio-haproxy:
+        Config:
+        Image: fubarhouse/amazeeio-haproxy-8080
+        HostConfig:
+        PortBindings:
+            8080/tcp:
+            - HostPort: 8080
+            443/tcp:
+            - HostPort: 443
+    ```
+
 ### Setup Docker
 - Download and Install Docker Desktop (https://www.docker.com/get-started).
 - After installation, run:
 
     ```
-    1. ahoy build
-    2. ahoy up
+        1. ahoy build
+        2. ahoy up
     ```
 
 ## Build Tide and Ripple
