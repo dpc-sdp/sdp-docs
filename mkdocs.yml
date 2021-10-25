@@ -97,6 +97,7 @@ markdown_extensions:
 nav:
   - About: index.md
   - Working with SDP: working-with-sdp.md
+  - Troubleshooting: troubleshooting.md
   - Terminology: terminology.md
   - Overview: overview.md
   - Architecture: architecture.md
