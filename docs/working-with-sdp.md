@@ -42,6 +42,8 @@ copy of the production database!
 Download and setup Lagoon CLI. Latest [*(releases)*](https://github.com/uselagoon/lagoon-cli/releases)
    
 ```
+    # Example here is for version v0.11.6. Instructions may vary from different versions
+
     wget https://github.com/uselagoon/lagoon-cli/releases/download/v0.11.6/lagoon-cli-v0.11.6-linux-amd64
 
     sudo cp lagoon-cli-v0.11.6-linux-amd64 /usr/local/bin/lagoon
@@ -80,8 +82,8 @@ Download and setup Lagoon CLI. Latest [*(releases)*](https://github.com/uselagoo
 - After installation, run:
 
     ```
-        1. ahoy build
-        2. ahoy up
+        - ahoy build # OR
+        - ahoy up
     ```
 
 ## Build Tide and Ripple
