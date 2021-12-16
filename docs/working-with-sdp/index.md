@@ -36,7 +36,7 @@ with the DPC team there are a few tasks to complete.
 
     > Once you have access to the [Lagoon Dashboard](https://dashboard.amazeeio.cloud/projects/) make sure to add your SSH
 key at https://dashboard.amazeeio.cloud/settings. This will be required for a local build so you can pull down a
-copy of the production database!
+copy of the production database! NOTE: Only add the id_rsa.
 
 ### Setup Lagoon CLI
 Download and setup Lagoon CLI. Latest [*(releases)*](https://github.com/uselagoon/lagoon-cli/releases)
@@ -61,20 +61,6 @@ Download and setup Lagoon CLI. Latest [*(releases)*](https://github.com/uselagoo
 
     ```
     pygmy-go up
-    ```
-
-- Create a new .pygmy.yml file so haproxy can be configured to another port other than 80
-    ```
-    services:
-    amazeeio-haproxy:
-        Config:
-        Image: fubarhouse/amazeeio-haproxy-8080
-        HostConfig:
-        PortBindings:
-            8080/tcp:
-            - HostPort: 8080
-            443/tcp:
-            - HostPort: 443
     ```
 
 ### Setup Docker

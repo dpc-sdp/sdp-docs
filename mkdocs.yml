@@ -96,8 +96,9 @@ markdown_extensions:
 # IMPORTANT! Do not add any configuration below navigation section.
 nav:
   - About: index.md
-  - Working with SDP: working-with-sdp.md
-  - Troubleshooting: troubleshooting.md
+  - Working with SDP:
+    - Getting Started: working-with-sdp/index.md
+    - Troubleshooting: working-with-sdp/troubleshooting.md
   - Terminology: terminology.md
   - Overview: overview.md
   - Architecture: architecture.md
